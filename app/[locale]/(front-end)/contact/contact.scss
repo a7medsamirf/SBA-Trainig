@@ -1,0 +1,34 @@
+
+
+.map iframe {
+    display: block;
+    width: 100%;
+}
+
+.box-contact{
+    position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 4px;
+            background-color: #DDE4F0;
+            z-index: 1;
+        }
+    }
+
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control::placeholder {
+    color: #B2C2E1;
+    font-size: 14px;
+    line-height: 18px;
+    opacity: 1;
+}

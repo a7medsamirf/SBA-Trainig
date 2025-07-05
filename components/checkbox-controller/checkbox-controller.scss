@@ -1,0 +1,9 @@
+@use "styles/imports" as *;
+
+.checkbox {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

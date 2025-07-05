@@ -1,0 +1,32 @@
+@use "styles/imports" as *;
+
+.select {
+  &-input {
+    width: 100% !important;
+
+    &--has-error {
+      .select-input__control {
+        border-color: $color-red !important;
+      }
+    }
+  }
+  &__label {
+    font-size: rem(14);
+    color: $color-black;
+    font-weight: $font-medium;
+    line-height: 26.24px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    inset-inline-start: 17px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.select-input__wrapper .select-input .select-input__control {
+  min-height: 48px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-gray-200;
+  background-color: $color-white;
+  box-shadow: none;
+}

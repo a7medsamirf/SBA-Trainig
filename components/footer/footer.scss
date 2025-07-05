@@ -1,0 +1,106 @@
+.footer {
+    .footer-1 {
+        background-color: #F0F3F8;
+        margin: 0px 0px 50px 0px;
+        padding: 105px 0px 75px 0px;
+    }
+    .menu-footer {
+        li {
+            list-style: none;
+            margin-bottom: 8px;
+            background: url(../../public/images/template/icons/arrow-gray-AR.svg) no-repeat left;
+            padding-left: 15px;
+            a {
+                color: #425A8B;
+                font-size: 16px;
+                line-height: 24px;
+                text-decoration: none;
+                display: block;
+                padding: 0px 0px 0px 15px;
+                transition-duration: 0.2s;
+                &:hover{
+                    color: #0BA9ED;
+                    transition-duration: 0.2s;
+                    padding-left: 18px;
+                }
+            }
+        }
+    }
+ 
+      
+    .icon-socials {
+        display: inline-block;
+        margin-left: 15px;
+        height: 32px;
+        width: 32px;
+        transition-duration: 0.2s;
+        &:hover {
+            transform: translateY(-3px);
+            transition-duration: 0.2s;
+        }
+        &.icon-facebook {
+            background: url(../../public/images/template/icons/facebook-gray.svg) no-repeat 0px 0px;
+            transition-duration: 0.2s;
+            &:hover {
+                background: url(../../public/images/template/icons/facebook.svg) no-repeat 0px 0px;
+                transition-duration: 0.2s;
+            }
+      }
+        &.icon-instagram {
+            background: url(../../public/images/template/icons/instagram-gray.svg) no-repeat 0px 0px;
+            transition-duration: 0.2s;
+            &:hover {
+                background: url(../../public/images/template/icons/instagram.svg) no-repeat 0px 0px;
+                transition-duration: 0.2s;
+            }
+        }
+        &.icon-twitter {
+            background: url(../../public/images/template/icons/twitter-x-gray.svg) no-repeat 0px 0px;
+            transition-duration: 0.2s;
+            &:hover {
+                background: url(../../public/images/template/icons/twitter-x.svg) no-repeat 0px 0px;
+                transition-duration: 0.2s;
+            }
+        }
+        &.icon-linkedin {
+            background: url(../../public/images/template/icons/linkedin-gray.svg) no-repeat 0px 0px;
+            transition-duration: 0.2s;
+            &:hover {
+                background: url(../../public/images/template/icons/linkedin.svg) no-repeat 0px 0px;
+                transition-duration: 0.2s;
+            }
+        }
+    
+    }
+}
+
+.footer-logo {
+    width: 30%;
+}
+
+.footer .footer-bottom {
+    border-top: 1px solid #CAD6EC;
+    padding: 30px 0px;
+    color: #8C9EC5;
+    font-size: 14px;
+}
+.menu-bottom li {
+    display: inline-block;
+}
+
+.footer .footer-bottom a {
+    text-decoration: none;
+}
+.menu-bottom li a {
+    display: block;
+    padding: 0px 15px;
+}
+
+html[dir="rtl"] {
+    .menu-footer {
+        li {
+            background: url(../../public/images/template/icons/arrow-gray-AR.svg) no-repeat right;
+            padding-right: 15px;
+        } 
+    }
+  }

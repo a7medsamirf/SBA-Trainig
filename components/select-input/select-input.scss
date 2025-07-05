@@ -1,0 +1,46 @@
+@use "styles/imports" as *;
+
+.select {
+  &-input {
+    width: 100% !important;
+
+    &--has-error {
+      .select-input__control {
+        border-color: $color-red !important;
+      }
+    }
+  }
+  &__label {
+    font-size: rem(16);
+    color: $color-primary;
+    font-weight: $font-bold;
+    line-height: 29.98px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+    inset-inline-start: 17px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.select-input__wrapper .select-input .select-input__control {
+  min-height: 48px;
+  border-radius: $radius-sm;
+  border: 1px solid $color-gray-200;
+  background-color: $color-white;
+  box-shadow: none;
+}
+
+.select-disabled {
+  .select-input__control {
+    background-color: $bg-disabled !important;
+  }
+}
+
+#react-select-react-select-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  grid-area: 1 !important;
+  padding: 0 8px !important;
+}

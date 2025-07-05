@@ -1,0 +1,16 @@
+@use "styles/imports" as *;
+
+.error-message {
+  display: flex;
+  gap: 5px;
+  font-size: rem(12);
+  font-weight: $font-normal;
+  line-height: 22.49px;
+  color: $color-red;
+  margin-top: 4px;
+  margin-left: auto;
+  [dir="ltr"] & {
+    margin-left: unset;
+    margin-right: auto;
+  }
+}

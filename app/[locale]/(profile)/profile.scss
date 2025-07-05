@@ -1,0 +1,170 @@
+
+.profile-sidebar {
+    background-color: rgba(245, 247, 251, 1);
+    border-radius: 12px;
+    .dropdown-menu {
+      width: 320px;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #dee2e6;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      left: auto;
+      right: 0;
+    }
+  
+    .profile-header {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        align-self: center;
+        gap: 10px;
+        border-bottom: 1px solid #eee;
+        img{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+  
+      .profile-info {
+        display: flex;
+        flex-direction: column;
+        .profile-name {
+          font-weight: bold;
+        }
+        .welcome-text {
+          font-size: 0.9rem;
+          color: rgba(117, 117, 117, 1);
+        }
+      }
+    }
+  
+    .current-course-card {
+      background-color: #f8f9fa;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(118, 164, 65, 0.5);
+  
+      .card-title {
+  
+      }
+  
+      .course-details {
+        display: flex;
+        gap: 10px;
+        align-items: start;
+        margin-bottom: 1rem;
+        border-bottom: 2px dashed rgba(234, 234, 234, 1);
+        img {
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+  }
+  
+        .course-info {
+          .course-category {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-bottom: 0.25rem;
+          }
+          .course-name {
+            font-weight: bold;
+            font-size: 1rem;
+            margin: 0;
+          }
+        }
+      }
+  
+      .progress {
+        height: 0.5rem;
+        margin-bottom: 0.25rem;
+        background-color: #e9ecef;
+        .progress-bar {
+          background-color: #76A441;
+        }
+      }
+  
+      .progress-text {
+        font-size: 0.8rem;
+        color: #6c757d;
+      }
+  
+      .course-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+  
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+
+    .profile-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      span.list-item {
+        padding: 10px;
+        border-bottom: 1px solid rgba(234, 234, 234, 1);
+        &.active {
+          background-color: #DDE4F0;
+          font-weight: bold;
+          color: #0070f3;
+          span{
+            color: #425A8B;
+          }
+      }
+        &:hover{
+            background: rgba(221, 228, 240, 1);
+
+          svg {
+            fill: rgba(66, 90, 139, 1);
+          }
+      }
+        a {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 0.5rem 0;
+          color: #212529;
+          text-decoration: none;
+          transition: color 0.2s ease-in-out;
+  
+          .list-icon{
+            background-color: rgba(66, 90, 139, 0.07);
+            padding: 10px;
+            border-radius: 50%;
+          }
+          svg {
+            width: 20px;
+            height: 20px;
+           
+          }
+        
+        }
+      }
+    }
+  
+    .logout-section {
+        padding: 17px;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #dc3545 !important;
+        text-decoration: none;
+        font-weight: bold;
+        padding: .5rem 0;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  
+  }  
+

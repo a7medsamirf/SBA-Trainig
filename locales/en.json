@@ -1,0 +1,150 @@
+{
+  "trans": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDesc": "Sorry, the page you are looking for does not exist or has been moved.",
+    "backToHome": "Back to Homepage",
+    "needHelp": "Need Help?",
+    "contactSupport": "Contact Technical Support",
+    "common": {
+      "units": {
+        "unit": "Unit"
+      },
+      "years": "Years",
+      "no_options": "No options available",
+      "searching": "Searching...",
+      "search": "Search",
+      "select": "Select",
+      "yes": "Yes",
+      "no": "No",
+      "back": "Back",
+      "next": "Next",
+      "ar": "Arabic",
+      "sar": "SAR",
+      "en": "English",
+      "open": "Open",
+      "soon": "Soon",
+      "delete": "Delete",
+      "mb": "Megabyte",
+      "choose-file": "Drag and drop files here to upload",
+      "accept-file": "The maximum allowed file size is {maxFileSize}, and supported file formats include {acceptFiles}",
+      "browse-files": "Browse Files",
+      "saved": "Your data has been saved automatically",
+      "saving": "Data is being saved",
+      "validation": {
+        "required": "This field is required",
+        "invalid_phone": "Please enter a valid phone number",
+        "invalid_password": "The password must contain eight characters, at least one letter, and one number",
+        "otp_min_length": "The activation code must contain {digitsLength} digits",
+        "invalid_nin": "Invalid ID number",
+        "min-length": "This field must contain at least {length} characters",
+        "max-length": "This field must contain no more than {length} characters",
+        "max-length-digital": "This field must contain no more than {length} digits",
+        "min-length-digital": "This field must contain at least {length} digits",
+        "should-digital": "This field must contain only numbers",
+        "digital": "This field must contain {value} digits",
+        "should-positive": "Must be greater than one",
+        "invalid_email": "Please enter a valid email address",
+        "invalid-iban": "Invalid bank account number",
+        "valid-saudi-phone": "Please enter a valid Saudi number starting with +966",
+        "account-number-invalid": "Please enter a valid account number",
+        "max-size": "The maximum file size is {size}",
+        "accept-file": "Supported files are {acceptFiles}",
+        "total-100": "The total must be 100%",
+        "only-letters": "This field must contain only letters",
+        "only-digits": "This field must contain only numbers",
+        "one-document-required": "At least one document must be selected",
+        "invalid_url": "Please enter a valid URL",
+        "should-less-than": "Must be less than {number}",
+        "should-greater-than": "Must be greater than {number}",
+        "password": {
+          "length": "The password must be at least 8 characters long",
+          "number": "The password must contain at least one number",
+          "uppercase": "The password must contain uppercase letters",
+          "lowercase": "The password must contain lowercase letters",
+          "symbol": "The password must contain symbols such as $%#*&@"
+        },
+        "match": "Not Match",
+        "confirm-not-match": "Password does not match.",
+        "alphanumeric": "Only letters and numbers are allowed.",
+        "wrong_password": "Wrong Password"
+      },
+      "success-transaction": "Successful Transaction",
+      "funds": "Funds",
+      "enter": "Enter",
+      "complaints": {
+        "suggestion": "suggestion",
+        "complaint": "Complaint"
+      },
+      "months": "Month",
+      "yearly": "Yearly",
+      "one-time": "One time",
+      "maximum": "Maximum",
+      "pending-transaction": "Pending",
+      "date_place": "From -- To"
+    },
+    "nav": {
+      "404": {
+        "title": "Page Not Found"
+      }
+    },
+    "navbar": {
+      "title": "SBA Training Academy",
+      "home": "Home",
+      "about": "About Academy",
+      "goals": "Goals",
+      "message": "CEO Message",
+      "vision": "Vision & Mission",
+      "products": "Our Products",
+      "training": "Training",
+      "consultancy": "Media Consultancy",
+      "initiatives": "Initiatives",
+      "services": "Our Services",
+      "obtainCertificate": "Obtain Certificate",
+      "verifyCertificate": "Verify Certificate",
+      "news": "News",
+      "contact": "Contact Us",
+      "Select-language": "Select language"
+    },
+    "home":{
+      "requested-courses":"Most Requested Courses",
+      "Our-products":"Our products",
+      "Recommended-Products": "Recommended Products",
+      "Training": "Training",
+      "Initiatives": "Initiatives",
+      "Latest-news": "Latest news and events"
+    },
+    "NewsletterSection": {
+      "subscribe": "Subscribe",
+      "title": "Subscribe to our Newsletter",
+      "To-view": "To view the",
+      "latest-news": "latest news.",
+      "email": "Email Address"
+    },
+    "training": {
+      "Training": "Training",
+      "Training-paths": "Training paths with courses",
+      "All-categories": "All categories",
+      "More": "More",
+      "Courses": "Courses"
+  },
+    "contactus":{
+      "title": "Contact Us",
+      "description": "Get in touch with us and let us know how we can help you.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending..."
+    },
+    "footer":{
+      "communication": "Communication",
+      "training": "Training",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn"
+    }
+  }
+}

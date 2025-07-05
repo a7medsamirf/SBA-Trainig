@@ -1,0 +1,42 @@
+.otp-bg {
+  min-height: 100vh;
+  background: #f6ffe9 url('/images/OTP.svg') no-repeat right top;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.otp-card {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 16px;
+    background: rgb(255 255 255 / 50%);
+    box-shadow: 0 4px 32px #0000000f;
+}
+
+.otp-input {
+  border: 1.5px solid #dbe6c7;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #f6ffe9;
+  color: #2d3a4a;
+  transition: border-color 0.2s;
+}
+.otp-input:focus {
+  border-color: #76a441;
+  outline: none;
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  .otp-card {
+    max-width: 98vw;
+    padding: 1.5rem 0.5rem;
+  }
+  .otp-bg {
+    background-size: 80vw auto;
+  }
+} 

@@ -1,0 +1,48 @@
+@use "styles/imports" as *;
+
+.spinner {
+  &-secondary {
+    border-color: rgba($bg-secondary, 0.2);
+    border-top-color: $bg-secondary;
+  }
+
+  &-primary {
+    border-color: rgba($bg-primary, 0.2);
+    border-top-color: $bg-primary;
+  }
+
+  &-third {
+    border-color: rgba($bg-third, 0.2);
+    border-top-color: $bg-third;
+  }
+
+  &-white {
+    border-color: rgba($bg-white, 0.2);
+    border-top-color: $bg-white;
+  }
+
+  &-orange {
+    border-color: rgba($alert-orange, 0.2);
+    border-top-color: $alert-orange;
+  }
+
+  &-red {
+    border-color: rgba($alert-red, 0.2);
+    border-top-color: $alert-red;
+  }
+
+  &-blue {
+    border-color: rgba($alert-blue, 0.2);
+    border-top-color: $alert-blue;
+  }
+
+  &-green {
+    border-color: rgba($alert-green, 0.2);
+    border-top-color: $alert-green;
+  }
+
+  &-gray {
+    border-color: rgba($color-gray, 0.2);
+    border-top-color: $color-gray;
+  }
+}

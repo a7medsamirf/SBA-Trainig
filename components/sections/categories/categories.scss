@@ -1,0 +1,33 @@
+@import "../../../styles/variables";
+.card-course {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+.card-icon {
+  color: #76A441; 
+}
+
+.card-text-course {
+  color: #777;
+} 
+
+.catIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #76A441;
+  color: #76A441;
+  &:hover{
+    color: #76A441;
+  }
+}
+
+ .box-category .image {
+    height: 80px;
+    line-height: 80px;
+    margin-bottom: 5px;
+}

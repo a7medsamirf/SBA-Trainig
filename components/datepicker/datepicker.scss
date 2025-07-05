@@ -1,0 +1,452 @@
+@use "styles/imports" as *;
+
+.react-datepicker {
+  font-weight: $font-black !important;
+  font-family: "Cairo" !important;
+  border: none !important;
+  border-radius: $radius-lg !important;
+  box-shadow: $shadow-lg !important;
+
+  // Custom header styles
+  &__header {
+    background-color: $color-white !important;
+    border-bottom: none !important;
+    padding: 16px !important;
+    padding-bottom: 0 !important;
+    border-top-left-radius: $radius-lg !important;
+    border-top-right-radius: $radius-lg !important;
+  }
+
+  &__current-month {
+    font-size: rem(16) !important;
+    font-weight: $font-semibold !important;
+    color: $color-primary !important;
+    margin-bottom: 0 !important;
+  }
+
+  // Month/Year dropdowns container
+  &__header__dropdown {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 16px !important;
+    position: relative !important;
+  }
+
+  // Year selector container
+  &__year-selector {
+    position: relative !important;
+    min-width: 120px !important;
+  }
+
+  // Month selector container
+  &__month-selector {
+    position: relative !important;
+    min-width: 140px !important;
+  }
+
+  &__option {
+    @apply cursor-pointer py-3 px-1  text-center;
+    font-family: "Cairo";
+
+    &:hover {
+      background-color: rgba($bg-secondary, 50%) !important;
+    }
+
+    &--selected {
+      @apply font-bold;
+      background-color: rgba($bg-secondary, 50%) !important;
+    }
+  }
+
+  // React-select year and month select styles
+  &__year-select,
+  &__month-select {
+    .react-select__control {
+      font-family: "Cairo" !important;
+      min-height: auto !important;
+      border: none !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      cursor: pointer !important;
+      padding: 0 !important;
+
+      &--is-focused {
+        border: none !important;
+        box-shadow: none !important;
+      }
+
+      &:hover {
+        border: none !important;
+        background: rgba($bg-secondary, 0.1) !important;
+        border-radius: $radius-sm !important;
+      }
+    }
+
+    .react-select__value-container {
+      padding: 4px 8px !important;
+    }
+
+    .react-select__single-value {
+      color: $color-primary !important;
+      font-weight: $font-bold !important;
+      font-size: rem(16) !important;
+      margin: 0 !important;
+    }
+
+    .react-select__dropdown-indicator {
+      display: none !important;
+    }
+
+    .react-select__indicator-separator {
+      display: none !important;
+    }
+
+    .react-select__menu {
+      border-radius: $radius-md !important;
+      box-shadow: $shadow-lg !important;
+      border: 1px solid $color-gray-200 !important;
+      z-index: 9999 !important;
+      max-height: 200px !important;
+      overflow: hidden !important;
+      margin-top: 4px !important;
+    }
+
+    .react-select__menu-list {
+      max-height: 200px !important;
+      padding: 4px !important;
+    }
+
+    .react-select__option {
+      font-family: "Cairo" !important;
+      padding: 12px 16px !important;
+      font-size: rem(14) !important;
+      font-weight: $font-medium !important;
+      border-radius: $radius-sm !important;
+      margin: 2px 0 !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+
+      &--is-selected {
+        background-color: $bg-primary !important;
+        color: $color-white !important;
+        font-weight: $font-bold !important;
+      }
+
+      &--is-focused {
+        background-color: rgba($bg-secondary, 0.3) !important;
+        color: $color-primary !important;
+      }
+
+      &--is-disabled {
+        cursor: not-allowed !important;
+        opacity: 0.5 !important;
+        color: $color-gray-400 !important;
+      }
+
+      &:hover:not(.react-select__option--is-disabled) {
+        background-color: rgba($bg-secondary, 0.5) !important;
+      }
+    }
+  }
+
+  // Month selector specific styling
+  &__month-select {
+    .react-select__single-value {
+      font-size: rem(16) !important;
+      margin-inline-end: 8px !important;
+    }
+  }
+
+  // Year selector specific styling
+  &__year-select {
+    .react-select__single-value {
+      font-size: rem(16) !important;
+    }
+  }
+
+  // Year button
+  &__year-button {
+    font-family: "Cairo";
+
+    appearance: none !important;
+    background: linear-gradient(
+      135deg,
+      $color-white 0%,
+      $color-gray-50 100%
+    ) !important;
+    border: 2px solid $color-gray-200 !important;
+    border-radius: $radius-md !important;
+    padding: 10px 32px 10px 16px !important;
+    font-size: rem(14) !important;
+    font-weight: $font-semibold !important;
+    color: $color-primary !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    min-width: 80px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+
+    svg {
+      color: $color-gray-500 !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    &:hover svg {
+      color: $bg-primary !important;
+    }
+  }
+
+  // Navigation arrows
+  &__navigation {
+    top: 0 !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: $radius-sm !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    color: $color-gray-600 !important;
+
+    &:hover:not(:disabled) {
+      background-color: rgba($bg-secondary, 100%) !important;
+      transform: scale(1.05) !important;
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.95) !important;
+    }
+
+    &--previous {
+      order: -1 !important;
+    }
+
+    &--next {
+      order: 1 !important;
+    }
+
+    &:disabled {
+      opacity: 0.3 !important;
+      cursor: not-allowed !important;
+      background-color: $color-gray-100 !important;
+
+      &:hover {
+        background-color: $color-gray-100 !important;
+        transform: none !important;
+      }
+    }
+
+    svg {
+      color: inherit !important;
+    }
+  }
+
+  // Days header
+  &__day-names {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 8px !important;
+    padding: 0 16px !important;
+  }
+
+  &__day-name {
+    color: $color-gray-400 !important;
+    font-size: rem(12) !important;
+    font-weight: $font-bold !important;
+    text-align: center !important;
+    width: 32px !important;
+    padding: 8px 0 !important;
+  }
+
+  // Calendar month container
+  &__month {
+    padding: 0 16px 16px !important;
+    margin: 0 !important;
+  }
+
+  // Week rows
+  &__week {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 4px !important;
+  }
+
+  // Individual day styling
+  &__day {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: $radius-sm !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: rem(14) !important;
+    font-weight: $font-medium !important;
+    color: $color-primary !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    margin: 0 !important;
+    position: relative !important;
+
+    &:hover {
+      background-color: rgba($bg-secondary, 0.15) !important;
+      transform: scale(1.05) !important;
+    }
+
+    &--selected {
+      background-color: $bg-primary !important;
+      color: $color-white !important;
+      font-weight: $font-bold !important;
+      box-shadow: 0 2px 8px rgba($bg-primary, 0.3) !important;
+
+      &:hover {
+        background-color: darken($bg-primary, 8%) !important;
+        transform: scale(1.08) !important;
+      }
+    }
+
+    // &--today {
+    //   background-color: $bg-secondary !important;
+    //   color: $color-white !important;
+    //   font-weight: $font-semibold !important;
+    //   box-shadow: 0 2px 6px rgba($bg-secondary, 0.25) !important;
+
+    //   &:hover {
+    //     background-color: darken($bg-secondary, 8%) !important;
+    //     transform: scale(1.05) !important;
+    //   }
+
+    //   &.react-datepicker__day--selected {
+    //     background-color: $bg-primary !important;
+
+    //     &::after {
+    //       content: "" !important;
+    //       position: absolute !important;
+    //       bottom: 2px !important;
+    //       left: 50% !important;
+    //       transform: translateX(-50%) !important;
+    //       width: 4px !important;
+    //       height: 4px !important;
+    //       background-color: $bg-secondary !important;
+    //       border-radius: 50% !important;
+    //     }
+    //   }
+    // }
+
+    &--in-range {
+      background-color: rgba($bg-primary, 0.1) !important;
+      color: $bg-primary !important;
+
+      &:hover {
+        background-color: rgba($bg-primary, 0.2) !important;
+      }
+    }
+
+    &--in-selecting-range {
+      background-color: rgba($bg-secondary, 0.2) !important;
+      color: $bg-secondary !important;
+    }
+
+    &--range-start,
+    &--range-end {
+      background-color: $bg-primary !important;
+      color: $color-white !important;
+      font-weight: $font-bold !important;
+    }
+
+    &--outside-month {
+      color: $color-gray-300 !important;
+
+      &:hover {
+        background-color: rgba($color-gray-200, 0.5) !important;
+        transform: none !important;
+      }
+    }
+
+    &--disabled {
+      color: $color-gray-200 !important;
+      cursor: not-allowed !important;
+
+      &:hover {
+        background-color: transparent !important;
+        transform: none !important;
+      }
+    }
+
+    &--keyboard-selected {
+      background-color: rgba($bg-secondary, 0.3) !important;
+      color: $bg-primary !important;
+    }
+  }
+
+  // Container styles
+  &__container {
+    width: 100%;
+  }
+
+  // Input wrapper styles
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    padding: 13px 16px;
+    border-radius: $radius-sm;
+    border: 1px solid $color-gray-200;
+    background-color: $color-white;
+    font-size: rem(14);
+    line-height: 26.24px;
+    outline: none;
+    color: $color-primary;
+    text-align: right;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+
+    padding-inline-start: 40px;
+    padding-inline-end: 16px;
+
+    &--error {
+      border-color: $color-red !important;
+
+      &:active,
+      &:focus {
+        border-color: $color-red !important;
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    inset-inline-start: 8px;
+    inset-inline-end: unset;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $bg-primary !important;
+    }
+  }
+
+  &__label {
+    font-size: rem(16);
+    color: $color-primary;
+    font-weight: $font-bold;
+    line-height: 29.98px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding-bottom: 8px;
+    inset-inline-start: 17px;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

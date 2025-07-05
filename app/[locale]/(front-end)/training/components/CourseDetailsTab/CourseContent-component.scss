@@ -1,0 +1,143 @@
+.course-features-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: .75rem;
+
+  .card-title {
+    color: #202020;
+    font-size: 16px;
+  }
+  .feature-item {
+    font-size: 1.1rem;
+    color: #222;
+    .feature-icon {
+      width: 2.2rem;
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 1.3rem;
+        height: 1.3rem;
+        color: #222;
+      }
+    }
+    .feature-text {
+      color: #202020;
+      font-size: 14px;
+    }
+  }
+}
+
+.course-accordion-wrapper {
+  .course-accordion-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    .course-accordion-meta {
+      color: #757575;
+      font-size: 14px;
+    }
+  }
+  .course-content-accordion {
+    .accordion-item {
+      border: 1px solid #e9ecef;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background: #fff;
+      .accordion-header {
+        .accordion-button {
+          font-weight: 600;
+          color: #222;
+          border: none;
+          box-shadow: none;
+          padding: 1rem 1.5rem;
+          &:not(.collapsed) {
+            background: #fff;
+            color: #000;
+          }
+          .section-title{
+            color: #202020;
+            font-size: 16px;
+            line-height: 25px;
+          }
+          .section-duration{
+            font-size: 12px;
+            line-height: 25px;
+            strong{
+              color: #76A441;
+            }
+            small{
+              font-weight: lighter;
+            }
+           
+          }
+        }
+      
+      }
+      .accordion-body {
+        .lectures-list {
+          .lecture-item {
+            background: #F5F7FB;
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            margin-bottom: .5rem;
+            display: grid;
+            .lecture-index {
+              color: #202020;
+              font-size: 14px;
+            }
+            .lecture-title {
+              font-weight: 500;
+            }
+            .lecture-duration {
+              color: #757575;
+              font-size: 12px;
+            }
+          }
+        }
+        .lecture-placeholder-list {
+          .lecture-placeholder {
+            height: 2.5rem;
+            background: #f1f5f9;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  .show-more-btn {
+    border: 1px dashed #28a745;
+    color: #28a745;
+    background: #f8fbf8;
+    font-weight: 600;
+    &:hover {
+      background: #e6f9ea;
+      color: #218838;
+    }
+  }
+} 
+
+.lecture-duration {
+    color: #000 !important;
+    font-size: 0.95rem;
+  }
+
+
+.lecture-title {
+    font-weight: 500;
+    color: #000 !important; // مؤقتًا فقط
+  }
+
+
+.course-accordion-wrapper{
+  .collapse {
+    visibility: visible;
+  }
+
+
+}
+ 
+
+

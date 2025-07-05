@@ -1,0 +1,43 @@
+@use "styles/imports" as *;
+
+.menu {
+  &-container {
+    &-content {
+      position: absolute;
+      top: 110%;
+
+      [dir="rtl"] {
+        right: 0;
+      }
+
+      [dir="ltr"] {
+        left: 0;
+      }
+
+      min-width: 350px;
+      max-width: calc(100% - 20px);
+      background: $color-white;
+      border-radius: $radius-lg;
+      margin-top: 10px;
+      filter: drop-shadow(rgba($color-black, 0.32) 0px 2px 8px);
+      padding: 12px;
+      font-size: 14px;
+      color: $color-black;
+      z-index: 10000;
+      animation: fadeIn 0.3s ease-in-out;
+      overflow: hidden;
+      overflow-y: scroll;
+      height: auto;
+      max-height: 500px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

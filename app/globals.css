@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Scrollbar Styles ===== */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #e8e8e8;
+  border-radius: 100px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #7a7a7a;
+  background-clip: padding-box;
+  border-radius: 100px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #3f3f3f;
+}
+
+/* For older browsers (optional) */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+/* ===== Autofill Fix ===== */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  transition: background-color 0s 600000s;
+  background-color: transparent !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* ===== Preloader Styles ===== */
+.preloader {
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  transition: 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader img {
+  max-width: 250px;
+}
+
+/* Preloader Dots Animation */
+.preloader-dots {
+  --uib-size: 40px;
+  --uib-speed: 0.9s;
+  --uib-color: #76a441;
+  position: relative;
+  height: calc(var(--uib-size) / 2);
+  width: var(--uib-size);
+  filter: url("#uib-jelly-ooze");
+  animation: rotate-preloader calc(var(--uib-speed) * 2) linear infinite;
+}
+
+.preloader-dots::before,
+.preloader-dots::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+  background: var(--uib-color);
+  border-radius: 100%;
+}
+
+.preloader-dots::before {
+  animation: shift-left var(--uib-speed) ease infinite;
+}
+
+.preloader-dots::after {
+  animation: shift-right var(--uib-speed) ease infinite;
+}
+
+@keyframes rotate-preloader {
+  0%, 49.999%, 100% {
+    transform: none;
+  }
+  50%, 99.999% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes shift-left {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: scale(0.65) translateX(-75%);
+  }
+}
+
+@keyframes shift-right {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: scale(0.65) translateX(75%);
+  }
+}

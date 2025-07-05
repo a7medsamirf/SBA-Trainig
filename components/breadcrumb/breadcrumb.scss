@@ -1,0 +1,55 @@
+@use "styles/imports" as *;
+
+.wrapper {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: $color-primary;
+
+  &__list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__link {
+    cursor: pointer;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: $font-bold;
+    line-height: 29.98px;
+    text-decoration: none;
+    color: $color-primary;
+
+    &:not(:last-child):hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    &-last {
+      font-size: rem(16);
+      font-style: normal;
+      font-weight: $font-bold;
+      line-height: 29.98px;
+      text-decoration: none;
+      color: $color-primary;
+    }
+  }
+
+  .arrow-icon {
+    margin-inline: 2px;
+  }
+}

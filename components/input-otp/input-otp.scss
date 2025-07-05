@@ -1,0 +1,32 @@
+@use "styles/imports" as *;
+
+.input-otp {
+  width: 50px;
+  height: 50px;
+
+  border-radius: $radius-sm;
+  border: 0.5px solid $color-medium-gray;
+  background-color: $color-white;
+  padding: 10px;
+  text-align: center;
+
+  &:disabled {
+    background-color: $color-gray-50;
+  }
+
+  &:active,
+  &:focus {
+    outline: 1px solid $bg-primary;
+    border-color: $bg-primary;
+  }
+
+  &__error {
+    border-color: $color-red;
+
+    &:active,
+    &:focus {
+      border-color: $color-red !important;
+      outline: 1px solid $color-red;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use "styles/imports" as *;
+
+.radio_item {
+  @apply flex items-center gap-3;
+
+  &_label {
+    @apply font-normal text-base;
+    color: $color-secondary;
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    border: 1px solid $bg-primary;
+    border-radius: $radius-full;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+
+    &:checked {
+      border: 1px solid $bg-primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+        background-color: $bg-primary;
+        border-radius: $radius-full;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

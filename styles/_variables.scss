@@ -1,0 +1,207 @@
+@import url(https://fonts.bunny.net/css?family=dm-sans:400,500,700|kanit:700);
+@font-face {
+    font-family: 'GEelegant';
+    src: local('GEelegant'), url('/fonts/Frutiger LT Arabic 55 Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+// font
+$font-dm-sans: 'DM Sans',sans-serif;
+$font-kanit: 'Kanit',sans-serif;
+$font-heading: 'DM Sans',sans-serif;
+$font-text: 'GEelegant',sans-serif;
+$font-3xs: 10px;
+$font-xxs: 12px;
+$font-xs: 13px;
+$font-sm: 14px;
+$font-md: 16px;
+$font-md-2: 15px;
+$font-lg: 18px;
+$font-xl: 20px;
+$font-2xl: 22px;
+$font-3xl: 58px;
+
+//Colors
+$bg-primary: #293c7c;
+$bg-secondary: #c5a377;
+$bg-third: #febb26;
+$bg-white: #ffffff;
+$bg-background: #f2f2f2;
+$bg-stroke: #eeeeee;
+$bg-disabled: #e5e7eb;
+$color-brand-1: #0BA9ED;
+$color-brand-2: #FD9636;
+$color-brand-3: #425A8B;
+$color-brand-4: #D36B0B;
+$color-border-1: #D5DFE4;
+$color-primary: #1AAEED;
+$color-secondary: #8D99AE;
+$color-success: #5BC694;
+$color-danger: #F53658;
+$color-warning: #FFB067;
+$color-info: #27B3D2;
+$color-white: #ffffff;
+$color-green: #00FF8A;
+$color-yellow: #FFF500;
+$color-pink: #FF6BC4;
+$color-blue: #3AA1FF;
+
+$color-main-text: #0b1126;
+
+$color-nafath: #36958f;
+
+$color-primary-paragraph: #384250;
+$color-display: #1f2a37;
+$color-disabled: #9da4ae;
+$color-gray: #1d1f1f;
+$color-gray-50: #F0F3F8;
+$color-gray-100: #DDE4F0;
+$color-gray-200: #CAD6EC;
+$color-gray-300: #B2C2E1;
+$color-gray-400: #9EB4E0;
+$color-gray-500: #8C9EC5;
+$color-gray-600: #718BC2;
+$color-gray-700: #6B83B6;
+$color-gray-800: #5971A3;
+$color-gray-900: #425A8B;
+$color-gray-1000: #0E224D;
+$color-gray-1100: #253D4E;
+$color-gray-light: #d2d6db;
+$color-gray-dark: #1a1a1a;
+$color-gray-medium: #666666;
+
+$color-light-gray: #f8f8f8;
+$color-medium-gray: #8f8f8f;
+$color-muted-blue: #6c737f;
+$color-deep-slate: #292d32;
+$color-light-soft: #f3f5f8;
+$color-deep-gray-blue: #101828;
+$color-deep-blue: #101828;
+$color-light-blue-gray: #dadff2;
+$color-light-beige: #f7f6f4;
+$color-cool-gray: #eaecf0;
+$color-neutral-100: #f3f4f6;
+$color-neutral-900: #071638;
+$color-neutral-soft: #f1f1f2;
+
+$color-primary: #1b1b1b;
+$color-secondary: #333333;
+$color-third: #a5a5a5;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-body: #121217;
+$color-white-soft: #fcfcfc;
+$color-brown-warm: #946931;
+$color-deep-green: #1b8354;
+$color-bronze-gold: #b78b35;
+$color-tawny-brown: #9c733d;
+$color-amber-orange: #cc7914;
+$color-golden-yellow: #d8ae17;
+$color-soft-sky: #c7daff;
+$color-soft-cream: #fffbee;
+$color-text-info: #1849a9;
+
+$color-primary-blue: #1f59c8;
+$color-forest-green: #085d3a;
+
+$bg-warning-light: #fffaeb;
+$color-warning-light: #fffaeb;
+$color-warning: #93370d;
+
+$color-success-light: #ecfdf3;
+$color-success: #085d3a;
+
+$color-icon-success: #067647;
+
+$color-red: rgba(195, 7, 52, 8);
+$color-green: rgba(7, 195, 123, 8);
+$color-orange: rgba(244, 199, 36, 8);
+$color-blue: rgba(42, 115, 255, 8);
+$color-orange-dark: #a85205;
+$color-yellow-dark: #e7a908;
+$color-dark-blue: #071638;
+
+$alert-1: rgba(41, 60, 124, 8);
+$alert-2: rgba(197, 163, 119, 6);
+$alert-green: #07c37b;
+$alert-orange: #f4c724;
+
+$alert-red: #c30734;
+$alert-blue: #2a73ff;
+//5. Background
+// New
+$background-white: #ffffff;
+$background-bg-1: #EAE4E9;
+$background-bg-2: #FFF3EA;
+$background-bg-2-1: #fff3eacc;
+$background-bg-3: #FFF2F3;
+$background-bg-4: #FFF1F6;
+$background-bg-5: #DBECE5;
+$background-bg-6: #E8FCFF;
+$background-bg-7: #F0EFEB;
+$background-bg-8: #DFE7FD;
+$background-bg-9: #D1ECFD;
+$background-bg-10: #DDD3FA;
+$background-bg-11: #D4F7FF;
+$background-bg-11-2: #DCF4E0;
+$background-bg-11-3: #F7E5D5;
+$background-bg-12: #D9D9D9;
+$background-bg-13: #FFF4F6;
+$background-bg-14: #E0F2EE;
+$background-bg-15: #5C74A6;
+$background-bg-16: #C8DCE8;
+$background-bg-17: #C4E3D6;
+$background-bg-18: #A4EEE1;
+$background-bg-19: #CBE9FF;
+$background-bg-20: #FFD5C8;
+$background-bg-21: #CAEFDF;
+$background-bg-22: #B8F2FF;
+$background-bg-23: #F2DCCB;
+$background-bg-24: #F9FAFB;
+$background-bg-25: #f5f5f5;
+$background-yellow: #F9D915;
+$background-brown: #AB5F3E;
+$background-pink: #FF94BC;
+$background-purple: #9C79FF;
+$background-bg-26: #FFF5DB;
+$background-bg-27: #F5ECDD;
+$background-bg-28: #BAD0E7;
+$background-bg-29: #FFDEBF;
+$background-bg-30: #D6EFF2;
+$background-bg-31: #F8FAFF;
+$background-bg-32: #F9F9F9;
+// End new
+// Shadows
+$shadow-xs: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
+$shadow-sm: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+$shadow-md: 0 2px 6px -2px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 20px 24px 2px rgba(0, 0, 0, 0.06);
+$shadow-xs: 0 24px 48px -12px rgba(0, 0, 0, 0.06);
+$shadow-site: 0 4px 4px 0 rgba(0, 0, 0, 0.12);
+
+// Border radius
+$radius-xs: 2px;
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-2xl: 20px;
+$radius-full: 999px;
+
+// Devices screen sizes
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Font weight
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+$font-black: 800;
+
+//  Base Font Size
+$base_font_size: 16;

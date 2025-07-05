@@ -1,0 +1,156 @@
+@use "styles/imports" as *;
+
+.button {
+  height: 56px;
+  border-radius: $radius-sm;
+  padding: rem(14) rem(16);
+  color: $color-white;
+  font-weight: $font-normal;
+  font-size: rem(14);
+  line-height: 26.24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  &-color {
+    &-secondary {
+      color: $bg-secondary !important;
+    }
+
+    &-primary {
+      color: $bg-primary !important;
+    }
+
+    &-third {
+      color: $bg-third !important;
+    }
+    &-white {
+      color: $color-white !important;
+    }
+    &-orange {
+      color: $alert-orange !important;
+    }
+    &-red {
+      color: $alert-red !important;
+    }
+    &-blue {
+      color: $alert-blue !important;
+    }
+    &-green {
+      color: $alert-green !important;
+    }
+    &-gray {
+      color: $color-gray-400 !important;
+    }
+    &-nafath {
+      color: $color-nafath !important;
+    }
+  }
+
+  &-secondary {
+    background-color: $bg-secondary;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $bg-secondary;
+      border: 1px solid $bg-secondary;
+    }
+  }
+
+  &-primary {
+    background-color: $bg-primary;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $bg-primary;
+      border: 1px solid $bg-primary;
+    }
+  }
+
+  &-third {
+    background-color: $bg-third;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $bg-third;
+      border: 1px solid $bg-third;
+    }
+  }
+
+  &-white {
+    background-color: $bg-white;
+    color: $bg-primary;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $bg-primary;
+      border: 1px solid $bg-primary;
+    }
+  }
+
+  &-orange {
+    background-color: $alert-orange;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $alert-orange;
+      border: 1px solid $alert-orange;
+    }
+  }
+
+  &-red {
+    background-color: $alert-red;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $alert-red;
+      border: 1px solid $alert-red;
+    }
+  }
+
+  &-blue {
+    background-color: $alert-blue;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $alert-blue;
+      border: 1px solid $alert-blue;
+    }
+  }
+
+  &-green {
+    background-color: $alert-green;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $alert-green;
+      border: 1px solid $alert-green;
+    }
+  }
+
+  &-gray {
+    background-color: $color-gray-400;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $color-gray-400;
+      border: 1px solid $color-gray-300;
+    }
+  }
+
+  &-nafath {
+    background-color: $color-nafath;
+
+    &-outline {
+      background-color: $bg-white;
+      color: $color-nafath;
+      border: 1px solid $color-nafath;
+    }
+  }
+
+  &:disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+  }
+}

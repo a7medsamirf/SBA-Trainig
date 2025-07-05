@@ -1,0 +1,12 @@
+@use "styles/imports" as *;
+
+.tooltip {
+  @apply shadow-md fixed text-sm w-max pointer-events-none;
+  @apply select-text text-center h-fit whitespace-pre-line;
+  z-index: 99999999999999;
+  border-radius: $radius-sm;
+  padding: 5px 8px;
+  color: $color-white;
+  background-color: $color-black;
+  max-width: 200px;
+}

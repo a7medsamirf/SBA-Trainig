@@ -1,0 +1,44 @@
+@use "styles/imports" as *;
+
+.radio {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 8px;
+  }
+
+  &__group {
+    &-item {
+      width: 100%;
+      height: 48px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      border-radius: $radius-sm;
+      background-color: $color-gray-100;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid transparent;
+
+      &--error {
+        border-color: $color-red;
+      }
+
+      &-checked {
+        border-color: $bg-secondary;
+        background-color: rgba($bg-secondary, 0.2);
+        font-weight: $font-bold;
+      }
+    }
+  }
+  &__label {
+    font-size: rem(16);
+    color: $color-primary;
+    font-weight: $font-bold;
+    line-height: 29.98px;
+    white-space: pre-line;
+  }
+}

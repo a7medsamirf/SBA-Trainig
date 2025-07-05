@@ -1,0 +1,14 @@
+export { default as Book2 } from "./book-2";
+export { default as Book } from "./book";
+export { default as DocumentText2 } from "./document-text-2";
+export { default as DocumentText } from "./document-text";
+export { default as Dw } from "./dw";
+export { default as Edit2 } from "./edit-2";
+export { default as Edit } from "./edit";
+export { default as Favorites } from "./favorites";
+export { default as FileCopyBlack24Dp1 } from "./file-copy-black-24dp-1";
+export { default as Logincurve } from "./logincurve";
+export { default as Notification } from "./notification";
+export { default as Profile } from "./profile";
+export { default as SearchNormal2 } from "./search-normal-2";
+export { default as Vector } from "./vector";

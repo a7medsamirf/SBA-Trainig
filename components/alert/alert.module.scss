@@ -1,0 +1,47 @@
+@use "styles/imports" as *;
+@use "sass:color";
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7.5px 14.5px;
+  border-radius: $radius-md;
+
+  &--error {
+    color: $color-red;
+    border-color: $color-red;
+    background-color: transparentize($alert-red, 0.7);
+  }
+
+  &--success {
+    color: $alert-green;
+    border: 1px solid $color-green;
+    background-color: transparentize($alert-green, 0.8);
+    box-shadow: 0px 3.04px 18.26px 0px rgba($alert-green, 0.3);
+  }
+
+  &--warning {
+    color: $color-orange;
+    border-color: $color-orange;
+    background-color: $color-yellow-dark;
+    box-shadow: 0px 3.04px 18.26px 0px rgba($color-orange-dark, 0.3);
+  }
+
+  &__message {
+    font-weight: $font-medium;
+    line-height: 22.49px;
+    font-size: rem(12);
+    color: $color-white;
+    &-success {
+      color: $alert-green;
+    }
+  }
+
+  &__icon {
+    font-size: 20px;
+    margin-inline-end: 8px;
+    display: flex;
+    align-items: center;
+  }
+}

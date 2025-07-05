@@ -1,0 +1,48 @@
+@use "styles/imports" as *;
+
+.dropdown-input {
+  .dropdown-input__control {
+    cursor: pointer;
+    border-radius: $radius-sm !important;
+    padding: 5px 8px;
+    border-color: $color-gray-100 !important;
+    box-shadow: none !important;
+    background-color: $color-white-soft !important;
+    // gap: 8px;
+  }
+
+  &.no_border .dropdown-input__control {
+    border: none !important;
+    background-color: transparent !important;
+  }
+
+  &__menu {
+    [dir="rtl"] & {
+      left: 0;
+    }
+
+    [dir="ltr"] & {
+      right: 0;
+    }
+  }
+}
+
+.dropdown-input__value-container {
+  padding: 0 !important;
+}
+
+.dropdown {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-weight: $font-bold;
+  color: $color-gray-600;
+  font-size: rem(14);
+  line-height: 26.24px;
+}
+
+#react-select-react-select-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

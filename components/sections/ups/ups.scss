@@ -1,0 +1,50 @@
+.list-no-border {
+    position: relative;
+}
+.list-col-5 {
+    display: table;
+    table-layout: fixed;
+    width: calc(100% + 20px);
+    margin: 0px -10px;
+}
+
+.list-col-5 li {
+    float: left;
+    width: 25%;
+    padding: 0px 10px;
+}
+
+.list-no-border li .item-list {
+    border: 0px;
+}
+.list-col-5 li .item-list {
+    border: 1px solid #D5DFE4;
+    border-radius: 4px;
+    display: flex;
+    padding: 15px;
+    height: 100%;
+}
+
+.list-col-5 li .item-list .icon-left {
+    padding-left: 10px;
+    min-width: 50px;
+    max-width: 50px;
+    padding-top: 5px;
+}
+
+.list-col-5 li .item-list .info-right {
+    vertical-align: top;
+}
+
+.UpsCard{
+    h5{
+        color: #425A8B;
+    }
+    
+.Icon {
+    fill: #425A8B;
+    color: #425A8B;
+ }
+}
+
+

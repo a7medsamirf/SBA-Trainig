@@ -1,0 +1,36 @@
+.Product-section{
+    .nav-tabs {
+        border-bottom: 0px;
+        padding-top: 40px;
+        display: inline-block;
+        text-align: right;
+        width: 100%;
+        vertical-align: bottom;
+    }
+    .nav-tabs li {
+        display: inline-block;
+        padding: 0px 10px 0px 10px;
+    }
+    .nav-tabs li a.active {
+        color: #425A8B;
+        font-weight: bold;
+    }
+    .nav-tabs li a {
+        display: inline-block;
+        width: 100%;
+        padding: 0px 10px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #8C9EC5;
+    }
+}
+
+// RTL support for Arabic
+html[dir="rtl"] {
+    .Product-section {
+        .nav-tabs{
+            text-align: left;
+        }
+       
+    }
+}

@@ -1,0 +1,7 @@
+@use "variables";
+
+@use 'sass:math';
+
+@function rem($value, $base: variables.$base_font_size) {
+	@return math.div($value, $base) * 1rem;
+}

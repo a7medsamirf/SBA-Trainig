@@ -1,0 +1,59 @@
+@use "styles/imports" as *;
+
+.tableContainer {
+  overflow-x: auto;
+  border-radius: $radius-sm;
+  border: 1px solid $color-gray-100;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: $color-white;
+  border-radius: $radius-sm;
+
+  &__header {
+    background: rgba($bg-secondary, 6%);
+    border-bottom: 1px solid $color-gray-100;
+
+    th {
+      font-weight: $font-bold;
+    }
+  }
+
+  &__head,
+  &__cell {
+    padding: 12px 17px 12px 20px;
+    min-width: 120px;
+    max-width: 250px;
+
+    font-weight: $font-medium;
+    line-height: 26.24px;
+    font-size: rem(14);
+    color: $color-primary;
+    text-align: start;
+  }
+
+  &__row:nth-child(even) {
+    background: $color-gray-50;
+  }
+
+  //   &__cell input {
+  //     width: 100%;
+  //     text-align: center;
+  //     padding: 5px;
+  //     border: 1px solid $color-gray-300;
+  //     border-radius: $radius-sm;
+  //     background: $color-white;
+  //   }
+
+  &__footer {
+    background: rgba($bg-secondary, 6%);
+    border-top: 1px solid $color-gray-100;
+
+    td {
+      color: $bg-secondary;
+      font-weight: $font-bold;
+    }
+  }
+}

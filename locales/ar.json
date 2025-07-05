@@ -1,0 +1,208 @@
+{
+  "trans": {
+    "pageNotFound": "الصفحة غير موجودة",
+    "pageNotFoundDesc": "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "backToHome": "العودة إلى الصفحة الرئيسية",
+    "needHelp": "هل تحتاج إلى مساعدة؟",
+    "contactSupport": "تواصل مع الدعم الفني",
+    "common": {
+      "units": {
+        "unit": "وحدة"
+      },
+      "years": "سنوات",
+      "no_options": "لا يوحد خيارات",
+      "searching": "جاري البحث.",
+      "search": "بحث",
+      "select": "اختر",
+      "yes": "نعم",
+      "no": "لا",
+      "back": "رجوع",
+      "next": "التالي",
+      "ar": "عربي",
+      "sar": "ريال سعودي",
+      "en": "انجليزي",
+      "open": "مفتوح",
+      "soon": "قريبا",
+      "delete": "حذف",
+      "mb": "ميجا بايت",
+      "choose-file": "اسحب و أفلت الملفات هنا للرفع",
+      "accept-file": "الحد الأقصى لحجم الملف المسموح به هو {maxFileSize}، وتشمل تنسيقات الملفات المدعومة {acceptFiles}",
+      "browse-files": "تصفح الملفات",
+      "saved": "تم حفظ بياناتك تلقائياً",
+      "saving": "يتم حفظ البيانات",
+      "validation": {
+        "required": "هذا الحقل مطلوب",
+        "invalid_phone": "يرجى إدخال رقم هاتف صحيح",
+        "invalid_password": "يجب أن تحتوي كلمة المرور على ثمانية أحرف، حرف واحد على الأقل ورقم واحد",
+        "otp_min_length": "رمز التفعيل يجب أن يحتوي على {digitsLength} أرقام",
+        "invalid_nin": "رقم الهوية غير صحيح",
+        "min-length": "يجب أن تحتوي هذه الخانة على {length} حرف على الأقل",
+        "max-length": "يجب أن تحتوي هذه الخانة على {length} حرف على الأكثر",
+        "max-length-digital": "يجب أن تحتوي هذه الخانة على {length} رقم على الأكثر",
+        "min-length-digital": "يجب أن تحتوي هذه الخانة على {length} رقم على الأقل",
+        "should-digital": "يجب أن تحتوي هذه الخانة على أرقام فقط",
+        "digital": "يجب أن تحتوي هذه الخانة على {value} ارقام",
+        "should-positive": "يجب أن يكون اكبر من واحد",
+        "invalid_email": "يرجى إدخال بريد إلكتروني صحيح",
+        "invalid-iban": "رقم الحساب البنكي غير صحيح",
+        "valid-saudi-phone": "يرجى ادخال رقم سعودى صحيح و ان يبدا ب +966",
+        "account-number-invalid": "يرجى إدخال رقم حساب صالح",
+        "max-size": "الحد الأقصى لحجم الملف هو  {size}",
+        "accept-file": "الملفات المدعومة هي {acceptFiles}",
+        "total-100": "يجب ان يكون المجموع 100%",
+        "only-letters": "يجب ان يحتوي هذا الحقل علي حروف فقط",
+        "only-digits": "يجب ان يحتوي هذا الحقل علي ارقام فقط",
+        "one-document-required": "يجب اختيار مستند واحد على الأقل",
+        "invalid_url": "يرجى إدخال رابط صحيح",
+        "should-less-than": "يجب أن يكون أقل من {number}",
+        "should-greater-than": "يجب أن يكون أكبر من {number}",
+        "password": {
+          "length": "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل",
+          "number": "يجب أن تحتوي كلمة المرور على رقم على الأقل",
+          "uppercase": "يجب أن تحتوي كلمة المرور على أحرف كبيرة",
+          "lowercase": "يجب أن تحتوي كلمة المرور على أحرف صغيرة",
+          "symbol": "يجب أن تحتوي كلمة المرور على رموز مثل $%#*&@"
+        },
+        "match": "غير متطابق",
+        "confirm-not-match": "كلمة المرور غير متطابقة.",
+        "alphanumeric": "يسمح فقط بالحروف والأرقام.",
+        "wrong_password": "كلمة المرور خاطئة"
+      },
+      "success-transaction": "معاملة ناجحة",
+      "funds": "صناديق",
+      "enter": "ادخل",
+      "complaints": {
+        "suggestion": "اقتراح",
+        "complaint": "شكوى"
+      },
+      "months": "شهر",
+      "yearly": "سنويآ",
+      "one-time": "لمرة واحدة",
+      "maximum": "كحد اعلي",
+      "pending-transaction": "قيد الانتظار",
+      "date_place": "من - إلى"
+    },
+    "nav": {
+      "404": {
+        "title": "الصفحة غير موجودة"
+      },
+      "home": {
+        "title": "الرئيسية",
+        "kyc": {
+          "title": "نموذج معرفة العميل",
+          "company": {
+            "title": "شركات"
+          }
+        }
+      },
+      "funds": {
+        "title": "الفرص الاستثمارية",
+        "[id]": {
+          "title": "تفاصيل الفرصة الاستثمارية",
+          "invest": {
+            "title": "استثمِر"
+          }
+        }
+      },
+      "my-investments": {
+        "title": "استثماراتي",
+        "[id]": {
+          "title": "التفاصيل"
+        }
+      },
+      "my-wallet": {
+        "title": "المحفظة",
+        "withdraw": {
+          "title": "سحب رصيد"
+        },
+        "manage-accounts": {
+          "title": "ادارة حسابك"
+        }
+      },
+      "profile": {
+        "title": "الملف الشخصي"
+      },
+      "settings": {
+        "title": "الاعدادات"
+      },
+      "help-center": {
+        "title": "مركز المساعدة",
+        "contact-us": {
+          "title": "تواصل معانا"
+        },
+        "faq": {
+          "title": "الأسئلة الشائعة"
+        },
+        "support-tickets": {
+          "title": "تذاكر الدعم",
+          "[id]": {
+            "title": "الشكوى الفنية رقم {id}"
+          }
+        },
+        "terms-and-conditions": {
+          "title": "الشروط و الاحكام"
+        }
+      }
+    },
+    "navbar": {
+      "title": "أكاديمية SBA للتدريب",
+      "home": "الرئيسية",
+      "about": "عن الأكاديمية",
+      "goals": "أهداف",
+      "message": "كلمة سعادة الرئيس التنفيذي",
+      "vision": "الرؤية والرسالة",
+      "products": "منتجاتنا",
+      "training": "التدريب",
+      "consultancy": "الاستشارات الإعلامية",
+      "initiatives": "المبادرات",
+      "services": "خدماتنا",
+      "obtainCertificate": "الحصول على الشهادة",
+      "verifyCertificate": "التحقق من الشهادة",
+      "news": "الأخبار",
+      "contact": "تواصل معنا",
+      "Select-language": "اختر اللغة"
+    },
+    "home":{
+      "requested-courses":"الدورات الأكثر طلبًا",
+      "Our-products":"منتجاتنا",
+      "Recommended-Products": "منتجات قد تهمك ",
+      "Training": "التدريب",
+      "Initiatives": " المبادرات",
+      "Latest-news": "أحدث الأخبار والفعاليات"
+    },
+
+    "NewsletterSection": {
+      "subscribe": "اشترك",
+      "title": "اشترك في النشرة الإخبارية لدينا",
+      "To-view": "للاطلاع على",
+      "latest-news": "أخر الاخبار .",
+      "email": "البريد الالكتروني"
+    },
+    "training": {
+      "Training": "التدريب ",
+      "Training-paths": "مسارات التدريب مع الدورات",
+      "All-categories": "جميع الفئات",
+      "More": "المزيد",
+      "Courses": "دورات"
+  },
+    "contactus":{
+      "title": "تواصل معنا",
+      "description": "نتطلع لاستقبال رسالتك!",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم التواصل",
+      "message": "الرسالة",
+      "send": "إرسال رسالة",
+      "sending": "جاري الإرسال..."
+    },
+    "footer":{
+      "communication": "التواصل",
+      "training": "التدريب",
+      "facebook": "فيسبوك",
+      "instagram": "انستغرام",
+      "twitter": "تويتر",
+      "linkedin": "لينكدإن"
+    }
+  }
+}
