@@ -77,7 +77,11 @@ export default async function LocaleLayout({ children, params }: Props) {
                       <DashboardSidebarComponents />
                       </div>
                       <div className="col-lg-9">
-                        {children}
+                      <div className="content custom-border rounded h-100">
+                      {children}
+                      </div>
+                        
+
                       </div>
                     </div>
                 </div>

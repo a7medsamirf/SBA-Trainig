@@ -41,10 +41,10 @@ const ContactFormComponent = () => {
     <Form onSubmit={handleSubmit(onSubmit)} className="contact-form">
       <h3 className="color-brand-3 mt-60"> {t("title")}</h3>
       <p className="font-sm color-gray-700 mb-30"> {t("description")}</p>
-      <div className="row">
+      <div className="row g-4">
         <div className="col-lg-6 col-md-6">
           <Input<ContactFormType>
-            label=""
+            label="الأسم الاول"
             name="firstName"
             placeholder={t("firstName")}
             register={register}
@@ -53,7 +53,7 @@ const ContactFormComponent = () => {
         </div>
         <div className="col-lg-6 col-md-6">
           <Input<ContactFormType>
-            label=""
+            label="اسم العائلة"
             name="lastName"
             placeholder={t("lastName")}
             register={register}
@@ -62,7 +62,7 @@ const ContactFormComponent = () => {
         </div>
         <div className="col-lg-12">
           <Input<ContactFormType>
-            label=""
+            label="البريد إلكتروني"
             name="email"
             placeholder={t("email")}
             register={register}
@@ -72,7 +72,7 @@ const ContactFormComponent = () => {
         </div>
         <div className="col-lg-12">
           <Input<ContactFormType>
-            label=""
+            label="رقم التواصل"
             name="phone"
             placeholder={t("phone")}
             register={register}
@@ -81,7 +81,17 @@ const ContactFormComponent = () => {
           />
         </div>
         <div className="col-lg-12">
-          <Form.Group className="mb-3" controlId="contactFormMessage">
+        <div className="form-floating mb-3">
+              <Form.Control
+                as="textarea"
+                id="contactFormMessage"
+                placeholder={t("message")}
+                style={{ height: "150px" }} 
+                {...register("message")}
+              />
+              <label htmlFor="contactFormMessage">رسالة</label>
+            </div>
+        {/*   <Form.Group className="mb-3" controlId="contactFormMessage">
             <Form.Label></Form.Label>
             <Form.Control
               as="textarea"
@@ -89,7 +99,7 @@ const ContactFormComponent = () => {
               rows={5}
               {...register("message")}
             />
-          </Form.Group>
+          </Form.Group> */}
         </div>
         <div className="col-lg-12">
           <div className="form-group">

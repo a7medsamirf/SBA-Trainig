@@ -6,6 +6,8 @@ import './register.scss';
 import { Link } from "@/i18n/routing";
 import SvgEye from '@/components/icons/svg/eye'
 import SvgEyeSlash from '@/components/icons/svg/eye-slash'
+import Input from '@/components/Form/Input/Input';
+import { Form, Button } from 'react-bootstrap';
 
 const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
@@ -56,18 +58,18 @@ const Login = () => {
             </p>
             </div>
             {error && <div className="alert alert-danger">{error}</div>}
-            <form onSubmit={handleSubmit} >
+            <Form onSubmit={handleSubmit} >
             <div className="form-floating mb-3">
                 <input
                   type="text"
                   className="form-control"
                   id="name"
-                  placeholder=" الاسم بالكامل "
+                  placeholder="  الاسم كامل بالعربية "
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
                 />
-                 <label> الاسم بالكامل</label>
+                 <label>  الاسم كامل بالعربية</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -81,7 +83,7 @@ const Login = () => {
                 />
                  <label>  رقم الجوال </label>
               </div>
-
+            
 
               <div className="form-floating mb-3">
                 <input
@@ -151,19 +153,19 @@ const Login = () => {
                 </a>
               </div>
           <div className='mt-60'>
-          <button
+          <Button
                 type="submit"
                 className="btn btn-primary w-100 mb-3"
                 disabled={isLoading}
               >
                 {isLoading ? "جاري الدخول..." : " تسجيل"}
-              </button>
-              <button
+              </Button>
+              <Button
                 type="button"
                 className="btn btn-outline-primary w-100 mb-3"
               >
          الدخول كزائر
-              </button>
+              </Button>
           </div>
     
               <div className="text-center">
@@ -172,7 +174,7 @@ const Login = () => {
                 تسجيل الدخول
                 </Link>
               </div>
-            </form>
+            </Form>
           </div>
 
         </div>

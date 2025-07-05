@@ -9,6 +9,7 @@ interface RelatedCoursesComponentProps {
   courses: SimilarCoursesResponse;
 }
 
+const generateSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 const RelatedCoursesComponent: React.FC<RelatedCoursesComponentProps> = ({ courses }) => {
   const hasCourses = courses?.data && courses.data.length > 0;
 
@@ -30,6 +31,7 @@ const RelatedCoursesComponent: React.FC<RelatedCoursesComponentProps> = ({ cours
               <SwiperSlide key={course.id}>
                 <ReusableTrainingCard 
                   id={course.id}
+                  slug={generateSlug(course.name)}             
                   category={course.category_name}
                   title={course.name}
                   image={course.image ? course.image : "/images/empty-img.png"}
@@ -37,7 +39,6 @@ const RelatedCoursesComponent: React.FC<RelatedCoursesComponentProps> = ({ cours
                   duration={course.duration}
                   startDate={course.start_date}
                   trainer={course.instructor_name}
-                  courseUrl={`/training/${course.id}-${slug}`}
                 />
               </SwiperSlide>
             );

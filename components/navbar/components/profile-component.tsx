@@ -16,7 +16,7 @@ const profileLinks = [
   { label: "الشهادات", icon: <SvgBook />, href: "/certificates" },
   { label: "الفواتير", icon: <SvgDocumentText />, href: "/invoices" },
   { label: "لوحة التحكم", icon: <SvgBook />, href: "/dashboard" },
-  { label: "المفضلة", icon: <SvgVector />, href: "/favorites" },
+  { label: "المفضلة", icon: <SvgVector />, href: "/favorite" },
 ];
 
 export const ProfileComponent = () => {

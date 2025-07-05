@@ -10,6 +10,7 @@ interface ProductsCardComponentProps {
   courses: Course[];
 }
 
+const generateSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 const ProductsCardComponent: React.FC<ProductsCardComponentProps> = ({ courses }) => {
 /*   const { locale } = useParams(); */
   return (
@@ -29,6 +30,7 @@ const ProductsCardComponent: React.FC<ProductsCardComponentProps> = ({ courses }
           <SwiperSlide key={course.id}>
             <ReusableTrainingCard 
               id={course.id}
+              slug={generateSlug(course.name)}
               category={course.category_name}
               title={course.name}
               image={course.image ? course.image : "/images/empty-img.png"}
@@ -36,8 +38,6 @@ const ProductsCardComponent: React.FC<ProductsCardComponentProps> = ({ courses }
               duration={course.duration}
               startDate={course.start_date}
               trainer={course.instructor_name} 
-             /*  courseUrl={`${locale === "en" ? "en" : "ar"}/training/${course.id}-${slug}`} */
-             courseUrl={`/training/${course.id}-${slug}`}
 
             />
           </SwiperSlide>

@@ -9,6 +9,7 @@ import { slugify } from "@/utils/slugify"; // 👈 استدعاء الدالة
 interface TrainingCardComponentProps {
   courses: Course[]; // مصفوفة مباشرة من الكورسات
 }
+const generateSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
 
 const TrainingCardComponent: React.FC<TrainingCardComponentProps> = ({ courses }) => {
 /*   const locale = useLocale(); */
@@ -20,6 +21,7 @@ const TrainingCardComponent: React.FC<TrainingCardComponentProps> = ({ courses }
         <div className="col-lg-3" key={course.id}>
           <ReusableTrainingCard
             id={course.id}
+            slug={generateSlug(course.name)}
             category={course.category_name}
             title={course.name}
             image={course.image ? course.image : "/images/empty-img.png"}
@@ -27,8 +29,6 @@ const TrainingCardComponent: React.FC<TrainingCardComponentProps> = ({ courses }
             duration={course.duration}
             startDate={course.start_date}
             trainer={course.instructor_name}
-            courseUrl={`/training/${course.id}-${slug}`}
-           /*  courseUrl={`${locale === "en" ? "en" : "ar"}/training/${course.id}-${slug}`} */
             className=""
           />
         </div>

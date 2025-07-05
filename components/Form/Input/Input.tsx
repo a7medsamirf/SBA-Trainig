@@ -26,8 +26,6 @@ const Input = <TFieldValue extends FieldValues>({
   success,
   disabled,
 }: InputProps<TFieldValue>) => {
-  // Handle onBlur event
-  // if onBlur is not defined, then call register's onBlur function
   const onblurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
     if (onBlur) {
       onBlur(e);
@@ -36,22 +34,30 @@ const Input = <TFieldValue extends FieldValues>({
       register(name).onBlur(e);
     }
   };
+
   return (
-    <Form.Group className="mb-3">
-      <Form.Label>{label}</Form.Label>
+    <div className="form-floating">
       <Form.Control
+        id={name}
         type={type}
         placeholder={placeholder}
         {...register(name)}
-        onBlur={onblurHandler} // Handle onBlur event
-        isInvalid={error ? true : false}
-        isValid={success ? true : false}
+        onBlur={onblurHandler}
+        isInvalid={!!error}
+        isValid={!!success}
         disabled={disabled}
       />
-      <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
-      <Form.Control.Feedback type="valid">{success}</Form.Control.Feedback>
-      {formText && <Form.Text muted>{formText}</Form.Text>}
-    </Form.Group>
+      <label htmlFor={name}>{label}</label>
+
+      {/* عرض رسالة الخطأ تحت الـ form-floating */}
+      {(error || success || formText) && (
+        <div className="mt-1">
+          {error && <div className="text-danger small">{error}</div>}
+          {success && <div className="text-success small">{success}</div>}
+          {formText && <Form.Text muted>{formText}</Form.Text>}
+        </div>
+      )}
+    </div>
   );
 };
 
