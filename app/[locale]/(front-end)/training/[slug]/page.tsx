@@ -99,7 +99,7 @@ export default async function CourseDetailsPage({  params, }: SearchParamProps) 
 
                         <ul className="list list-dot" itemType="disc">
                           <li>مدة الدورة: {course.duration}</li>
-                          <li>تاريخ البدء: {course.start_date}</li>
+                          <li>تاريخ البدء: {course.start_date.split("T")[0]}</li>
                           <li>السعر: {course.price}</li>
                           <li>الفئة: {course.category_name}</li>
                         </ul>

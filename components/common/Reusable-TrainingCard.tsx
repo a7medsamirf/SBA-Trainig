@@ -132,8 +132,8 @@ const ReusableTrainingCard: React.FC<ReusableTrainingCardProps> = ({
             </Link>
           </div>
           <ul className="list-features">
-            <li>{duration}</li>
-            <li>تاريخ الدورة: {startDate}</li>
+            <li>مدة الدورة: {duration}</li>
+            <li>تاريخ الدورة: {startDate.split("T")[0]}</li>
             <li>اسم مقدم الدورة: {trainer}</li>
           </ul>
         </div>
