@@ -32,7 +32,7 @@
 
       &:checked {
         border-color: $alert-green;
-        background-image: url("/icons/checkbox-check.svg");
+        background-image: url("../../public/images/svg/tick-circle.svg");
         background-position: center;
         background-repeat: no-repeat;
       }

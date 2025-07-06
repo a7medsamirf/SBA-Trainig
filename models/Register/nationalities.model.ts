@@ -1,9 +1,9 @@
-export interface Nationality {
+export type Nationality = {
   id: number;
   name: string;
 }
 
-export interface NationalitiesResponse {
+export type NationalitiesResponse = {
   data: Nationality[];
   status: number;
   message: string | null;

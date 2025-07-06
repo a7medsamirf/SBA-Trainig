@@ -216,7 +216,13 @@ h5 {
   border: 1px solid #3a4e8c;
   color: #fff;
 }
-
+.btn-primary:disabled {
+  opacity: .8;
+  background-color: #3a4e8c;
+  border-color: #3a4e8c;
+  pointer-events: all;
+  cursor: not-allowed;
+}
 .custom-border{
   border: 1px solid #DDE4F0;
 }
@@ -245,6 +251,22 @@ h5 {
   height: auto;
 }
 
+.form-floating .select-input__control {
+  padding-top: 1.625rem;
+  min-height: calc(3.5rem + 2px);
+  border-radius: 0.375rem;
+}
+
+.form-floating .has-value + label,
+.form-floating .select-input__control:focus-within + label {
+  transform: scale(0.85) translateY(-1.0rem) translateX(0.15rem);
+  background: #ffffff;
+  padding: 4px 0;
+  right: 0;
+  color: #6B93D0;
+  height: auto;
+}
+
 html[dir="rtl"] {
   .form-floating>label {
     right: 0;
@@ -258,4 +280,12 @@ html[dir="rtl"] {
   height: calc(3rem + calc(var(--bs-border-width) * 2));
   min-height: calc(3rem + calc(var(--bs-border-width) * 2));
   line-height: 1.25;
+}
+
+.select-input__wrapper .select-input .select-input__control{
+  border-radius: 8px !important;
+  -webkit-border-radius: 8px !important;
+  -moz-border-radius: 8px !important;
+  -ms-border-radius: 8px !important;
+  -o-border-radius: 8px !important;
 }

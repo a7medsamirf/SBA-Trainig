@@ -39,7 +39,7 @@ const ContactFormComponent = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)} className="contact-form">
-      <h3 className="color-brand-3 mt-60"> {t("title")}</h3>
+      <h3 className="color-brand-3 mt-60 mb-2"> {t("title")}</h3>
       <p className="font-sm color-gray-700 mb-30"> {t("description")}</p>
       <div className="row g-4">
         <div className="col-lg-6 col-md-6">

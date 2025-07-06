@@ -222,20 +222,22 @@ export const SelectInput: React.FC<Props> = ({
           return (
             <>
               <div className="relative flex flex-col w-full">
-                {label && (
-                  <label htmlFor={name} className="block text-sm select__label">
-                    {label}
-                  </label>
-                )}
+              {label && !className?.includes("form-select") && (
+                <label htmlFor={name} className="block text-sm select__label">
+                  {label}
+                </label>
+              )}
                 <SelectComponent
                   {...props}
+                  inputId={name}
                   instanceId={`react-select-${name}`}
                   classNamePrefix="select-input"
                   className={cn(
                     "select-input",
                     disabled && "select-disabled cursor-not-allowed",
                     isOpen && "select-input--open",
-                    error && "select-input--has-error"
+                    error && "select-input--has-error",
+                    selectedValue && "has-value" // 👈 دي مهمة جداً عشان الـ label يطلع فوق
                   )}
                   options={
                     isAsync
@@ -252,7 +254,12 @@ export const SelectInput: React.FC<Props> = ({
                     IndicatorSeparator: () => null,
                     DropdownIndicator: () => (
                       <span className="rtl:ml-2.5 ltr:mr-2.5">
-                        <span className="text-gray-500">↓</span>
+                        <span className="text-gray-500">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M16.6004 7.45831L11.1671 12.8916C10.5254 13.5333 9.47539 13.5333 8.83372 12.8916L3.40039 7.45831" stroke="#425A8B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                        </span>
                       </span>
                     ),
                   }}

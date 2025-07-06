@@ -16,7 +16,10 @@ interface AboutAcademyComponentProps {
             <h2>{aboutAcademy.title}</h2>
           </div>
           <div className="col-lg-6">
-            <p className="font-sm font-medium color-gray-700 mb-15 text-justify">{aboutAcademy.description}</p>
+          <div
+              className="font-sm font-medium color-gray-700 mb-15 text-justify"
+              dangerouslySetInnerHTML={{ __html: aboutAcademy.description }}
+            />
             {goalsAcademy && (
                     <>
                       <h4 className="mt-30 text-color-primary">{goalsAcademy.title}</h4>

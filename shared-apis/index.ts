@@ -15,5 +15,7 @@ export * from "./Initiatives/get-initiatives.api";
 export * from "./CategoriesFilter/get-categories-filter.api";
 
 export * from "./Register/get-languagelevels.api";
-
+export * from "./Register/get-nationalities.api";
+export * from "./Register/get-genders.api";
+export * from "./Register/get-age-categories.api";
 

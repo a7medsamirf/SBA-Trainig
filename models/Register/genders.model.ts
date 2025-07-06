@@ -6,4 +6,4 @@ export type Gender = {
 export type GendersResponse = {
   data: Gender[];
   status: number;
-};
+}

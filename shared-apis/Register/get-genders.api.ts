@@ -1,13 +1,13 @@
 import { fetcher } from "@/utils";
 
-export const getLanguageLevels = async () => {
+export const getGenders = async () => {
 
   try {
     const res = await fetcher({
-      url: `language-levels`,
+      url: `genders`,
     });
     const data = await res.json();
-    console.log("Courses fetched successfully:", data);
+    console.log("Genders fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);
