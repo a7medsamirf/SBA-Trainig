@@ -7,7 +7,6 @@ export const getGenders = async () => {
       url: `genders`,
     });
     const data = await res.json();
-    console.log("Genders fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);

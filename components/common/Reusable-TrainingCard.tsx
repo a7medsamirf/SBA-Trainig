@@ -1,11 +1,12 @@
-'use client';
+"use client";
 import "../../app/[locale]/(front-end)/training/components/TrainingCard.scss";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAddCourseFavorite } from "@/hooks/common/add-course-favorite.hook";
+import { cn } from "@/utils";
 import { useLocale } from "next-intl";
-
 interface ReusableTrainingCardProps {
   id: number;
   slug: string;
@@ -17,6 +18,7 @@ interface ReusableTrainingCardProps {
   startDate: string;
   trainer: string;
   className?: string;
+  isFavorited: boolean;
 }
 
 const ReusableTrainingCard: React.FC<ReusableTrainingCardProps> = ({
@@ -30,11 +32,14 @@ const ReusableTrainingCard: React.FC<ReusableTrainingCardProps> = ({
   startDate,
   trainer,
   className = "",
+  isFavorited,
 }) => {
+  
   const locale = useLocale();
   const courseUrl = `/${locale}/training/${id}-${slug}`;
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { addCourseFavoriteHandler, isPending } = useAddCourseFavorite();
 
   const handleImageClick = () => {
     setIsLoading(true);
@@ -47,13 +52,17 @@ const ReusableTrainingCard: React.FC<ReusableTrainingCardProps> = ({
     <div className={`card-grid-style-3 ${className}`}>
       <div className="card-grid-inner cardWidth">
         <div className="tools">
-          <a
-            className="btn btn-wishlist btn-tooltip mb-10"
-            href="shop-wishlist.html"
-            aria-label="Add To Wishlist"
-          ></a>
-          <a
-            className="btn btn-compare btn-tooltip mb-10"
+          <button
+            className={cn(
+              "btn btn-wishlist btn-tooltip mb-10",
+              isPending && "disabled",
+              isFavorited && "btn-wishlist-active"
+            )}
+            aria-label="إضافة إلى المفضلة"
+            onClick={() => addCourseFavoriteHandler(id)}
+          ></button>
+          {/*    <a
+            className="mb-10 btn btn-compare btn-tooltip"
             href="shop-compare.html"
             aria-label="Compare"
           ></a>
@@ -61,7 +70,7 @@ const ReusableTrainingCard: React.FC<ReusableTrainingCardProps> = ({
             className="btn btn-quickview btn-tooltip"
             aria-label="Quick view"
             href={courseUrl}
-          ></Link>
+          ></Link> */}
         </div>
 
         <div
@@ -76,8 +85,8 @@ const ReusableTrainingCard: React.FC<ReusableTrainingCardProps> = ({
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
-            className="w-100"
+            style={{ width: "100%", height: "100%" }}
+            className="w-100 object-fit-cover"
           />
           {isLoading && (
             <div
@@ -104,12 +113,12 @@ const ReusableTrainingCard: React.FC<ReusableTrainingCardProps> = ({
         <div className="info-right">
           <span className="font-xs color-gray-500">{category}</span>
           <div
-            className="color-brand-3 font-sm-bold cursor-pointer courseTitle one-row"
+            className="cursor-pointer color-brand-3 font-sm-bold courseTitle one-row"
             onClick={handleImageClick}
           >
             {title}
           </div>
-          <div className="price-info d-flex gap-1">
+          <div className="gap-1 price-info d-flex">
             <strong className="font-lg-bold color-brand-3 price-main">
               {price}
             </strong>

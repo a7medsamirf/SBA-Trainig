@@ -13,9 +13,23 @@ export * from "./Courses/get-courses-detail.api";
 export * from "./Courses/get-client-courses-detail.api";
 export * from "./Initiatives/get-initiatives.api";
 export * from "./CategoriesFilter/get-categories-filter.api";
+export * from "./get-search.api";
 
 export * from "./Register/get-languagelevels.api";
 export * from "./Register/get-nationalities.api";
 export * from "./Register/get-genders.api";
 export * from "./Register/get-age-categories.api";
+export * from "./Register/get-education-degrees.api";
+
+export * from "./Cart/get-carts-index.api";
+export * from "./Notifications/get-notifications.api";
+export * from "./Profile/get-profile.api";
+export * from "./Profile/get-invoices.api";
+export * from "./Profile/get-show-invoices.api";
+export * from "./favorite/get-favorite.api";
+
+export * from "./dashboard/get-statistics.api";
+
+
+
 

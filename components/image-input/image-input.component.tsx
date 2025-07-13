@@ -241,18 +241,15 @@ export const ImageInput: React.FC<Props> = ({
 
   const onDragEnter = (e: React.DragEvent<HTMLLabelElement>) => {
     wrapperRef.current?.classList.add("image__label--active");
-    console.log("drop");
   };
 
   const onDragLeave = (e: React.DragEvent<HTMLLabelElement>) => {
     // wrapperRef.current?.classList.remove(styles['image__label--active']);
-    console.log("dropLEav");
   };
 
   const onDragOver = (e: React.DragEvent<HTMLLabelElement>) => {
     e.nativeEvent.stopPropagation();
     e.nativeEvent.preventDefault();
-    console.log("over");
   };
 
   const onDrop = async (e: React.DragEvent<HTMLLabelElement>) => {

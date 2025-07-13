@@ -8,7 +8,7 @@ const items = [
   ];
 
 
-const BannersSection = () => {
+  export const BannersSection = () => {
   return (
     <>
   <div className="section-box mt-50 BannersSection">
@@ -38,4 +38,3 @@ const BannersSection = () => {
   )
 }
 
-export default BannersSection

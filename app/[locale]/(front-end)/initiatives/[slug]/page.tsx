@@ -1,6 +1,6 @@
 import "./initiatives-details.scss";
 import Image from "next/image";
-import NewsletterSection from "@/components/sections/newsletter/newsletter-section";
+import {NewsletterSection} from "@/components/sections/newsletter/newsletter-section";
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
 import { getEvents } from "@/shared-apis/Events/get-events.api";
 import { EventData } from "@/models/events.model";

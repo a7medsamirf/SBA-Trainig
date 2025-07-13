@@ -39,6 +39,7 @@ const RelatedCoursesComponent: React.FC<RelatedCoursesComponentProps> = ({ cours
                   duration={course.duration}
                   startDate={course.start_date}
                   trainer={course.instructor_name}
+                  isFavorited={course.is_favorited}
                 />
               </SwiperSlide>
             );

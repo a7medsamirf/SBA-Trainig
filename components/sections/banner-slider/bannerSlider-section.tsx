@@ -17,7 +17,7 @@ interface BannerSliderSectionProps {
   banners: HomeBanner[];
 }
 
-const BannerSliderSection: React.FC<BannerSliderSectionProps> = ({ banners }) => {
+export const BannerSliderSection: React.FC<BannerSliderSectionProps> = ({ banners }) => {
   const swiperRef = useRef<SwiperType | null>(null);
    
   return (
@@ -66,5 +66,3 @@ const BannerSliderSection: React.FC<BannerSliderSectionProps> = ({ banners }) =>
     </>
   );
 }
-
-export default BannerSliderSection

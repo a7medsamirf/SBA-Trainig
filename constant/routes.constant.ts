@@ -1,23 +1,23 @@
-export const publicRoutes = [
-  "/login" ,
-  "/register", 
-  "/otp",
-  "/training" ,
-  "/about" ,
-  "/contact",
-  "/events" ,
-  "/dashboard" ,
-  "/profile" , 
-  "/favourite" ,
-  "/bills",
+export const authRequiredRoutes = [
+  "/cart",
+  "/dashboard",
+  "/profile",
+  "/favourite",
+  "/invoices",
   "/courses",
-  "/initiatives" ].flatMap((route) => [
+  "/qualifications",
+].flatMap((route) => [`/ar${route}`, `/en${route}`]);
 
+export const publicRoutes = ["/login", "/register", "/otp"].flatMap((route) => [
   `/ar${route}`,
   `/en${route}`,
 ]);
 
-export const hybridRoutes = [""].flatMap((route) => [
-  `/ar${route}`,
-  `/en${route}`,
-]);
+export const hybridRoutes = [
+  "/",
+  "/training",
+  "/about",
+  "/contact",
+  "/events",
+  "/initiatives",
+].flatMap((route) => [`/ar${route}`, `/en${route}`]);

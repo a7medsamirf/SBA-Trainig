@@ -1,5 +1,5 @@
 import "./initiatives.scss";
-import NewsletterSection from "@/components/sections/newsletter/newsletter-section";
+import {NewsletterSection} from "@/components/sections/newsletter/newsletter-section";
 
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
 import InitiativesCardComponent from "./components/initiativesCard-component";

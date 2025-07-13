@@ -1,170 +1,337 @@
-
 .profile-sidebar {
-    background-color: rgba(245, 247, 251, 1);
-    border-radius: 12px;
-    .dropdown-menu {
-      width: 320px;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid #dee2e6;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-      left: auto;
-      right: 0;
-    }
-  
-    .profile-header {
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        align-self: center;
-        gap: 10px;
-        border-bottom: 1px solid #eee;
-        img{
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-        }
-  
-      .profile-info {
-        display: flex;
-        flex-direction: column;
-        .profile-name {
-          font-weight: bold;
-        }
-        .welcome-text {
-          font-size: 0.9rem;
-          color: rgba(117, 117, 117, 1);
-        }
-      }
-    }
-  
-    .current-course-card {
-      background-color: #f8f9fa;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(118, 164, 65, 0.5);
-  
-      .card-title {
-  
-      }
-  
-      .course-details {
-        display: flex;
-        gap: 10px;
-        align-items: start;
-        margin-bottom: 1rem;
-        border-bottom: 2px dashed rgba(234, 234, 234, 1);
-        img {
-          border-radius: 0.5rem;
-          -webkit-border-radius: 0.5rem;
-          -moz-border-radius: 0.5rem;
-          -ms-border-radius: 0.5rem;
-          -o-border-radius: 0.5rem;
+  background-color: rgba(245, 247, 251, 1);
+  border-radius: 12px;
+  .dropdown-menu {
+    width: 320px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    left: auto;
+    right: 0;
   }
-  
-        .course-info {
-          .course-category {
-            font-size: 0.8rem;
-            color: #6c757d;
-            margin-bottom: 0.25rem;
-          }
-          .course-name {
-            font-weight: bold;
-            font-size: 1rem;
-            margin: 0;
-          }
-        }
+
+  .profile-header {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      align-self: center;
+      gap: 10px;
+      border-bottom: 1px solid #eee;
+      img{
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
       }
-  
-      .progress {
-        height: 0.5rem;
-        margin-bottom: 0.25rem;
-        background-color: #e9ecef;
-        .progress-bar {
-          background-color: #76A441;
-        }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      .profile-name {
+        font-weight: bold;
       }
-  
-      .progress-text {
-        font-size: 0.8rem;
-        color: #6c757d;
-      }
-  
-      .course-actions {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-  
-        .btn {
-          width: 100%;
-        }
+      .welcome-text {
+        font-size: 0.9rem;
+        color: rgba(117, 117, 117, 1);
       }
     }
+  }
 
-    .profile-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      span.list-item {
-        padding: 10px;
-        border-bottom: 1px solid rgba(234, 234, 234, 1);
-        &.active {
-          background-color: #DDE4F0;
+  .current-course-card {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(118, 164, 65, 0.5);
+
+    .card-title {
+
+    }
+
+    .course-details {
+      display: flex;
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 1rem;
+      border-bottom: 2px dashed rgba(234, 234, 234, 1);
+      img {
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: 0.5rem;
+        -ms-border-radius: 0.5rem;
+        -o-border-radius: 0.5rem;
+}
+
+      .course-info {
+        .course-category {
+          font-size: 0.8rem;
+          color: #6c757d;
+          margin-bottom: 0.25rem;
+        }
+        .course-name {
           font-weight: bold;
-          color: #0070f3;
-          span{
-            color: #425A8B;
-          }
-      }
-        &:hover{
-            background: rgba(221, 228, 240, 1);
-
-          svg {
-            fill: rgba(66, 90, 139, 1);
-          }
-      }
-        a {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          padding: 0.5rem 0;
-          color: #212529;
-          text-decoration: none;
-          transition: color 0.2s ease-in-out;
-  
-          .list-icon{
-            background-color: rgba(66, 90, 139, 0.07);
-            padding: 10px;
-            border-radius: 50%;
-          }
-          svg {
-            width: 20px;
-            height: 20px;
-           
-          }
-        
+          font-size: 1rem;
+          margin: 0;
         }
       }
     }
-  
-    .logout-section {
-        padding: 17px;
+
+    .progress {
+      height: 0.5rem;
+      margin-bottom: 0.25rem;
+      background-color: #e9ecef;
+      .progress-bar {
+        background-color: #76A441;
+      }
+    }
+
+    .progress-text {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
+
+    .course-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+
+  .profile-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    span.list-item {
+      padding: 10px;
+      border-bottom: 1px solid rgba(234, 234, 234, 1);
+      &.active {
+        background-color: #DDE4F0;
+        font-weight: bold;
+        color: #0070f3;
+        span{
+          color: #425A8B;
+        }
+    }
+      &:hover{
+          background: rgba(221, 228, 240, 1);
+
+        svg {
+          fill: rgba(66, 90, 139, 1);
+        }
+    }
       a {
         display: flex;
         align-items: center;
         gap: 15px;
-        color: #dc3545 !important;
+        padding: 0.5rem 0;
+        color: #212529;
         text-decoration: none;
-        font-weight: bold;
-        padding: .5rem 0;
+        transition: color 0.2s ease-in-out;
+
+        .list-icon{
+          background-color: rgba(66, 90, 139, 0.07);
+          padding: 10px;
+          border-radius: 50%;
+        }
         svg {
           width: 20px;
           height: 20px;
+         
         }
+      
       }
     }
-  
-  }  
+  }
+}  
 
+.profile-content-inner {
+  height: 100%;
+}
+
+.invoice-card{
+  height: 550px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.bills-invoice-card {
+background: #fff;
+border-radius: 12px;
+box-shadow: 0 2px 8px rgba(66, 90, 139, 0.07);
+.card-body {
+  padding: 1.5rem 1rem;
+}
+.btn {
+  font-size: 1rem;
+  border-radius: 8px;
+  min-width: 120px;
+}
+.material-icons {
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rounded-circle {
+  border: 1px solid #e9ecef;
+}
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.col-4 {
+  padding: 0.5rem 0;
+}
+.fw-bold {
+  font-weight: 700 !important;
+}
+.text-primary {
+  color: #425A8B !important;
+}
+.text-muted {
+  color: #8A94A6 !important;
+}
+.border-end {
+  border-left: 1px solid #e9ecef !important;
+  border-right: none !important;
+}
+.border-top {
+  border-top: 1px solid #e9ecef !important;
+}
+}
+/**
+ * Favourite card
+ */
+.favourite-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(66, 90, 139, 0.07);
+  min-height: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  .favourite-card-image {
+    position: relative;
+    img {
+      border-radius: 16px;
+      object-fit: cover;
+      width: 120px;
+      height: 120px;
+      background: #f5f7fb;
+    }
+    .favourite-card-icons {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      span {
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 1px 4px rgba(66, 90, 139, 0.07);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  .currency {
+    font-size: 1.5rem;
+    color: #425A8B;
+    margin-right: 0.25rem;
+  }
+}
+
+/**
+ * Favourite card vertical
+ */
+.favourite-card-vertical {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(66, 90, 139, 0.07);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid #e3eaf6;
+  .favourite-card-image {
+    position: relative;
+    width: 100%;
+    img {
+      border-radius: 16px;
+      object-fit: cover;
+      width: 100%;
+      height: 140px;
+      background: #f5f7fb;
+    }
+    .favourite-card-icons {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      span {
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 1px 4px rgba(66, 90, 139, 0.07);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  .currency {
+    font-size: 1.5rem;
+    color: #425A8B;
+    margin-right: 0.25rem;
+  }
+  .favourite-card-details {
+    border-top: 2px dashed #e3eaf6 !important;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    .svg {
+      vertical-align: middle;
+    }
+    span {
+      font-size: 1rem;
+      color: #202020;
+    }
+  }
+}
+/* Delete Profile  */
+
+.delete-account-container {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  h3 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  button {
+    min-width: 220px;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}

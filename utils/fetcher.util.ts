@@ -14,19 +14,21 @@ export const fetcher = async ({
 }) => {
   const session: any = await auth();
   const lang = await getLocale();
-  console.log(process.env.NEXT_PUBLIC_BASE_URL);
-  return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/${url}` as string, {
 
+  const headers = {
+    ...(options?.headers || {}),
+    Authorization: "Bearer " + session?.user?.api_token,
+    "Accept-Language": lang,
+  };
+
+  if (session?.user?.api_token) {
+    headers["Authorization"] = `Bearer ${session.user.api_token}`;
+  }
+
+  return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/${url}`, {
     method,
     ...options,
-    headers: {
-      ...options?.headers,
-      Authorization: "Bearer " + session?.user?.token,
-      "Accept-Language": lang,
-    },
-  // ✅ تفعيل revalidate لو مطلوب
-     ...(revalidate > 0 && {
-      next: { revalidate },
-    }),
+    headers,
+    ...(revalidate > 0 && { next: { revalidate } }),
   });
 };

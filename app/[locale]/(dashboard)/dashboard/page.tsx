@@ -2,7 +2,8 @@ import React from 'react';
 import TrackingCardComponent from './components/TrackingCard-component';
 import SvgBook from '@/components/icons/svg/book';
 import { PersonCoursesCardComponent } from './components/PersonCoursesCard-component';
-
+import DashboardSearchComponents from './components/DashboardSearch-components';
+import "./dashboard.scss"
 const cards = [
   {
     value: 35,
@@ -29,11 +30,11 @@ const cards = [
 
 const DashboardPage = () => {
   return (
-    <div className="container-fluid mx-auto p-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+    <div className="p-5 mx-auto container-fluid">
+      <div className="mb-4 d-flex justify-content-between align-items-center">
         <h4 className="fw-bold color-gray-900">لوحة المتابعة</h4>
       </div>
-      <div className="row g-4 justify-content-center mb-4">
+      <div className="mb-4 row g-4 justify-content-center">
         {cards.map((card, idx) => (
           <div className="col-12 col-md-6 col-lg-4" key={idx}>
             <TrackingCardComponent
@@ -46,10 +47,49 @@ const DashboardPage = () => {
           </div>
         ))}
       </div>
-      <div className="d-flex justify-content-between align-items-center mb-4">
+      <div className="mb-4 d-flex justify-content-between align-items-center">
         <h4 className="fw-bold color-gray-900"> دوراتي الحضورية </h4>
       </div>
-      <PersonCoursesCardComponent />
+
+      <div className='row'>
+        <div className='col-lg-3'>
+        <ul className="mb-4 nav nav-tabs nav-tabs-product dashboard-tabs" role="tablist">
+        <li>
+        <a className="active w-50" href="#tab-description" data-bs-toggle="tab" role="tab" aria-controls="tab-description"
+            aria-selected="true">
+            وصف الدورة
+        </a>
+        </li>
+        <li>
+        <a className='w-50' href="#tab-objectives" data-bs-toggle="tab" role="tab" aria-controls="tab-objectives" aria-selected="false">
+            أهداف الأداء النهائية
+        </a>
+        </li>
+    
+    </ul>
+        </div>
+      </div>
+    
+    <div className="tab-content">
+        <div className="tab-pane fade active show" id="tab-description" role="tabpanel" aria-labelledby="tab-description">
+    
+        <div className='mb-4 row'>
+            <div className='col-lg-3'>
+                <DashboardSearchComponents />
+            </div>
+        </div>
+          <PersonCoursesCardComponent />
+        </div>
+        
+    
+        <div className="tab-pane fade" id="tab-objectives" role="tabpanel" aria-labelledby="tab-objectives">
+        <div className="font-md color-gray-500" >     أهداف الأداء النهائية</div>
+    
+        </div>
+        </div>
+    
+
+    
     </div>
   );
 };

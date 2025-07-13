@@ -105,9 +105,9 @@
       "contact": "Contact Us",
       "Select-language": "Select language"
     },
-    "home":{
-      "requested-courses":"Most Requested Courses",
-      "Our-products":"Our products",
+    "home": {
+      "requested-courses": "Categories",
+      "Our-products": "Our products",
       "Recommended-Products": "Recommended Products",
       "Training": "Training",
       "Initiatives": "Initiatives",
@@ -126,8 +126,8 @@
       "All-categories": "All categories",
       "More": "More",
       "Courses": "Courses"
-  },
-    "contactus":{
+    },
+    "contactus": {
       "title": "Contact Us",
       "description": "Get in touch with us and let us know how we can help you.",
       "firstName": "First Name",
@@ -138,13 +138,16 @@
       "send": "Send Message",
       "sending": "Sending..."
     },
-    "footer":{
+    "footer": {
       "communication": "Communication",
       "training": "Training",
       "facebook": "Facebook",
       "instagram": "Instagram",
       "twitter": "Twitter",
       "linkedin": "LinkedIn"
+    },
+    "nafath": {
+      "success": "User created and logged in successfully"
     }
   }
 }

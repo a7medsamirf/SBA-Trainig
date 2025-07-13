@@ -162,15 +162,14 @@
       "contact": "تواصل معنا",
       "Select-language": "اختر اللغة"
     },
-    "home":{
-      "requested-courses":"الدورات الأكثر طلبًا",
-      "Our-products":"منتجاتنا",
+    "home": {
+      "requested-courses": "التصنيفات",
+      "Our-products": "منتجاتنا",
       "Recommended-Products": "منتجات قد تهمك ",
       "Training": "التدريب",
       "Initiatives": " المبادرات",
       "Latest-news": "أحدث الأخبار والفعاليات"
     },
-
     "NewsletterSection": {
       "subscribe": "اشترك",
       "title": "اشترك في النشرة الإخبارية لدينا",
@@ -184,8 +183,8 @@
       "All-categories": "جميع الفئات",
       "More": "المزيد",
       "Courses": "دورات"
-  },
-    "contactus":{
+    },
+    "contactus": {
       "title": "تواصل معنا",
       "description": "نتطلع لاستقبال رسالتك!",
       "firstName": "الاسم الأول",
@@ -196,13 +195,16 @@
       "send": "إرسال رسالة",
       "sending": "جاري الإرسال..."
     },
-    "footer":{
+    "footer": {
       "communication": "التواصل",
       "training": "التدريب",
       "facebook": "فيسبوك",
       "instagram": "انستغرام",
       "twitter": "تويتر",
       "linkedin": "لينكدإن"
+    },
+    "nafath": {
+      "success": "تم إنشاء المستخدم وتسجيل الدخول بنجاح"
     }
   }
 }

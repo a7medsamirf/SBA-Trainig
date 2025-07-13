@@ -7,7 +7,6 @@ export const getLanguageLevels = async () => {
       url: `language-levels`,
     });
     const data = await res.json();
-    console.log("Courses fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);

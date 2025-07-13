@@ -1,0 +1,26 @@
+
+.invoice-details{
+    background-color: rgba(221, 228, 240, 0.3);
+    border: 1px solid rgba(221, 228, 240, 1);
+    border-radius: 8px;
+    padding: 25px;
+    .text-normal{
+        color: #757575;
+        font-size: 14px;
+      }
+  .text-medium {
+        color: rgba(32, 32, 32, 1);
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .Total {
+        border-top: 2px dashed #e3eaf6 !important;
+        padding: 20px 0px 0px 0px;
+        .text-medium,
+        .text-normal {
+            color: rgba(66, 90, 139, 1);
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+}

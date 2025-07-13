@@ -7,7 +7,6 @@ export const getAgeCategories = async () => {
       url: `age_categories`,
     });
     const data = await res.json();
-    console.log("AgeCategories fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);

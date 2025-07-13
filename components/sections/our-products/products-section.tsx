@@ -10,7 +10,7 @@ interface ProductSectionProps {
     initiativesData: any[];
 }
 
-const ProductSection: React.FC<ProductSectionProps> = ({ courses , initiativesData  }) => {
+export const ProductSection: React.FC<ProductSectionProps> = ({ courses , initiativesData  }) => {
     const t = useTranslations("trans.home");
 
   return (
@@ -52,5 +52,5 @@ const ProductSection: React.FC<ProductSectionProps> = ({ courses , initiativesDa
 }
 
 
-export default ProductSection;
+
 

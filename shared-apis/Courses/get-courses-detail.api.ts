@@ -5,9 +5,7 @@ export const getCourseById = async (id: string | number) => {
       const res = await fetcher({
         url: `courses/${id}`,
       });
-      console.log(`Course ${id} fetched successfully:`, res);
       const data = await res.json();
-      console.log(`Course ${id} fetched successfully:`, data);
       return data;
     } catch (error) {
       console.error(`Error fetching course ${id}:`, error);

@@ -153,7 +153,7 @@ export const InputOtp = memo(
           return (
             <div className={className}>
               <div
-                className={cn("flex items-center justify-between gap-3")}
+                className={cn("flex gap-3 justify-between items-center")}
                 dir="ltr"
               >
                 {[...Array(digitsLength)].map((_, index) => (
@@ -172,12 +172,12 @@ export const InputOtp = memo(
                     onKeyDown={(e) => handleKeyDown(index, e)}
                     onPaste={handlePaste}
                     // disabled={index > 0 && !otp[index - 1]}
-                    className={cn("input-otp", error && "input-otp__error")}
+                    className={cn("input-otp otp-input", error && "input-otp__error")}
                   />
                 ))}
               </div>
 
-              {error?.message ? <ErrorMessage message={error.message} /> : null}
+              {error?.message ? <p className="py-1 mt-3 alert alert-danger small">{error.message}</p> : null}
             </div>
           );
         }}

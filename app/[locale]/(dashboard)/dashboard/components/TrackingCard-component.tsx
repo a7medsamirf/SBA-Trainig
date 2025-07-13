@@ -28,3 +28,4 @@ const TrackingCardComponent: React.FC<TrackingCardProps> = ({ icon, value, label
 }
 
 export default TrackingCardComponent
+

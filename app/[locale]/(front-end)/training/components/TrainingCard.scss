@@ -129,6 +129,10 @@
   .btn.btn-wishlist:hover {
     background: #ffffff url(/images/template/icons/wishlist-hover.svg) no-repeat center;
   }
+ 
+  .btn.btn-wishlist.btn-wishlist-active {
+    background: #ffffff url(/images/template/icons/wishlist-hover.svg) no-repeat center;
+  }
 
   .btn.btn-compare {
     border: 1px solid #D5DFE4;
@@ -294,11 +298,8 @@
   font-weight: 500;
 }
 
-
 .courseTitle {
-  display: flex;
   align-items: baseline;
-  height: 30px;
 }
 
 .collapse.show

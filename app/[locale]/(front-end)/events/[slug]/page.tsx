@@ -4,7 +4,7 @@ import { Link } from "@/i18n/routing";
 import { Metadata } from 'next';
 import { getEventsById } from "@/shared-apis/Events/get-events-detail.api";
 import { EventsDetailData } from "@/models/events-detail.model";
-import NewsletterSection from "@/components/sections/newsletter/newsletter-section";
+import {NewsletterSection } from "@/components/sections/newsletter/newsletter-section";
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
 import { SearchParamProps } from "@/models/search-params.model";
 

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { AboutAcademyData, GoalsAcademyData } from "@/models";
-
+import { safeHtmlParser } from "@/utils/safe-html-parser.util"; 
 interface AboutAcademyComponentProps {
   aboutAcademy: AboutAcademyData;
   goalsAcademy: GoalsAcademyData;}
@@ -18,8 +18,10 @@ interface AboutAcademyComponentProps {
           <div className="col-lg-6">
           <div
               className="font-sm font-medium color-gray-700 mb-15 text-justify"
-              dangerouslySetInnerHTML={{ __html: aboutAcademy.description }}
-            />
+              dangerouslySetInnerHTML={{
+                __html: safeHtmlParser(aboutAcademy.description),
+              }}
+             />
             {goalsAcademy && (
                     <>
                       <h4 className="mt-30 text-color-primary">{goalsAcademy.title}</h4>

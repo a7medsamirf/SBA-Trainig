@@ -7,7 +7,6 @@ export const getCommunication = async () => {
       url: `settings`,
     });
     const data = res.json();
-    console.log("Communication fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);

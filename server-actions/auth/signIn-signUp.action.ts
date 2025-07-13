@@ -59,8 +59,24 @@ export const addUserNotificationToken = async (
   }
 };
 
-// actions/auth.ts for logout user from session
 export async function signOutUser() {
+  try {
+    await logOutUser();
+
+    await signOut({ redirect: false });
+    return {
+      succeeded: true,
+    };
+  } catch (error: any) {
+    return {
+      succeeded: false,
+      error: error?.response?.data,
+    };
+  }
+}
+
+// actions/auth.ts for logout user from session
+/* export async function signOutUser() {
   try {
     (await cookies()).delete("kycValues");
     // (await cookies()).delete("callbackRedirect");
@@ -72,10 +88,10 @@ export async function signOutUser() {
     throw error;
   }
 }
-
+ */
 export const logOutUser = async () => {
   try {
-    const res = await axiosBase.post("/Account/LogOut?platform=WEB");
+    const res = await axiosBase.post("/logout");
 
     const data = await res.data;
 
@@ -88,21 +104,28 @@ export const logOutUser = async () => {
 
 interface LoginApi {
   password: string;
-  phoneNumber: string;
+  email: string;
 }
 // for login user to api call in signInUser function with next-auth
-export async function loginApi({ phoneNumber, password }: LoginApi) {
+export async function loginApi({ email, password }: LoginApi) {
   try {
-    const res = await axiosBase.post("/Account/login", {
-      phoneNumber,
+    const res = await axiosBase.post("/login", {
+      email,
       password,
-      otpVia: 1,
     });
 
-    return await res.data;
+    const data = (await res.data) as any;
+
+    return {
+      succeeded: true,
+      ...data,
+    };
   } catch (error: any) {
     console.error("🚀 ~ loginApi ~ error:", error);
-    return error?.response?.data;
+    return {
+      succeeded: false,
+      error: error?.response?.data,
+    };
   }
 }
 
@@ -112,54 +135,63 @@ export async function registerApi(
   formData: any
 ) {
   try {
-    const res = await axiosBase.post("/Account/register", formData);
-    const data = await res.data;
-
-    return data;
-  } catch (error: any) {
-    return error?.response?.data;
-  }
-}
-
-export async function verifyOTP(
-  prevState: string | undefined,
-  formData: {
-    userId: string;
-    otp: string;
-    remember: boolean;
-  }
-) {
-  const t = await getTranslations("trans");
-
-  const credentials = {
-    userId: formData.userId,
-    otp: formData.otp,
-    remember: formData.remember,
-  };
-
-  try {
-    await signIn("credentials", {
-      ...credentials,
-      redirect: false,
-    });
-
-    revalidatePath(REVALIDATE_PATHS.BASE);
-    revalidatePath(REVALIDATE_PATHS.BASE, "layout");
+    const res = await axiosBase.post("/register-student", formData);
+    const data = (await res.data) as any;
 
     return {
       succeeded: true,
-      meta: null,
+      ...data,
+    };
+  } catch (error: any) {
+    return {
+      succeeded: false,
+      error: error?.response?.data,
+    };
+  }
+}
+
+// for verify otp
+export async function verifyOTP(prevState: string | undefined, formData: any) {
+  try {
+    const res = await axiosBase.post("/verify-otp", formData);
+    const data = (await res.data) as any;
+
+    return {
+      succeeded: true,
+      ...data,
+    };
+  } catch (error: any) {
+    return {
+      succeeded: false,
+      error: error?.response?.data,
+    };
+  }
+}
+
+export async function login(prevState: string | undefined, formData: any) {
+  const t = await getTranslations("trans");
+
+  try {
+    await signIn("credentials", {
+      ...formData,
+      isNafathLogin: false,
+      redirect: false,
+    });
+
+    return {
+      succeeded: true,
       message: t("verifyOtp.success"),
     };
   } catch (error: any) {
     console.error("🚀 ~ error:", error);
     if (error.type === "CredentialsSignin") {
       return {
-        message: error?.message || t("verifyOtp.invalid"),
-        Message: null,
+        succeeded: false,
+        error: error?.message || t("verifyOtp.invalid"),
       };
     } else if (error.type === "CallbackRouteError") {
       return {
+        succeeded: false,
         error: t("verifyOtp.somethingWentWrong"),
       };
     }

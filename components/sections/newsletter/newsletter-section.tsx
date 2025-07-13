@@ -1,7 +1,7 @@
 import "./newsletter.scss";
 import { useTranslations } from "next-intl";
 
-const NewsletterSection = () => {
+export const NewsletterSection = () => {
     const t = useTranslations("trans.NewsletterSection");
   return (
     <>
@@ -33,6 +33,5 @@ const NewsletterSection = () => {
   );
 }
 
-export default NewsletterSection
 
 

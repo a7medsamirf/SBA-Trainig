@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ManagerWordData  } from "@/models";
-
+import { safeHtmlParser } from "@/utils/safe-html-parser.util"; 
 interface ManagerWordComponentProps {
   managerword: ManagerWordData;
 }
@@ -27,8 +27,10 @@ export const ManagerWordComponent: React.FC<ManagerWordComponentProps> = ({ mana
             <h2 className="mt-15"> {managerword.title} </h2>
             <div
               className="font-sm font-medium color-gray-700 mb-15 mt-15 text-justify"
-              dangerouslySetInnerHTML={{ __html: managerword.description }}
-            />
+              dangerouslySetInnerHTML={{
+                __html: safeHtmlParser(managerword.description),
+              }}
+             />
         
             <h5>الرئيس التنفيذي لهيئة الإذاعة والتلفزيون</h5>
             <h5>محمد بن فهد الحارثي</h5>

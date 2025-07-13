@@ -1,27 +1,15 @@
-import React from 'react'
+import { SearchParamProps } from "@/models/search-params.model";
+import FavouriteClientPage from "./components/FavouriteClientPage";
+import { getFavoriteData } from "@/shared-apis";
 
-const FavouritePage = () => {
-  return (
-    <>
-            <div className="profile-content">
-                <div className="profile-content-inner">
-                    <div className="profile-content-item">
-                        <div className="profile-content-item-body">
-                              <div className="card">
-                                  <div className="card-body">
-                                    <div className="profile-content-item-header">
-                                          <h4 className="fw-bold color-gray-900">  المفضلة  </h4>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+const FavouritePage = async ({ searchParams }: SearchParamProps) => {
+  const resolvedSearchParams = await searchParams;
+  const search = (resolvedSearchParams?.search || "") as string;
 
+  const favourites = await getFavoriteData({ keyword: search });
 
-    </>
-  )
-}
+  console.log("🚀 ~ FavouritePage ~ favourites:", favourites)
+  return <FavouriteClientPage favourites={favourites} />;
+};
 
-export default FavouritePage
+export default FavouritePage;

@@ -76,7 +76,7 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
         
           <div
               className="font-md color-gray-500"
-              dangerouslySetInnerHTML={{ __html: data?.data?.detail?.details || "" }}
+              dangerouslySetInnerHTML={{ __html: data?.data?.detail?.details || "لا يوجد تفاصيل" }}
             >
               
             </div>
@@ -90,7 +90,7 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
         >
           <div
               className="font-md color-gray-500"
-              dangerouslySetInnerHTML={{ __html: data?.data?.detail?.goal || "" }}
+              dangerouslySetInnerHTML={{ __html: data?.data?.detail?.goal || "لا يوجد اهداف" }}
             >
 
             </div>

@@ -8,8 +8,26 @@ export const useActiveLink = (path: string) => {
   );
 };
 
-export const isActiveLink = (pathname: string, path: string[]) => {
+export const isActiveLink = (pathname: string, routes: string[]) => {
+  const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+ 
+  return routes.some((route) => {
+    const normalizedRoute = route.replace(/\/+$/, "") || "/";
+ 
+    if (normalizedRoute === "/") {
+      return normalizedPath === "/";
+    }
+ 
+    return (
+      normalizedPath === normalizedRoute ||
+      normalizedPath.startsWith(normalizedRoute + "/")
+    );
+  });
+};
+
+/* export const isActiveLink = (pathname: string, path: string[]) => {
   return path.some(
-    (p) => pathname.startsWith(p) || (p.includes(pathname) )
+    (p) => pathname.startsWith(p) || (p.includes(pathname) && pathname !== "/")
   );
 };
+ */

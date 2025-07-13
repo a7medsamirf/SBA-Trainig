@@ -7,7 +7,6 @@ export const getMission = async () => {
       revalidate: 300, // كل 5 دقايق
     });
     const data = res.json();
-    console.log("Mission fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);

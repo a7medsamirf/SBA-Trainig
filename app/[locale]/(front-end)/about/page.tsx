@@ -1,8 +1,7 @@
 import "./about.scss";
-import NewsletterSection from "@/components/sections/newsletter/newsletter-section";
+import {NewsletterSection , PartnersSection } from "@/components/sections";
 import { ManagerWordComponent , OurValuesComponent , AboutAcademyComponent , VisionComponent , OurAchievementsComponent} from "./components";
 
-import PartnersSection from "@/components/sections/Partners/partners-section";
 import { getHomeData } from "@/shared-apis/Home/get-home.api";
 import { getAboutAcademy } from "@/shared-apis/AboutAcademy/get-aboutacademy.api";
 import { getGoalsAcademy } from "@/shared-apis/AboutAcademy/get-goalsacademy.api";

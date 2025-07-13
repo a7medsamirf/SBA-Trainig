@@ -1,0 +1,84 @@
+.notifications-dropdown {
+    &:hover{
+      .dropdown-link{
+        svg {
+          fill: rgba(66, 90, 139, 1);
+       }
+      }
+  }
+      .notification-item-container {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        min-width: 375px !important;
+        width: 375px !important;
+
+        .notification-item {
+          padding: 1rem 0;
+          border-bottom: 1px solid #eee;
+          &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+          }
+          .notification-link {
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            &:hover {
+              transition: all .2s;
+              background: #f8f8f8;
+              color: #fff;
+          }
+            .notification-icon {
+              background-color: rgba(118, 164, 65, 0.1);
+              border-radius: 0.5rem;
+              padding: 0.75rem;
+              display: flex;    
+              align-items: center;  
+              justify-content: center;
+              align-self: flex-start;
+        
+            }
+            .notification-content {
+              .notification-title {
+                font-weight: bold;
+                margin-bottom: 0.25rem;
+              }
+  
+              .notification-time {
+                font-size: 0.8rem;
+                color: #777;
+                margin-bottom: 0.5rem;
+              }
+  
+          
+            }
+            .notification-description {
+              font-size: 0.9rem;
+              color: #555;
+              width: 100%;
+              white-space: normal; 
+              word-wrap: break-word; 
+            
+            }
+          }
+          .show-more-link {
+            display: block;
+            text-align: center !important;
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(118, 164, 65, 1) !important;
+            text-decoration: underline !important;
+            font-weight: bold;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+              background: #f8f8f8;
+              color: #fff;
+            }
+          }
+        }
+  
+      }
+  
+  } 

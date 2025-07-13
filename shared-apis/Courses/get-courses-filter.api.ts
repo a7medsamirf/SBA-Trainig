@@ -7,7 +7,6 @@ export const getCoursesFilter = async () => {
       url: `courses`,
     });
     const data = await res.json();
-    console.log("Courses fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./register.scss"
-import NewsletterSection from '@/components/sections/newsletter/newsletter-section'
+import {NewsletterSection} from '@/components/sections/newsletter/newsletter-section'
 import UpsCard from '@/components/sections/ups/components/upsCard-component'
 import FormComponent from './components/form-component'
 const RegisterPage = () => {

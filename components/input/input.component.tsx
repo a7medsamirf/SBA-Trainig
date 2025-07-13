@@ -104,47 +104,37 @@ export const Input: React.FC<Props> = ({
 
   const onTogglePassword = () => {
     const toggleValue = !showPassword;
-
-    if (toggleValue) {
-      setInputType("text");
-    } else {
-      setInputType("password");
-    }
-
+    setInputType(toggleValue ? "text" : "password");
     setShowPassword(toggleValue);
   };
 
   const _renderSuffix = (field: ControllerRenderProps) => {
-    let content;
+    if (customSuffix) return <span className="input__custom-suffix">{customSuffix}</span>;
 
-    if (type === "password" && hasIcon && !customSuffix) {
-      content = (
+    if (type === "password" && hasIcon) {
+      return (
         <IconButton onClick={onTogglePassword} className="input__toggle-button">
-          {showPassword ? (
-            <span className="text-gray-500">👁</span>
-          ) : (
-            <span className="text-gray-500">👁</span>
-          )}
+          {showPassword ? <span className="text-gray-500">👁</span> : <span className="text-gray-500">👁</span>}
         </IconButton>
       );
     }
 
-    if (type === "tel" && hasIcon && !customSuffix) {
-      content = (
+/*     if (type === "tel" && hasIcon) {
+      return (
         <div className="input__dial-code">
           <span className="text-gray-500">🇸🇦</span>
           <div>966+</div>
         </div>
       );
-    }
+    } */
 
-    if (type === "number" && hasIcon && !customSuffix) {
-      content = (
+    if (type === "number" && hasIcon) {
+      return (
         <div className="flex flex-col">
           <button
             type="button"
             className={disabled ? "cursor-not-allowed" : "cursor-pointer"}
-            onClick={async () => {
+            onClick={() => {
               if (!disabled) {
                 const newValue = (+field.value || 0) + 1;
                 field.onChange(String(newValue));
@@ -158,7 +148,7 @@ export const Input: React.FC<Props> = ({
           <button
             type="button"
             className={disabled ? "cursor-not-allowed" : "cursor-pointer"}
-            onClick={async () => {
+            onClick={() => {
               if (!disabled) {
                 const newValue = (+field.value || 0) - 1;
                 field.onChange(String(newValue));
@@ -173,11 +163,7 @@ export const Input: React.FC<Props> = ({
       );
     }
 
-    if (customSuffix) {
-      content = <span className="input__custom-suffix">{customSuffix}</span>;
-    }
-
-    return content ? <>{content}</> : null;
+    return null;
   };
 
   return (
@@ -191,116 +177,75 @@ export const Input: React.FC<Props> = ({
           ...(required
             ? {
                 required: (value: string | number) => {
-                  if (typeof value === "string") {
-                    if (value?.trim() !== "") {
-                      return true;
-                    }
-                  } else if (value) {
-                    return true;
-                  }
-
+                  if (typeof value === "string" && value.trim() !== "") return true;
+                  if (typeof value === "number" && value) return true;
                   return requiredMessage || t("common.validation.required");
                 },
               }
             : {}),
-
           ...(equalTo
             ? {
                 equalTo: (value: string | number, formValues: any) => {
-                  const otherValue = formValues[equalTo];
-                  return value === otherValue
+                  return value === formValues[equalTo]
                     ? true
                     : equalErrormessage || t("common.validation.match");
                 },
               }
             : {}),
-
           ...rules?.validate,
         },
       }}
       render={({ field, fieldState: { error } }) => (
         <>
-          <div className={cn("input__wrapper", className)}>
-            {label ? (
-              <label htmlFor={name} className="input__label">
-                <span>{label}</span>
-                {info && <span className="text-blue-500">ℹ</span>}
+          <div className={cn("form-floating", "relative w-full", className)}>
+            <input
+              type={inputType}
+              disabled={disabled}
+              id={name}
+              dir={dir}
+              readOnly={readOnly}
+              placeholder={placeholder || label}
+              hidden={hidden}
+              style={{
+                backgroundColor: readOnly ? getColor("color-gray-light") : "",
+              }}
+              className={cn(
+                "form-control",
+                fontBold && "input--bold",
+                required && "input--required",
+                locale === "en" && "input--ltr",
+                type === "checkbox" && "input__checkbox-type",
+                isSecondary && "input-secondary",
+                disabled && "input--disabled",
+                inputClassName,
+                error ? "is-invalid" : "!text-[#1b1b1b]"
+              )}
+              {...field}
+              onChange={(e) => {
+                const { value } = e.target;
+                inputSvc(
+                  name,
+                  value,
+                  (newValue) => {
+                    e.target.value = newValue;
+                    field?.onChange(e);
+                    callbackOnChange?.(newValue);
+                  },
+                  callback,
+                  activeService
+                );
+              }}
+              onKeyDown={(e) => inputType === "number" && e.key === "e" && e.preventDefault()}
+              {...props}
+            />
+            {label && (
+              <label htmlFor={name}>
+                {label} {info && <span className="text-blue-500">ℹ</span>}
               </label>
-            ) : null}
-
-            {inputType === "textarea" ? (
-              <div className="relative w-full">
-                <textarea
-                  id={name}
-                  placeholder={placeholder}
-                  className={cn(
-                    "textarea",
-                    isSecondary && "textarea--secondary",
-                    error && "textarea--error",
-                    textAreaClassName
-                  )}
-                  {...field}
-                  onChange={(e) => {
-                    field.onChange(e);
-                    callback?.(name, e.target.value);
-                    callbackOnChange?.(e.target.value);
-                  }}
-                />
-              </div>
-            ) : (
-              <div className="relative w-full">
-                <input
-                  type={inputType}
-                  disabled={disabled}
-                  id={name}
-                  dir={dir}
-                  readOnly={readOnly}
-                  placeholder={placeholder}
-                  style={{
-                    backgroundColor: readOnly
-                      ? getColor("color-gray-light")
-                      : "",
-                  }}
-                  className={cn(
-                    "input",
-                    fontBold && "input--bold",
-                    required && "input--required",
-                    locale === "en" && "input--ltr",
-                    type === "checkbox" && "input__checkbox-type",
-                    isSecondary && "input-secondary",
-                    disabled && "input--disabled",
-                    inputClassName,
-                    error ? "input--error" : "!text-[#1b1b1b]"
-                  )}
-                  {...field}
-                  onChange={(e) => {
-                    const { value } = e.target;
-                    inputSvc(
-                      name,
-                      value,
-                      (newValue) => {
-                        e.target.value = newValue;
-                        field?.onChange(e);
-                        callbackOnChange?.(newValue);
-                      },
-                      callback,
-                      activeService
-                    );
-                  }}
-                  onKeyDown={(e) =>
-                    inputType === "number" &&
-                    e.key === "e" &&
-                    e.preventDefault()
-                  }
-                  hidden={hidden}
-                  {...props}
-                />
-                <div className="input__icon">{_renderSuffix(field)}</div>
-              </div>
             )}
-
-            {error?.message ? <ErrorMessage message={error.message} /> : null}
+            <div className="input__icon">{_renderSuffix(field)}</div>
           </div>
+          {error?.message && <ErrorMessage message={error.message} />}
         </>
       )}
     />

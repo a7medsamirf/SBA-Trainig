@@ -1,7 +1,7 @@
 import { DialogProvider } from "@/context";
 import { Dialogs } from "../index";
 
-export const DialogLayoutProvider = async ({
+export const DialogLayoutProvider = ({
   children,
   ...props
 }: {

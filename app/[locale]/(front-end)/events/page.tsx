@@ -2,7 +2,7 @@
 import "./events.scss";
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
 import EventsCardSection from "./components/eventsCard-component";
-import NewsletterSection from "@/components/sections/newsletter/newsletter-section";
+import {NewsletterSection} from "@/components/sections/newsletter/newsletter-section";
 
 import { getEvents } from "@/shared-apis/Events/get-events.api";
 

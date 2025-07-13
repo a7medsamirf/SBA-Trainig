@@ -7,11 +7,13 @@ import {
   memo,
   useCallback,
   useState,
+  useEffect,
 } from "react";
 import { cn, createQueryString } from "@/utils";
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import { useSearchParams } from "next/navigation";
+import SvgSearchNormal2 from "@/components/icons/profile/search-normal-2";
 
 interface Props {
   defaultValue?: string;
@@ -29,8 +31,10 @@ export const SearchInput: React.FC<Props> = memo(
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
+    const initValue = searchParams.get("search") || "";
+
     // Local state for controlled input
-    const [searchValue, setSearchValue] = useState(defaultValue);
+    const [searchValue, setSearchValue] = useState(defaultValue || initValue);
 
     const updateSearch = (value: string) => {
       const prevQueries = Object.fromEntries(searchParams.entries());
@@ -68,7 +72,9 @@ export const SearchInput: React.FC<Props> = memo(
           className="search-input__icon"
           onClick={() => updateSearch(searchValue)} // Update search on label click
         >
-          <span className="text-gray-500">🔍</span>
+          <span className="text-gray-500">
+            <SvgSearchNormal2 width={20} height={20} />
+          </span>
         </label>
         <input
           className="search-input"
@@ -78,7 +84,7 @@ export const SearchInput: React.FC<Props> = memo(
           onChange={handleSearch}
           onInput={handleSearch}
           onKeyPress={onKeyPress}
-          defaultValue={defaultValue}
+          value={searchValue}
         />
       </form>
     );

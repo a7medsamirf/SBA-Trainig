@@ -31,7 +31,7 @@ import { usePathname, useRouter } from "@/i18n/routing";
 import { useSearchParams } from "next/navigation";
 
 const loadOptions = async (inputValue: string) => {
-  console.log("🚀 ~ loadOptions ~ inputValue:", inputValue);
+
   const response = new Promise((resolve) => {
     setTimeout(() => {
       resolve([
@@ -96,7 +96,6 @@ const Page = () => {
   );
 
   const onDateChange2 = (date: any) => {
-    console.log("🚀 ~ onDateChange2 ~ date:", date);
     setSelectedDate2(date);
   };
 
@@ -256,7 +255,6 @@ const Page = () => {
           placeholder="Search"
           onChange={() => {}}
           onKeyPress={() => {
-            console.log("key pressed");
           }}
         />
       </div>
@@ -278,7 +276,6 @@ const Page = () => {
 
       <form
         onSubmit={form.handleSubmit((data) => {
-          console.log("🚀 ~ <formonSubmit={form.handleSubmit ~ data:", data);
         })}
       >
         <CheckboxGroup

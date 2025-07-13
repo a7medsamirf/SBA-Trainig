@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import TrainingSidebarComponent from "./TrainingSidebar-component";
 import TrainingCard from "./TrainingCard";
 import UpsCard from '@/components/sections/ups/components/upsCard-component';
-import NewsletterSection from '@/components/sections/newsletter/newsletter-section';
+import {NewsletterSection} from '@/components/sections/newsletter/newsletter-section';
 import { CategoryFilterItem, Course } from '@/models';
 
 interface TrainingPageClientProps {

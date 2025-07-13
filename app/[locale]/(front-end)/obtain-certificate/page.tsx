@@ -1,6 +1,6 @@
 import "./obtain-certificate.scss";
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
-import NewsletterSection from "@/components/sections/newsletter/newsletter-section";
+import {NewsletterSection} from "@/components/sections/newsletter/newsletter-section";
 
 const ObtainCertificate = () => {
   return (

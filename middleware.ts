@@ -1,19 +1,14 @@
 import createMiddleware from "next-intl/middleware";
 import { locales } from "./i18n";
 import { NextResponse } from "next/server";
-import { publicRoutes } from "./constant";
+import { publicRoutes, hybridRoutes, authRequiredRoutes } from "./constant";
 import { cookies } from "next/headers";
-import { hybridRoutes } from "./constant";
 import { isActiveLink } from "./hooks/isActive-link.hook";
+import { getCurrentUser } from "./shared-apis/auth/get-current-user.api";
 
 const intlMiddleware = createMiddleware({
-  // A list of all locales that are supported
   locales: locales,
-
-  // Used when no locale matches
   defaultLocale: "ar",
-
-  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
   localePrefix: "always",
 });
 
@@ -22,19 +17,27 @@ export const middleware = async (req: any) => {
   const cookiesStore = await cookies();
   const lang = cookiesStore.get("NEXT_LOCALE")?.value || "ar";
 
-  const user = false;
-
+  const user = await getCurrentUser();
   const isAuth = !!user;
-  
-/*   const isPublicRoute = publicRoutes.includes(pathname); */
-  const isPublicRoute = isActiveLink(pathname , publicRoutes);
-  const isHybridRoute = hybridRoutes.includes(pathname);
 
+  const isPublicRoute = isActiveLink(pathname, publicRoutes);
+  const isHybridRoute = isActiveLink(pathname, hybridRoutes);
+  const isAuthRequiredRoute = isActiveLink(pathname, authRequiredRoutes);
+
+  // ✅ الحالة 3: المستخدم مش مسجل ورايح على صفحة بتحتاج auth مخصص
+  if (!isAuth && isAuthRequiredRoute) {
+    const url = req.nextUrl.clone();
+    url.pathname = `/${lang}/login`;
+    url.searchParams.set("callbackUrl", pathname); // علشان يرجع بعد التسجيل
+    return NextResponse.redirect(url);
+  }
+
+  // ✅ الحالة 1: صفحات Hybrid (مفتوحة للجميع)
   if (isHybridRoute) {
     return intlMiddleware(req);
   }
 
-  // CASE 2: Regular auth handling for other users
+  // ✅ الحالة 2: المستخدم مسجل دخول وبيحاول يدخل صفحة عامة (زي login/register)
   if (isAuth && isPublicRoute) {
     const url = req.nextUrl.clone();
     url.pathname = `/${lang}`;
@@ -42,9 +45,8 @@ export const middleware = async (req: any) => {
     return NextResponse.redirect(url);
   }
 
-  // CASE 3: If not authenticated and not a public route
+  // ✅ الحالة 4: المستخدم مش مسجل ورايح على صفحة خاصة مش عامة
   if (!isAuth && !isPublicRoute) {
-    // Redirect to login regardless of remember cookie
     const url = req.nextUrl.clone();
     url.pathname = `/${lang}/login`;
     url.search = "";
@@ -55,7 +57,5 @@ export const middleware = async (req: any) => {
 };
 
 export const config = {
-  // Skip all paths that should not be internationalized
-/*   matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"], */
-  matcher: ['/', '/(ar|en)/:path*']
+  matcher: ["/", "/(ar|en)/:path*"],
 };

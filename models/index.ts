@@ -3,6 +3,7 @@ export * from "./search-params.model";
 export * from "./dialog.model";
 export * from './settings.model'
 export * from './home.model'
+export * from './notifications.model'
 
 export * from './AboutAcademy/about-academy.model'
 export * from './AboutAcademy/goals-academy.model'
@@ -23,3 +24,11 @@ export * from './Register/education-degrees.model'
 export * from './Register/genders.model'
 export * from './Register/age-categories.model'
 export * from './Register/nationalities.model'
+
+export * from './Cart/cart-detail.model'
+
+export * from './profile/profile.model'
+export * from './profile/invoices.model'
+export * from './profile/show-invoices.model'
+
+

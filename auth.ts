@@ -1,6 +1,6 @@
 import NextAuth, { CredentialsSignin } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { validateOTP } from "./server-actions";
+import { checkNafathStatus, loginApi, validateOTP } from "./server-actions";
 
 const locale = "ar";
 
@@ -25,18 +25,34 @@ export const {
     CredentialsProvider({
       name: "credentials",
       async authorize(credentials) {
-        const userId: any = credentials.userId;
-        const otp: any = credentials.otp;
+        const email: any = credentials?.email;
+        const password: any = credentials.password;
         const remember: any = credentials.remember === "true";
 
-        const user = await validateOTP({ otp, userId });
+        const isNafathLogin = credentials?.isNafathLogin === "true";
 
-        const maxAge = remember ? 7 * 24 * 60 * 60 : 1 * 60 * 60; // 7 days or 1 hour
+        const nafathId = credentials?.nafath_id as string;
+        const transId = credentials?.trans_id as string;
+        const randomId = credentials?.random as number;
+
+        let user = null;
+
+        if (isNafathLogin) {
+          user = await checkNafathStatus({
+            nafath_id: nafathId,
+            trans_id: transId,
+            random: randomId,
+          });
+        } else {
+          user = await loginApi({ email, password });
+        }
+
+        const maxAge = remember ? 7 * 24 * 60 * 60 : 24 * 60 * 60; // 7 days or 1 day
 
         if (user?.succeeded) {
           return { ...user?.data, maxAge, remember };
         } else {
-          throw new AuthError(user?.message || "حدث خطأ ما");
+          throw new AuthError(user?.error || "حدث خطأ ما");
         }
 
         return null;
@@ -45,8 +61,9 @@ export const {
   ],
   secret: process.env.SECRET,
   session: {
-    strategy: "jwt",
-    maxAge: 60 * 60 * 24 * 7, // Default maxAge, 7 days
+    strategy: "jwt", // أو "database" لو بتستخدم DB للجلسات
+    maxAge: 60 * 60 * 24 * 7, // الجلسة تظل صالحة لمدة 7 أيام
+    updateAge: 60 * 60 * 24, // يتم تجديد الجلسة كل 24 ساعة
   },
   callbacks: {
     async jwt({ token, user }) {

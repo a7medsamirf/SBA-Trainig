@@ -27,30 +27,32 @@ export const InitiativesCardComponent: React.FC<InitiativesCardComponentProps> =
        {initiatives && initiatives.length > 0 && initiatives.map((initiative: Initiative) => {
           const slug = slugify(initiative.title);
           return (
-        <SwiperSlide key={initiative.id} className="p-md-0 p-3">
-          <div className="card initiative-card border-0 card-grid-style-1">
-          <div className="image-box">
-       
-                    <Image
-                        src={initiative.image ? initiative.image : "/images/empty-img.png"}
-                        alt={initiative.title}
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: '100%', height: 'auto' }}
-                        className="w-100 card-img-top"
+            <SwiperSlide key={initiative.id} className="p-md-0 p-3">
+              <div className="card initiative-card border-0 card-grid-style-1">
+                <div className="image-box">
+                  <Image
+                    src={
+                      initiative.image
+                        ? initiative.image
+                        : "/images/empty-img.png"
+                    }
+                    alt={initiative.title}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: "100%", height: "250px" }}
+                    className="w-100 card-img-top"
                   />
-       
-              </div>   
-        
-            <div className="card-body mb-50 courseTitle px-0">
-            
-                <h6 className="card-title color-gray-1100 two-row">{initiative.title}</h6>
-            
-            </div>
-          </div>
-        </SwiperSlide>
-        );
+                </div>
+
+                <div className="card-body courseTitle text-center px-0">
+                  <h6 className="card-title color-gray-1100 two-row">
+                    {initiative.title}
+                  </h6>
+                </div>
+              </div>
+            </SwiperSlide>
+          );
       })}
     </ReusableSwiper>
   )

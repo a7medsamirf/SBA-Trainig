@@ -8,7 +8,7 @@ import { Link } from '@/i18n/routing';
 interface CategoriesSectionProps {
   categories: HomeCategory[];
 }
-const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories }) => {
+export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories }) => {
   const t = useTranslations("trans.home");
 
   return (
@@ -20,7 +20,7 @@ const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories }) => 
         </div>
         <div className="mt-10">
         <div className="row">
-          {categories.map((category) => (
+          {categories && categories.length > 0 && categories?.map((category) => (
             <div className="col-xl-2 col-lg-4 col-sm-6 mb-4" key={category.id}>
               <div className="card-course text-center p-3">
                 <div className="card-icon image mb-3">
@@ -54,5 +54,3 @@ const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories }) => 
     </>
   )
 }
-
-export default CategoriesSection

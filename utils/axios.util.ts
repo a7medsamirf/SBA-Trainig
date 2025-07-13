@@ -19,7 +19,7 @@ axiosBase.interceptors.request.use(
       if (session) {
         config.headers = {
           ...config.headers,
-          Authorization: `Bearer ${session?.user?.token}`,
+          Authorization: `Bearer ${session?.user?.api_token}`,
         };
       }
     }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { SVGProps } from "react";
 import { memo } from "react";
-const SvgSvgexport15 = (props: SVGProps<SVGSVGElement>) => (
+const Svgexport15 = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -21,5 +21,5 @@ const SvgSvgexport15 = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
-const Memo = memo(SvgSvgexport15);
+const Memo = memo(Svgexport15);
 export default Memo;

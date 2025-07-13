@@ -316,7 +316,8 @@ html[dir="rtl"] {
   width: 100%;
 }
 
-.header .main-menu li ul li a {
+.header .main-menu li ul li a,
+.header .main-menu li ul li button {
   font-size: 14px;
   color: #425a8b;
   position: relative;
@@ -891,6 +892,7 @@ html[dir="rtl"] {
 /* ------------  Notifications ------------ */
  
 .notifications-dropdown {
+  position: relative;
   &:hover{
     .dropdown-link{
       svg {
@@ -899,14 +901,20 @@ html[dir="rtl"] {
     }
 }
     .notification-item-container {
+      position: relative;
       list-style-type: none;
       padding: 0;
       margin: 0;
       min-width: 375px !important;
       width: 375px !important;
+      max-height: 400px;
+      overflow-y: auto;
       .notification-item {
         padding: 1rem 0;
         border-bottom: 1px solid #eee;
+          &.show-more{
+            padding:  0;
+          }
         &:last-child {
           border-bottom: 0;
           padding-bottom: 0;
@@ -956,7 +964,7 @@ html[dir="rtl"] {
         .show-more-link {
           display: block;
           text-align: center !important;
-          padding-top: 1rem;
+          padding: 1rem;
           text-align: center;
           color: rgba(118, 164, 65, 1) !important;
           text-decoration: underline !important;
@@ -1118,7 +1126,15 @@ html[dir="rtl"] {
       }
     }
   }
-
+.profile-dropdown{
+  &:hover{
+    .dropdown-link{
+      svg {
+        fill: rgba(66, 90, 139, 1);
+     }
+    }
+}
+}
   .profile-links {
     list-style: none;
     padding: 0;
@@ -1126,7 +1142,16 @@ html[dir="rtl"] {
     span.list-item {
       padding: 7px 0;
       border-bottom: 1px solid rgba(234, 234, 234, 1);
+      &.active {
+        background-color: #DDE4F0;
+        font-weight: bold;
+        color: #0070f3;
+        span{
+          color: #425A8B;
+        }
+    }
       &:hover{
+        background: rgba(221, 228, 240, 1);
         svg {
           fill: rgba(66, 90, 139, 1);
         }
@@ -1155,20 +1180,5 @@ html[dir="rtl"] {
     }
   }
 
-  .logout-section {
-    margin-top: 1rem;
-    a {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      color: #dc3545 !important;
-      text-decoration: none;
-      font-weight: bold;
-      svg {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
 
 }  

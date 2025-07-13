@@ -14,7 +14,6 @@ export const withCallbacks = <Args extends any[], T extends any, R = unknown>(
 
     const reference = callbacks?.onStart?.();
     const result = await promise;
-
     console.log("🚀 ~ return ~ result:", result);
 
     if (!!reference) {

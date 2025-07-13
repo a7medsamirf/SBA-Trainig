@@ -7,3 +7,5 @@ export interface EducationDegreesResponse {
   data: EducationDegree[];
   status: number;
 }
+
+

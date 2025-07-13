@@ -2,7 +2,7 @@
 import UpsCard from './components/upsCard-component';
 import "./ups.scss";
 
-const UpsSection = () => {
+export const UpsSection = () => {
   return (
     <>
       <section className="section-box bg-gray-50 mb-50">
@@ -23,5 +23,3 @@ const UpsSection = () => {
     </>
   );
 }
-
-export default UpsSection

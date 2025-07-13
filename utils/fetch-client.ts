@@ -1,20 +1,24 @@
 export const fetcherClient = async ({
   url,
-  options,
-  method = "Get",
+  method = "GET",
   token = "",
 }: {
   url: string;
-  options?: any;
   method?: string;
   token?: string;
 }) => {
-  return await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/${url}` as string, {
+/*   console.log("🌐 Requesting:", `${process.env.NEXT_PUBLIC_BASE_URL}/${url}`);
+  console.log("🔐 Token:", token); */
+
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/${url}`, {
     method,
-    ...options,
     headers: {
-      ...options?.headers,
-      Authorization: "Bearer " + token,
+      "Content-Type": "application/json",
+      "Accept-Language": "ar",
+      ...(token && { Authorization: `Bearer ${token}` }),
     },
   });
+
+/*   console.log("✅ Fetch finished. Status:", response.status); */
+  return response;
 };

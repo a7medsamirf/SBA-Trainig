@@ -3,14 +3,14 @@ import { SwiperSlide } from "swiper/react";
 import ReusableSwiper from "@/components/common/Reusable-Swiper";
 import ReusableTrainingCard from "@/components/common/Reusable-TrainingCard";
 import { Course  } from "@/models";
-/* import { useParams } from 'next/navigation'; */
-import { slugify } from "@/utils/slugify"; // 👈 استدعاء الدالة
+import { slugify } from "@/utils/slugify"; 
 
 interface ProductsCardComponentProps {
   courses: Course[];
 }
 
 const generateSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
+
 const ProductsCardComponent: React.FC<ProductsCardComponentProps> = ({ courses }) => {
 /*   const { locale } = useParams(); */
   return (
@@ -22,7 +22,7 @@ const ProductsCardComponent: React.FC<ProductsCardComponentProps> = ({ courses }
               1024: { slidesPerView: 3 },
               1920: { slidesPerView: 5 },
             }}
-            autoplayDelay={2500}
+            autoplayDelay={5000}
             >
        {courses && courses.length > 0 && courses.map((course: Course) => {
         const slug = slugify(course.name);
@@ -38,6 +38,7 @@ const ProductsCardComponent: React.FC<ProductsCardComponentProps> = ({ courses }
               duration={course.duration}
               startDate={course.start_date}
               trainer={course.instructor_name} 
+              isFavorited={course.is_favorited}
 
             />
           </SwiperSlide>

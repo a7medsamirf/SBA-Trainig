@@ -28,6 +28,12 @@ const nextConfig = {
         hostname: "192.168.50.52",
         port: "8081",
       },
+      {
+        protocol: "https", // أو "http" حسب السيرفر
+        hostname: "base.test",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

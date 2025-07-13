@@ -34,8 +34,8 @@ const EventsCardSection: React.FC<EventsCardSectionProps> = ({ events }) => {
               width={0}
               height={0}
               sizes="100vw"
-              style={{ width: '100%', height: 'auto' }}
-              className="w-100 card-img-top"
+              style={{ width: '100%', height: '300px' }}
+              className="w-100 card-img-top object-cover"
             />
             <div className="card-body px-0">
               <span className="tag-dot font-xs">{event.type}<span className="dot bullet me-3"></span></span>

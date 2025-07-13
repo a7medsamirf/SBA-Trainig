@@ -13,6 +13,7 @@ import { useTranslations } from "next-intl";
 import "./select-input.scss";
 import { cn, getColor } from "@/utils";
 import { ErrorMessage, Separator } from "../index";
+import SvgArrowDown2 from "../icons/arrow-down-2";
 
 interface Option {
   [key: string]: any;
@@ -255,9 +256,7 @@ export const SelectInput: React.FC<Props> = ({
                     DropdownIndicator: () => (
                       <span className="rtl:ml-2.5 ltr:mr-2.5">
                         <span className="text-gray-500">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M16.6004 7.45831L11.1671 12.8916C10.5254 13.5333 9.47539 13.5333 8.83372 12.8916L3.40039 7.45831" stroke="#425A8B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <SvgArrowDown2 />
 
                         </span>
                       </span>

@@ -1,44 +1,48 @@
 "use client";
+
 import "../navbar.scss";
-import { Link } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import Image from "next/image";
 import SvgEdit from "@/components/icons/profile/edit";
 import SvgBook from "@/components/icons/profile/book";
-
 import SvgProfile from "@/components/icons/svg/profile";
 import SvgDocumentText from "@/components/icons/profile/document-text";
-import SvgLogincurve from "@/components/icons/profile/logincurve";
-import SvgVector from "@/components/icons/profile/vector";
+import SvgFavorites from "@/components/icons/profile/favorites";
+import LogoutButtonComponent from "@/components/common/LogoutButton-component";
 
 const profileLinks = [
-  {label: "تعديل الملف الشخصي",icon: <SvgEdit />, href: "/profile",},
-  { label: "دوراتي", icon: <SvgBook />, href: "/my-courses" },
+  { label: "الملف الشخصي", icon: <SvgEdit />, href: "/profile" },
+  { label: "مؤهلاتي العلمية", icon: <SvgBook />, href: "/qualifications" },
+  { label: "دوراتي", icon: <SvgBook />, href: "/courses" },
   { label: "الشهادات", icon: <SvgBook />, href: "/certificates" },
   { label: "الفواتير", icon: <SvgDocumentText />, href: "/invoices" },
-  { label: "لوحة التحكم", icon: <SvgBook />, href: "/dashboard" },
-  { label: "المفضلة", icon: <SvgVector />, href: "/favorite" },
+  { label: "لوحة المتابعة", icon: <SvgBook />, href: "/dashboard" },
+  { label: "المفضلة", icon: <SvgFavorites />, href: "/favourite" },
 ];
 
-export const ProfileComponent = () => {
+export const ProfileComponent = ({ userName }: { userName: string }) => {
+  const pathname = usePathname();
+
   return (
-    <li className="has-children item.submenu  profile-dropdown">
-      <Link className="dropdown-link" href="#">
-        <SvgProfile width={20} />
-      </Link>
-      <ul className="sub-menu d-block p-3">
-        <div className="profile-header">
-          <Image
-            src="/images/trainers/trainer01.png"
-            alt="profile"
-            width={40}
-            height={40}
-            className="rounded-circle"
-          />
-          <div className="profile-info">
-            <span className="profile-name mb-1">أهلاً، احمد عبدالله</span>
-            <span className="welcome-text">مرحبا بك</span>
-          </div>
+    <li className="has-children item.submenu profile-dropdown">
+    <Link className="dropdown-link" href="#">
+      <SvgProfile width={20} />
+    </Link>
+    <ul className="sub-menu d-block p-3">
+      <div className="profile-header">
+        <Image
+          src="/images/trainers/trainer01.png"
+          alt="profile"
+          width={40}
+          height={40}
+          className="rounded-circle"
+        />
+        <div className="profile-info">
+          <span className="profile-name mb-1">أهلاً، {userName}</span>
+          <span className="welcome-text">مرحبا بك</span>
         </div>
+      </div>
+
         <div className="current-course-card">
           <p className="card-title mb-3">الدورة الحالية</p>
           <div className="course-details">
@@ -77,27 +81,24 @@ export const ProfileComponent = () => {
             </button>
           </div>
         </div>
-        <div className="profile-links">
-          {profileLinks.map((link) => (
-            <span className="list-item" key={link.label}>
-              <Link href={link.href}>
-                <span className="list-icon">{link.icon}</span>
-                <span>{link.label}</span>
-              </Link>
-            </span>
-          ))}
+
+          <div className="profile-links">
+          {profileLinks.map((link) => {
+            const isActive = pathname === link.href || pathname.endsWith(link.href);
+            return (
+              <span className={`list-item ${isActive ? "active" : ""}`} key={link.label}>
+                <Link href={link.href}>
+                  <span className="list-icon">{link.icon}</span>
+                  <span>{link.label}</span>
+                </Link>
+              </span>
+            );
+          })}
         </div>
-        <div className="logout-section">
-          <Link
-            className="d-flex "
-            href="/logout"
-          >
-            <SvgLogincurve />
-            <span>تسجيل الخروج</span>
-          </Link>
-        </div>
+
+      
+        <LogoutButtonComponent />
       </ul>
     </li>
   );
 };
-

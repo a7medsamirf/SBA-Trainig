@@ -1,5 +1,5 @@
 import "./contact.scss";
-import NewsletterSection from "@/components/sections/newsletter/newsletter-section";
+import {NewsletterSection} from "@/components/sections/newsletter/newsletter-section";
 import MapComponent from "./components/map-component";
 import UpsCard from '@/components/sections/ups/components/upsCard-component'
 import ContactFormComponent from "./components/contactForm-component";

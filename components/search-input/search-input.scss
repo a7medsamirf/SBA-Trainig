@@ -3,7 +3,7 @@
 .search-input {
   width: 100%;
   height: 100%;
-  background-color: $color-white;
+  background-color: #F5F7FB;
   border: none;
   outline: none;
   color: $color-primary;
@@ -20,18 +20,16 @@
     @include media-breakpoint-down(sm) {
       min-width: 100%;
     }
-
-    height: 46px;
-    border: 1px solid $color-gray-100;
-    border-radius: $radius-sm;
-    background-color: $color-white;
-
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #F5F7FB;
     padding: 0 15px;
     position: relative;
     display: flex;
     gap: 10px;
     align-items: center;
-  }
+}
 
   &__icon {
     font-size: rem(12);

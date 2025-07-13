@@ -11,7 +11,7 @@ interface PartnersSectionProps {
   partners: HomePartner[];
 }
 
-const PartnersSection: React.FC<PartnersSectionProps> = ({ partners }) => {
+export const PartnersSection: React.FC<PartnersSectionProps> = ({ partners }) => {
   return (
     <>
       <section className="section-box">
@@ -50,4 +50,3 @@ const PartnersSection: React.FC<PartnersSectionProps> = ({ partners }) => {
   );
 };
 
-export default PartnersSection;

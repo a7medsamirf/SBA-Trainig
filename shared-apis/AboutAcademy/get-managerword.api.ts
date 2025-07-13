@@ -8,7 +8,6 @@ export const getManagerWord = async () => {
       revalidate: 300, // كل 5 دقايق
     });
     const data = res.json();
-    console.log("Manager Word fetched successfully:", data);
     return data;
   } catch (error) {
     console.error("error", error);
