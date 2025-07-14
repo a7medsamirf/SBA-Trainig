@@ -23,7 +23,7 @@ export default async function LocalePage() {
     categories = [],
     courses = [],
     new_events = [],
-  } = response?.data;
+  } = response?.data || {};
 
   return (
     <div>

@@ -18,7 +18,7 @@ export default async function Footer() {
   const Socials = socialsResponse?.data; 
 
   const response = await getHomeData();
-  const { courses = [], } = response.data;
+  const { courses = [], } = response?.data || {};
 
   return (
     <>
@@ -27,7 +27,7 @@ export default async function Footer() {
         <div className="footer-1">
           <div className="container">
             <div className="row">
-              <div className="col-lg-3  mb-30">
+              <div className="col-lg-3 mb-30">
              
                 <CommunicationComponent getCommunication={Communication} />
                <SocialsComponent getSocials={Socials} />
@@ -44,11 +44,11 @@ export default async function Footer() {
 
                   
                   </p>
-                  <div className="mt-20 d-flex gap-2">
+                  <div className="gap-2 mt-20 d-flex">
                   <DownloadApp />
 
                   </div>
-                  <p className="font-md color-gray-900 mt-20 mb-10">
+                  <p className="mt-20 mb-10 font-md color-gray-900">
                     Secured Payment Gateways
                   </p>
             

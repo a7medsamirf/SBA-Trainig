@@ -5,8 +5,13 @@ export const getHomeData = async () => {
     const res = await fetcher({
       url: `home`,
     });
+    
+    if (!res.ok) {
+      console.warn("🚨 ~ getHomeData ~ API response not OK:", res.status, res.statusText);
+      return null;
+    }
+    
     const data = await res.json();
-
     return data;
   } catch (error) {
     console.error("error", error);
