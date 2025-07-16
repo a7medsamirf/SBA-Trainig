@@ -10,7 +10,6 @@ import Image from "next/image";
 import { InputOtp } from "@/components";
 
 export const OtpComponents = () => {
-
   const { control, handleSubmit, setValue, trigger, isPending, onSubmit } =
     useOtp();
   const [timer, setTimer] = useState(60);
@@ -65,6 +64,7 @@ export const OtpComponents = () => {
         <form
           className="gap-2 mb-2 d-flex justify-content-center"
           onSubmit={handleSubmit(onSubmit)}
+          id="otp-form"
         >
           {/* {otp.map((digit, idx) => (
             <input
@@ -114,6 +114,7 @@ export const OtpComponents = () => {
         <button
           className="btn btn-buy btn-custom-primary btn-primary"
           type="submit"
+          form="otp-form"
           disabled={isPending}
           onClick={handleSubmit(onSubmit)}
         >

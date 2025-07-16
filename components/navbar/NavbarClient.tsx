@@ -11,10 +11,11 @@ import {
 } from "./components";
 import { NotificationClientComponent } from "./components/notification/NotificationClientComponent";
 import { CartMenuItem } from "./components/cart-component";
-
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import { usePathname } from "next/navigation"; // ✅ مضاف
+import { usePathname } from "next/navigation"; 
+import {  useLocale} from "next-intl"; 
+import SvgCalendar2 from "@/components/icons/svg/calendar-2";
 
 import "./navbar.scss";
 
@@ -29,7 +30,7 @@ export default function Navbar({
   const [isScrolled, setIsScrolled] = useState(false);
   const { data: session } = useSession();
   const pathname = usePathname();
-
+  const locale = useLocale();
   // Scroll لأعلى الصفحة عند التنقل
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -67,6 +68,12 @@ export default function Navbar({
               <div className="setting flex items-center gap-4 header-right">
                 {session && (
                   <ul className="main-menu profile-menu">
+                      <li className="has-children item.submenu">
+                          <Link href={`${locale === "en" ? "en" : "ar"}/calendar`}>
+                            <SvgCalendar2 width={24} />
+                        </Link>
+                        </li>
+                    
                     <CartMenuItem />
                     <NotificationClientComponent
                       notifications={notifications}

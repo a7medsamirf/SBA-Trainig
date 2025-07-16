@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
-import '../dashboard.scss';
 
-// Sample course data array
 const courseData = [
   {
     id: 1,

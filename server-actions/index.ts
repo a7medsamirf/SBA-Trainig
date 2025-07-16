@@ -10,3 +10,5 @@ export * from "./cart/post-addToCart.action";
 export * from "./cart/post-removeFromCart.action";
 
 export * from "./profile/update-profile.action";
+
+export * from "./newsletter/post-newsletter";

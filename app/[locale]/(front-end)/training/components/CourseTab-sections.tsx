@@ -5,16 +5,16 @@ import { auth } from "@/auth";
 import { getLocale } from "next-intl/server";
 import { getCourseClientById } from "@/shared-apis/Courses/get-client-courses-detail.api";
 
-
 interface CourseTabSectionsProps {
   courseId: string | number;
 }
 
 const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
-
   const session = await auth();
   const lang = await getLocale();
   const data = await getCourseClientById(courseId, session?.user);
+
+  const hasCourseContent = data?.data?.contents?.length > 0;
 
   return (
     <>
@@ -53,17 +53,19 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
             متطلبات الحضور
           </a>
         </li>
-        <li>
-          <a
-            href="#tab-Coursecontent"
-            data-bs-toggle="tab"
-            role="tab"
-            aria-controls="tab-Coursecontent"
-            aria-selected="false"
-          >
-            محتوى الدورة
-          </a>
-        </li>
+        {hasCourseContent && (
+          <li>
+            <a
+              href="#tab-Coursecontent"
+              data-bs-toggle="tab"
+              role="tab"
+              aria-controls="tab-Coursecontent"
+              aria-selected="false"
+            >
+              محتوى الدورة
+            </a>
+          </li>
+        )}
       </ul>
 
       <div className="tab-content">
@@ -73,13 +75,10 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
           role="tabpanel"
           aria-labelledby="tab-description"
         >
-        
           <div
-              className="font-md color-gray-500"
-              dangerouslySetInnerHTML={{ __html: data?.data?.detail?.details || "لا يوجد تفاصيل" }}
-            >
-              
-            </div>
+            className="font-md color-gray-500"
+            dangerouslySetInnerHTML={{ __html: data?.data?.detail?.details || "لا يوجد تفاصيل" }}
+          />
         </div>
 
         <div
@@ -89,11 +88,9 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
           aria-labelledby="tab-objectives"
         >
           <div
-              className="font-md color-gray-500"
-              dangerouslySetInnerHTML={{ __html: data?.data?.detail?.goal || "لا يوجد اهداف" }}
-            >
-
-            </div>
+            className="font-md color-gray-500"
+            dangerouslySetInnerHTML={{ __html: data?.data?.detail?.goal || "لا يوجد أهداف" }}
+          />
         </div>
 
         <div
@@ -103,30 +100,32 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
           aria-labelledby="tab-requirements"
         >
           <div className="course-requirements mb-4">
-          <div
+            <div
               className="font-md color-gray-500"
               dangerouslySetInnerHTML={{ __html: data?.data?.detail?.attendance_requirement || "لا توجد متطلبات" }}
-            ></div>
+            />
           </div>
         </div>
 
-        <div
-          className="tab-pane fade"
-          id="tab-Coursecontent"
-          role="tabpanel"
-          aria-labelledby="tab-Coursecontent"
-        >
-          <div className="course-requirements mb-4">
-            <div className="row">
-              <div className="col-lg-9">
-                <CourseContentComponent sections={data?.data?.contents || []} />
-              </div>
-              <div className="col-lg-3 mt-30">
-                <CourseIncludesComponent courseDetail={data?.data?.detail} />
+        {hasCourseContent && (
+          <div
+            className="tab-pane fade"
+            id="tab-Coursecontent"
+            role="tabpanel"
+            aria-labelledby="tab-Coursecontent"
+          >
+            <div className="course-requirements mb-4">
+              <div className="row">
+                <div className="col-lg-9">
+                  <CourseContentComponent sections={data?.data?.contents || []} />
+                </div>
+                <div className="col-lg-3 mt-30">
+                  <CourseIncludesComponent courseDetail={data?.data?.detail} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

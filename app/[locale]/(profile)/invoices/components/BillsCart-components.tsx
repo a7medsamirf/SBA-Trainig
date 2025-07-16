@@ -5,6 +5,7 @@ import SvgSaudiRiyal from "@/components/icons/svg/saudi-riyal";
 import { getShowInvoices } from "@/shared-apis";
 import InvoiceDetailsComponent from "./InvoiceDetails-components";
 import QRCodeModalComponent from "./QRCode-components";
+import { getInvoiceDetails } from "@/shared-apis";
 
 interface BillsCartProps {
   invoices: InvoiceItem[];
@@ -26,7 +27,7 @@ const BillsCartComponents = ({ invoices }: BillsCartProps) => {
   const handleShowDetails = async (uuid: string) => {
     setShowInvoiceModal(true);
     setLoading(true);
-    const data = await getShowInvoices(uuid);
+    const data = await getInvoiceDetails(uuid);
     if (data) setSelectedInvoice(data);
     setLoading(false);
   };

@@ -1,0 +1,15 @@
+import React from 'react'
+import { SearchInput } from '@/components/search-input/search-input.component';
+
+const CoursesSearchComponents = () => {
+  return (
+    <>
+      <SearchInput placeholder="ابحث عن دورة تدريبية, موضوع, معلم.." />
+    </>
+  )
+}
+
+
+export default CoursesSearchComponents
+
+

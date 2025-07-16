@@ -1,10 +1,8 @@
 import Navbar from "@/components/navbar/NavbarServer";
 import Footer from "@/components/footer/footer-component";
-import { ClientToaster } from "@/components/toaster/toaster-component";
 
 export function AppShell({
   children,
-  locale,
   userName,
   showNavbar = true,
   showFooter = true,
@@ -19,7 +17,6 @@ export function AppShell({
     <>
       {showNavbar && <Navbar userName={userName} />}
       {children}
-      <ClientToaster locale={locale} />
       {showFooter && <Footer />}
     </>
   );

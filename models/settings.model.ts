@@ -17,4 +17,19 @@ export interface SettingsWithMetaResponse {
     courses: number;
     initiatives: number;
   };
-} 
+}
+
+// Type for the provided JSON structure
+export type SettingsApiResponse = {
+  data: Array<{
+    id: number;
+    label: string;
+    value: string | number;
+    key: string;
+  }>;
+  meta: {
+    student: number;
+    courses: number;
+    initiatives: number;
+  };
+}; 

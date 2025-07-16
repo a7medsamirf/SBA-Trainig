@@ -19,14 +19,13 @@ html[dir="rtl"] {
   color: #425a8b;
 }
 
-
-
 .text-success {
   color: #76A441 !important;
 }
 .spinner-border{
   color: #425a8b;
 }
+
 input[type="search" i]::-webkit-search-cancel-button {
   cursor: pointer;
   width: 15px;
@@ -99,7 +98,6 @@ h5 {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 
 .logout-section {
   padding: 17px;
@@ -264,6 +262,13 @@ h5 {
   pointer-events: all;
   cursor: not-allowed;
 }
+.btn-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
 
 .custom-border {
   border: 1px solid #DDE4F0;
@@ -392,3 +397,136 @@ html[dir="rtl"] {
 
 }
 }
+
+/* ------------  dashboard tabs ------------ */
+.dashboard-tabs {
+  border: 0;
+  background: #f5f7fb;
+  border-radius: 8px;
+  padding: 0;
+  li {
+    a,
+    button{
+      padding: 14px 80px;
+      margin: 8px !important;
+      color: #757575 !important;
+    }
+    .active {
+      background: #dde4f0;
+      background-color: #dde4f0 !important;
+      border-radius: 8px;
+      color: #425a8b !important;
+    }
+  }
+
+}
+
+/* ------------  tracking card ------------ */
+.tracking-card-component {
+  border: 1px solid rgba(221, 228, 240, 1);
+  border-radius: 10px;
+  background: #fff;
+  transition: box-shadow 0.2s;
+
+  .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .text-success {
+      color: #76A441 !important;
+    }
+
+    .text-warning {
+      color: #DD8C23 !important;
+    }
+
+    .text-primary {
+      color: #425A8B !important;
+    }
+
+  }
+
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 4px;
+  }
+
+  .fw-bold {
+    font-size: 1.25rem;
+  }
+
+}
+
+/* ------------  tracking card ------------ */
+
+.current-course-card {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(118, 164, 65, 0.5);
+
+  .card-title {}
+
+  .course-details {
+    display: flex;
+    gap: 10px;
+    align-items: start;
+    margin-bottom: 1rem;
+    border-bottom: 2px dashed rgba(234, 234, 234, 1);
+
+    img {
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+    }
+
+    .course-info {
+      .course-category {
+        font-size: 0.8rem;
+        color: #6c757d;
+        margin-bottom: 0.25rem;
+      }
+
+      .course-name {
+        font-weight: bold;
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+
+  .progress {
+    height: 0.5rem;
+    margin-bottom: 0.25rem;
+    background-color: #e9ecef;
+
+    .progress-bar {
+      background-color: #76A441;
+    }
+  }
+
+  .progress-text {
+    font-size: 0.8rem;
+    color: #6c757d;
+  }
+
+  .course-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+

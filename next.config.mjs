@@ -29,9 +29,14 @@ const nextConfig = {
         port: "8081",
       },
       {
-        protocol: "https", // أو "http" حسب السيرفر
+        protocol: "https",
         hostname: "base.test",
         port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https", // ✅ ngrok domain
+        hostname: "0a34e086cb1a.ngrok-free.app",
         pathname: "/**",
       },
     ],

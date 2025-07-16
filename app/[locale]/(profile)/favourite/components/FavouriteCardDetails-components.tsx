@@ -75,7 +75,7 @@ const FavouriteCardDetailsComponents: React.FC<FavouriteCardDetailsProps> = ({
             <span>{duration}</span>
           </div>
           <div className="d-flex align-items-center gap-2 text-secondary small">
-            <SvgCalendar2 width={18} height={18} />
+            <SvgCalendar2 color="#76A441" width={20} height={20} />
             <span>{start_date.split("T")[0]}</span>
           </div>
           <div className="d-flex align-items-center gap-2 text-secondary small">

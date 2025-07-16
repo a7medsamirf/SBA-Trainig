@@ -1,6 +1,6 @@
 import NextAuth, { CredentialsSignin } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { checkNafathStatus, loginApi, validateOTP } from "./server-actions";
+import { checkNafathStatus, loginApi } from "./server-actions";
 
 const locale = "ar";
 

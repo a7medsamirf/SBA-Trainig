@@ -57,7 +57,7 @@ export default function CourseSubscribeClient({
         className="btn btn-buy btn-custom-primary btn-primary"
         onClick={handleSubscribeClick}
       >
-        اشترك الآن
+    طلب الاشتراك في الدورة
       </button>
       <CompleteProfileModal
         show={showProfileModal && !user?.can_join_in_courses}

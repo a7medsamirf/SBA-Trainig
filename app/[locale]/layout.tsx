@@ -10,7 +10,7 @@ import { AppProviders } from "../components/layout/AppProviders";
 import { getMessages } from "@/i18n/getMessages";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-
+import { ClientToaster } from "@/components/toaster/toaster-component";
 
 const mainFont = localFont({
   src: "../../public/fonts/Frutiger LT Arabic 55 Roman.ttf",
@@ -52,11 +52,14 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning={true}>
-      <body className={`${mainFont.className} ${mainFont.variable} ${iconFont.variable}`} >
+      <body
+        className={`${mainFont.className} ${mainFont.variable} ${iconFont.variable}`}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AppProviders>
             {children}
             <BootstrapClient />
+            <ClientToaster locale={locale} />
           </AppProviders>
         </NextIntlClientProvider>
       </body>

@@ -1,5 +1,4 @@
 import React from 'react'
-import '../dashboard.scss';
 
 interface TrackingCardProps {
   icon: React.ReactNode;
