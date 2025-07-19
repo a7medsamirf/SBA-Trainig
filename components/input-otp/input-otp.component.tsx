@@ -157,27 +157,35 @@ export const InputOtp = memo(
                 dir="ltr"
               >
                 {[...Array(digitsLength)].map((_, index) => (
-                  <input
-                    {...field}
-                    key={index}
-                    ref={(el) => {
-                      inputsRef.current[index] = el;
-                    }}
-                    type="text"
-                    inputMode="numeric"
-                    maxLength={1}
-                    value={otp[index]}
-                    onChange={(e) => handleChange(index, e.target.value)}
-                    onClick={() => handleClick(index)}
-                    onKeyDown={(e) => handleKeyDown(index, e)}
-                    onPaste={handlePaste}
-                    // disabled={index > 0 && !otp[index - 1]}
-                    className={cn("input-otp otp-input", error && "input-otp__error")}
-                  />
+                  <div key={index} className="otp-input-wrapper">
+                    <input
+                      {...field}
+                      ref={(el) => {
+                        inputsRef.current[index] = el;
+                      }}
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={1}
+                      value={otp[index]}
+                      onChange={(e) => handleChange(index, e.target.value)}
+                      onClick={() => handleClick(index)}
+                      onKeyDown={(e) => handleKeyDown(index, e)}
+                      onPaste={handlePaste}
+                      // disabled={index > 0 && !otp[index - 1]}
+                      className={cn(
+                        "input-otp otp-input",
+                        error && "input-otp__error"
+                      )}
+                    />
+                  </div>
                 ))}
               </div>
 
-              {error?.message ? <p className="py-1 mt-3 alert alert-danger small">{error.message}</p> : null}
+              {error?.message ? (
+                <p className="py-1 mt-3 alert alert-danger small">
+                  {error.message}
+                </p>
+              ) : null}
             </div>
           );
         }}

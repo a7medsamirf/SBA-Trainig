@@ -18,11 +18,18 @@ export default function UpdateProfile({
   ageCategories,
   user,
 }: ProfileFormProps) {
-  const { control, handleSubmit, isPending, onSubmit } = useUpdateProfile(user);
-
   const [isEdit, setIsEdit] = useState(false);
 
   const handleEdit = () => setIsEdit((prev) => !prev);
+
+  const handleCancel = () => {
+    setIsEdit(false);
+  };
+
+  const { control, handleSubmit, isPending, onSubmit } = useUpdateProfile(
+    user,
+    handleCancel
+  );
 
   return (
     <>
@@ -80,6 +87,7 @@ export default function UpdateProfile({
             genders={genders}
             control={control}
             isEdit={isEdit}
+            user={user}
           />
         </div>
       </div>

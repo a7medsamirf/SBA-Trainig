@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { InvoiceItem, ShowInvoiceResponseData } from "@/models";
 import SvgDocumentTextV2 from "@/components/icons/profile/document-text-v2";
 import SvgSaudiRiyal from "@/components/icons/svg/saudi-riyal";
-import { getShowInvoices } from "@/shared-apis";
 import InvoiceDetailsComponent from "./InvoiceDetails-components";
 import QRCodeModalComponent from "./QRCode-components";
 import { getInvoiceDetails } from "@/shared-apis";

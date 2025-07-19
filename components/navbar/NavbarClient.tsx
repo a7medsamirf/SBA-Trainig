@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+
 import { useToggleMenuScreenSize } from "@/hooks";
 import {
   DesktopMenu,
@@ -69,11 +70,11 @@ export default function Navbar({
                 {session && (
                   <ul className="main-menu profile-menu">
                       <li className="has-children item.submenu">
-                          <Link href={`${locale === "en" ? "en" : "ar"}/calendar`}>
-                            <SvgCalendar2 width={24} />
+                      <Link href="/calendar">
+                            <SvgCalendar2 width={22} />
                         </Link>
                         </li>
-                    
+                      
                     <CartMenuItem />
                     <NotificationClientComponent
                       notifications={notifications}

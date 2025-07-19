@@ -1,44 +1,69 @@
-"use client";
-import { Tab, Tabs } from "react-bootstrap";
-import TrackingCardComponent from './components/TrackingCard-component';
-import SvgBook from '@/components/icons/svg/book';
-import { PersonCoursesCardComponent } from './components/PersonCoursesCard-component';
-import DashboardSearchComponents from './components/DashboardSearch-components';
-const cards = [
-  {
-    value: 35,
-    label: 'عدد الدورات',
-    colorClass: 'text-success',
-    bgClass: 'bg-success bg-opacity-10',
-    iconColor: '#76A441',
-  },
-  {
-    value: 35,
-    label: 'عدد الدورات',
-    colorClass: 'text-warning',
-    bgClass: 'bg-warning bg-opacity-10',
-    iconColor: '#DD8C23',
-  },
-  {
-    value: 35,
-    label: 'عدد الدورات',
-    colorClass: 'text-primary',
-    bgClass: 'bg-primary bg-opacity-10',
-    iconColor: '#425A8B',
-  },
-];
+// app/(dashboard)/dashboard/page.tsx
+import { getStatistics, getCourseEnrollments } from "@/shared-apis";
+import TrackingCardComponent from "./components/TrackingCard-component";
+import SvgStatisticsbook from "@/components/icons/profile/statisticsbook";
+import DashboardClientPage from "./components/DashboardClientPage";
+import { SearchParamProps } from "@/models";
 
-const DashboardPage = () => {
+const DashboardPage = async ({ searchParams }: SearchParamProps) => {
+  const stats = await getStatistics();
+  const search =
+  typeof searchParams === "object" && searchParams !== null && "search" in searchParams
+    ? (searchParams.search as string) || ""
+    : "";
+
+      const [upcomingRes, ongoingRes, completedRes] = await Promise.all([
+        getCourseEnrollments({ status: 1, keyword: search }),
+        getCourseEnrollments({ status: 2, keyword: search }),
+        getCourseEnrollments({ status: 3, keyword: search }),
+      ]);
+
+      const upcoming = Array.isArray(upcomingRes?.data) ? upcomingRes.data : [];
+      const ongoing = Array.isArray(ongoingRes?.data) ? ongoingRes.data : [];
+      const completed = Array.isArray(completedRes?.data) ? completedRes.data : [];
+
+  const cards = [
+    {
+      value: stats?.total_enrollments || 0,
+      label: "عدد الدورات",
+      colorClass: "text-success",
+      bgClass: "bg-success bg-opacity-10",
+      iconColor: "#76A441",
+    },
+    {
+      value: stats?.current_enrollments || 0,
+      label: "الدورات الحالية",
+      colorClass: "text-warning",
+      bgClass: "bg-warning bg-opacity-10",
+      iconColor: "#DD8C23",
+    },
+    {
+      value: stats?.completed_enrollments || 0,
+      label: "الدورات المكتملة",
+      colorClass: "text-primary",
+      bgClass: "bg-primary bg-opacity-10",
+      iconColor: "#425A8B",
+    },
+    // {
+    //   value: stats?.upcoming_enrollments || 0,
+    //   label: "الدورات القادمة",
+    //   colorClass: "text-info",
+    //   bgClass: "bg-info bg-opacity-10",
+    //   iconColor: "#17A2B8",
+    // },
+  ];
+
   return (
     <div className="p-5 mx-auto container-fluid">
       <div className="mb-4 d-flex justify-content-between align-items-center">
         <h4 className="fw-bold color-gray-900">لوحة المتابعة</h4>
       </div>
+
       <div className="mb-4 row g-4 justify-content-center">
         {cards.map((card, idx) => (
           <div className="col-12 col-md-6 col-lg-4" key={idx}>
             <TrackingCardComponent
-              icon={<SvgBook color={card.iconColor} />}
+              icon={<SvgStatisticsbook color={card.iconColor} />}
               value={card.value}
               label={card.label}
               colorClass={card.colorClass}
@@ -47,39 +72,9 @@ const DashboardPage = () => {
           </div>
         ))}
       </div>
-      <div className="mb-4 d-flex justify-content-between align-items-center">
-        <h4 className="fw-bold color-gray-900"> دوراتي الحضورية </h4>
-      </div>
 
-      <Tabs
-          defaultActiveKey="current"
-          id="courses-tabs"
-          className="mb-4 nav nav-tabs nav-tabs-product d-inline-flex dashboard-tabs justify-content-center"
-          variant="tabs"
-        >
-          <Tab
-            eventKey="current"
-            title="الحالية"
-            tabClassName="text-dark fw-bold" 
-          >
-            <div className="mb-4 row">
-              <div className="col-lg-3">
-              <DashboardSearchComponents />
-              </div>
-            </div>
-            <PersonCoursesCardComponent />
-          </Tab>
+      <DashboardClientPage  upcoming={upcoming}  ongoing={ongoing}  completed={completed} />
 
-          <Tab
-            eventKey="completed"
-            title="المكتملة"
-            tabClassName="text-dark fw-bold"
-          >
-            <div className="font-md color-gray-500">أهداف الأداء النهائية</div>
-          </Tab>
-        </Tabs>
-
-    
     </div>
   );
 };

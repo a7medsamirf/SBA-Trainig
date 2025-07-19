@@ -1,4 +1,5 @@
 export { default as Ar } from "./ar";
+export { default as ArrowLeft } from "./arrow-left";
 export { default as Arrowright } from "./arrowright";
 export { default as ArrowBack } from "./arrow-back";
 export { default as ArrowForward } from "./arrow-forward";

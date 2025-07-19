@@ -1,33 +1,31 @@
 "use server";
 
 import axiosBase from "@/utils/axios.util";
-import { getTranslations } from "next-intl/server";
 
 // send forget password phone
 export const forgotPassword = async (
   prevState: string | undefined,
   formData: any
 ) => {
-  const t = await getTranslations("trans");
-
-  const phone = formData.phone;
+  const { identifier } = formData;
 
   try {
-    const res = await axiosBase.post("/Account/SendResetPasswordCode", {
-      identity: phone,
+    const res = await axiosBase.post("/forget-password", {
+      identifier: identifier,
     });
 
     const data = res?.data as any;
 
     return {
       succeeded: true,
-      phone,
+      identifier,
       ...data,
-      otp: data?.data?.token,
-      message: t("verifyOtp.resend.success"),
     };
   } catch (error: any) {
-    return error.response.data;
+    return {
+      succeeded: false,
+      error: error.response.data,
+    };
   }
 };
 //confirm code for forget password
@@ -35,16 +33,20 @@ export const confirmCode = async (
   prevState: string | undefined,
   formData: any
 ) => {
-  const code = formData.otp;
-
   try {
+    const res = await axiosBase.post("/verify-otp", formData);
+
+    const data = res?.data as any;
+
     return {
       succeeded: true,
-      meta: null,
-      code,
+      ...data,
     };
   } catch (error: any) {
-    return error.response.data;
+    return {
+      succeeded: false,
+      error: error.response.data,
+    };
   }
 };
 //set new password
@@ -52,20 +54,19 @@ export const newPassword = async (
   prevState: string | undefined,
   formData: any
 ) => {
-  const t = await getTranslations("trans");
-
   try {
-    const res = await axiosBase.post("/Account/reset-password", formData);
+    const res = await axiosBase.post("/forget-change-password", formData);
 
     const data = res?.data as any;
 
     return {
       succeeded: true,
-      meta: null,
       ...data,
-      message: t("forget-password.success"),
     };
   } catch (error: any) {
-    return error.response.data;
+    return {
+      succeeded: false,
+      error: error.response.data,
+    };
   }
 };

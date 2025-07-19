@@ -7,12 +7,18 @@ import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth.context";
 
 export const useRegister = () => {
-  const { control, handleSubmit, register, watch } = useForm();
+  const { setData, data } = useAuth();
+
+  const { control, handleSubmit, register, watch } = useForm({
+    defaultValues: {
+      ...data,
+    },
+  });
 
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [showPasswordConfirmation, setshowPasswordConfirmation] = useState(false);
-  const { setData ,} = useAuth();
+  const [showPasswordConfirmation, setshowPasswordConfirmation] =
+    useState(false);
 
   const [agreeTerms, agreePrivacy] = watch(["agreeTerms", "agreePrivacy"]);
 
@@ -50,7 +56,6 @@ export const useRegister = () => {
     agreeTerms,
     agreePrivacy,
     showPasswordConfirmation,
-    setshowPasswordConfirmation
-
+    setshowPasswordConfirmation,
   };
 };

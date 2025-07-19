@@ -47,5 +47,13 @@ export const useOtp = () => {
     });
   };
 
-  return { control, handleSubmit, setValue, trigger, onSubmit, isPending };
+  return {
+    control,
+    handleSubmit,
+    setValue,
+    trigger,
+    onSubmit,
+    isPending,
+    userData,
+  };
 };

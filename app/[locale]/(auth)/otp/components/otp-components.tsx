@@ -8,11 +8,30 @@ import { useOtp } from "../hooks/use-otp.hook";
 
 import Image from "next/image";
 import { InputOtp } from "@/components";
+import { useResendOtp } from "@/hooks/common/resend-otp.hook";
 
 export const OtpComponents = () => {
-  const { control, handleSubmit, setValue, trigger, isPending, onSubmit } =
-    useOtp();
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    trigger,
+    isPending,
+    onSubmit,
+    userData,
+  } = useOtp();
   const [timer, setTimer] = useState(60);
+
+  const resetTimer = () => {
+    setTimer(60);
+  };
+
+  const { resendOtpHandler, isPending: isPendingResendOtp } =
+    useResendOtp(resetTimer);
+
+  const handleResendOtp = () => {
+    resendOtpHandler(userData?.email);
+  };
 
   const searchParams = useSearchParams();
 
@@ -49,8 +68,8 @@ export const OtpComponents = () => {
           />
         </div>
         <p className="mb-4 text-muted small">
-          أدخل رمز التأكيد OTP المكون من 4 أرقام الذي تم إرساله إلى
-          <strong className="fw-bold"> {phone || "رقم غير معروف"}</strong>
+          أدخل رمز التأكيد OTP المكون من 4 ارقام الذى تم أرساله إلى البريد
+          الإلكتروني <strong className="fw-bold"> {userData?.email}</strong>
         </p>
         <div className="mb-4">
           <Link
@@ -66,21 +85,6 @@ export const OtpComponents = () => {
           onSubmit={handleSubmit(onSubmit)}
           id="otp-form"
         >
-          {/* {otp.map((digit, idx) => (
-            <input
-              key={idx}
-              id={`otp-input-${idx}`}
-              type="text"
-              className="text-center form-control otp-input"
-              maxLength={1}
-              value={digit}
-              onChange={e => handleChange(e, idx)}
-              style={{ width: 48, height: 48, fontSize: 24 }}
-              dir="ltr"
-              inputMode="numeric"
-              autoComplete="one-time-code"
-            />
-          ))} */}
           <InputOtp
             digitsLength={4}
             control={control}
@@ -92,22 +96,29 @@ export const OtpComponents = () => {
           />
         </form>
 
-        <div className="mb-3 text-success small">
-          {timer > 0 ? (
+        <div className="mb-3 text-center text-gray small">
+          {timer > 0 && !isPendingResendOtp ? (
             <>
-              يمكنك إعادة إرسال الكود خلال <span>{formatTime(timer)}</span>
+              يمكنك إعادة إرسال الكود خلال{" "}
+              <span className="text-success">{formatTime(timer)}</span>
             </>
           ) : (
-            <Link
-              href=""
+            <button
+              type="button"
               className="fw-bold text-success"
-              onClick={(e) => {
-                e.preventDefault();
-                setTimer(60);
-              }}
+              onClick={handleResendOtp}
+              disabled={isPendingResendOtp}
             >
-              إعادة إرسال
-            </Link>
+              {isPendingResendOtp && (
+                <span
+                  className="ms-2 spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              )}
+
+              {isPending ? "جارٍ الإرسال..." : "إعادة إرسال"}
+            </button>
           )}
         </div>
 

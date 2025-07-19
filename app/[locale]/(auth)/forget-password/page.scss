@@ -1,0 +1,15 @@
+.forget-password-bg {
+  min-height: 100vh;
+  background: #f6ffe9 url("/images/OTP.svg") no-repeat right top;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .forgot-password-container {
+    max-width: 660px;
+    width: 100%;
+    max-height: 575px;
+    height: 100%;
+  }
+}

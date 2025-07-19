@@ -4,7 +4,7 @@ import { useActionState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-export const useUpdateProfile = (user: any) => {
+export const useUpdateProfile = (user: any, handleCancel: () => void) => {
   const { control, handleSubmit, register } = useForm({
     defaultValues: {
       name: user?.name || "",
@@ -20,11 +20,11 @@ export const useUpdateProfile = (user: any) => {
 
   const updateProfileSubmit = withCallbacks(updateProfileApi, {
     onSuccess: (res: any) => {
-      console.log("🚀 ~ useUpdateProfile ~ res:", res);
-      toast.success("تم تسجيل الدخول بنجاح");
+      toast.success("تم تحديث البيانات بنجاح");
+      handleCancel();
     },
     onError: (error) => {
-      toast.error(error.error?.message || "حدث خطأ أثناء تسجيل الدخول");
+      toast.error(error.error?.message || "حدث خطأ أثناء تحديث البيانات");
     },
   });
 

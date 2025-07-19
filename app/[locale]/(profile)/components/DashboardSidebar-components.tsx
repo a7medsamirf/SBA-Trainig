@@ -7,6 +7,7 @@ import SvgDocumentText from "@/components/icons/profile/document-text";
 import SvgFavorites from "@/components/icons/profile/favorites";
 import SvgEdit from "@/components/icons/profile/edit";
 import SvgBook from "@/components/icons/profile/book";
+import SvgDirect from "@/components/icons/profile/direct";
 import LogoutButtonComponent from "@/components/common/LogoutButton-component";
 
 const profileLinks = [
@@ -14,6 +15,7 @@ const profileLinks = [
   { label: "مؤهلاتي العلمية", icon: <SvgBook />, href: "/qualifications" },
   { label: "دوراتي", icon: <SvgBook />, href: "/courses" },
   { label: "الشهادات", icon: <SvgBook />, href: "/certificates" },
+  { label: "طلباتي", icon: <SvgDirect />, href: "/course-request" },
   { label: "الفواتير", icon: <SvgDocumentText />, href: "/invoices" },
   { label: "المفضلة", icon: <SvgFavorites />, href: "/favourite" },
 ];

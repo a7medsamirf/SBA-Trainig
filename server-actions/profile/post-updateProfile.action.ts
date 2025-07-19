@@ -1,6 +1,7 @@
 "use server";
 
 import axiosBase from "@/utils/axios.util";
+import { revalidatePath } from "next/cache";
 
 export const updateProfileApi = async (
   prevState: string | undefined,
@@ -10,6 +11,8 @@ export const updateProfileApi = async (
     const res = await axiosBase.post("/profile", formData);
 
     const data = (await res.data) as any;
+
+    revalidatePath("/profile");
 
     return {
       succeeded: true,

@@ -27,10 +27,14 @@ export * from "./Profile/get-profile.api";
 export * from "./Profile/get-invoices.api";
 export * from "./Profile/get-show-invoices.api";
 export * from "./Profile/getInvoiceDetails";
+export * from "./Profile/get-course-requests-api";
+
+
 export * from "./favorite/get-favorite.api";
-
 export * from "./dashboard/get-statistics.api";
-
+export * from "./dashboard/get-course-enrollments-api";
+export * from "./PrivacyPolicy/get-privacypolicy.api";
+export * from "./Terms/get-terms.api";
 
 
 

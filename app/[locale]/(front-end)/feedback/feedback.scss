@@ -1,0 +1,63 @@
+.rating-form-container {
+  .card {
+    border-radius: 1rem;
+    border: 1px solid #e9ecef;
+    background: #fff;
+  }
+  .form-check {
+    .form-check-input {
+      margin-right: 0.5rem;
+      margin-left: 0;
+      float: right;
+    }
+    .form-check-label {
+      margin-right: 2rem;
+      font-weight: 500;
+      color: #23376d;
+    }
+  }
+  textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+    font-size: 14px;
+    color: #757575;
+  }
+} 
+
+.card-input-element + .card {
+  padding: 10px;
+  margin: 10px;
+  justify-content: center;
+  color: var(--primary);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card-input-element + .card:hover {
+  cursor: pointer;
+}
+
+
+.card-radio-btn {
+  cursor: pointer;
+  width: 20%;
+  .card {
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  .rating-option-text {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  input.card-input-element:checked + .card {
+    border: 1px solid #6B93D0;
+    background-color: #DDE4F0;
+  }
+}

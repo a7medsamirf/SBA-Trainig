@@ -7,7 +7,7 @@ const SvgCalendar2 = (props: SVGProps<SVGSVGElement>) => (
     width="2em"
     height="2em"
     fill="none"
-    viewBox="0 0 19 19"
+    viewBox="0 0 15 18"
     {...props}
   >
     <path

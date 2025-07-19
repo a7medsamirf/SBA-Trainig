@@ -3,9 +3,10 @@
 import { Control, UseFormHandleSubmit } from "react-hook-form";
 import Image from "next/image";
 import { Input } from "@/components/input/input.component";
-import Form from "react-bootstrap/Form";
 import { Gender, Nationality, AgeCategory } from "@/models";
 import { SelectInput } from "@/components";
+import ChangePasswordModal from "./ChangePassword-modal";
+import { useState } from "react";
 
 interface ProfileFormProps {
   nationalities: Nationality[];
@@ -16,6 +17,7 @@ interface ProfileFormProps {
   onSubmit: (data: any) => Promise<void>;
   isPending: boolean;
   isEdit: boolean;
+  user: any;
 }
 
 const ProfileFormComponent = ({
@@ -27,7 +29,14 @@ const ProfileFormComponent = ({
   onSubmit,
   isPending,
   isEdit,
+  user,
 }: ProfileFormProps) => {
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
+
+  const handleShowChangePasswordModal = () => setShowChangePasswordModal(true);
+
+  const handleHideChangePasswordModal = () => setShowChangePasswordModal(false);
+
   if (isPending) {
     return (
       <div className="py-4 text-center">
@@ -40,7 +49,7 @@ const ProfileFormComponent = ({
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)} id="update-profile">
+    <form onSubmit={handleSubmit(onSubmit)} id="update-profile">
       <div className="mb-4 text-center">
         <Image
           src="/images/trainers/trainer01.png"
@@ -193,8 +202,24 @@ const ProfileFormComponent = ({
             <label htmlFor="age_category_id">الفئة العمرية</label>
           </div>
         </div>
+
+        <div className="col-12 col-md-6">
+          <button
+            className="btn btn-outline-primary"
+            type="button"
+            onClick={handleShowChangePasswordModal}
+          >
+            تغيير كلمة المرور
+          </button>
+        </div>
       </div>
-    </Form>
+
+      <ChangePasswordModal
+        show={showChangePasswordModal}
+        onHide={handleHideChangePasswordModal}
+        user={user}
+      />
+    </form>
   );
 };
 

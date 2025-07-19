@@ -15,6 +15,10 @@ export const fetcher = async ({
   const session: any = await auth();
   const lang = await getLocale();
 
+  // ✅ أطبع التوكن هنا علشان تشوفه في اللوج
+/*   console.log("🔐 Token being sent:", session?.user?.api_token);
+  console.log("🌐 Requesting URL:", `${process.env.NEXT_PUBLIC_BASE_URL}/${url}`); */
+
   const headers = {
     ...(options?.headers || {}),
     Authorization: "Bearer " + session?.user?.api_token,

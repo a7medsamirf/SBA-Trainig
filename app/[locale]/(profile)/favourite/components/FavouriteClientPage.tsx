@@ -5,11 +5,7 @@ import { FavouriteCardComponents } from "./FavouriteCard-components";
 import FavouriteCardDetailsComponents from "./FavouriteCardDetails-components";
 import FavouriteSearchComponents from "./FavouriteSearch-components";
 
-export default function FavouriteClientPage({
-  favourites,
-}: {
-  favourites: any[];
-}) {
+export default function FavouriteClientPage({favourites,}: {favourites: any[];}) {
   /*   const {
     favourites,
     loading,

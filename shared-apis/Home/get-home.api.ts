@@ -7,7 +7,6 @@ export const getHomeData = async () => {
     });
     
     if (!res.ok) {
-      console.warn("🚨 ~ getHomeData ~ API response not OK:", res.status, res.statusText);
       return null;
     }
     

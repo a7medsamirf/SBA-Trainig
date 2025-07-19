@@ -8,7 +8,7 @@ const FavouritePage = async ({ searchParams }: SearchParamProps) => {
 
   const favourites = await getFavoriteData({ keyword: search });
 
-  console.log("🚀 ~ FavouritePage ~ favourites:", favourites)
+
   return <FavouriteClientPage favourites={favourites} />;
 };
 

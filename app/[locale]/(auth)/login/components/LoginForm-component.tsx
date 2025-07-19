@@ -109,9 +109,9 @@ export const LoginFormComponent = () => {
                     تذكرني
                   </label>
                 </div>
-                <a href="#" className="text-success small">
+                <Link href="/forget-password" className="text-success small">
                   نسيت كلمة السر؟
-                </a>
+                </Link>
               </div>
               <div className="mt-100">
                 <button

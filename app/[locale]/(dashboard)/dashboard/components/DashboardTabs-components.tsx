@@ -1,42 +1,32 @@
-import React from 'react'
+"use client";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Tabs, Tab } from "react-bootstrap";
 
-function DashboardTabsComponents() {
+const DashboardTabsComponents = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const current = searchParams.get("status")  || "upcoming"  ;
+
+  const handleSelect = (key: string | null) => {
+    if (!key) return;
+    router.push(`?status=${key}`);
+  };
+
   return (
-    <>
-        <ul className="nav nav-tabs nav-tabs-product dashboard-tabs" role="tablist">
-        <li>
-        <a className="active" href="#tab-description" data-bs-toggle="tab" role="tab" aria-controls="tab-description"
-            aria-selected="true">
-            وصف الدورة
-        </a>
-        </li>
-        <li>
-        <a href="#tab-objectives" data-bs-toggle="tab" role="tab" aria-controls="tab-objectives" aria-selected="false">
-            أهداف الأداء النهائية
-        </a>
-        </li>
-    
-    </ul>
-    
-    <div className="tab-content">
-        <div className="tab-pane fade active show" id="tab-description" role="tabpanel" aria-labelledby="tab-description">
-    
-        <div className="font-md color-gray-500">
-            وصف الدورة
-        </div>
-        </div>
-        
-    
-        <div className="tab-pane fade" id="tab-objectives" role="tabpanel" aria-labelledby="tab-objectives">
-        <div className="font-md color-gray-500" >     أهداف الأداء النهائية</div>
-    
-        </div>
-        </div>
-    
+    <Tabs
+      defaultActiveKey={current}
+      activeKey={current}
+      onSelect={handleSelect}
+      className="mb-4 nav nav-tabs nav-tabs-product d-inline-flex dashboard-tabs justify-content-center"
+
+    >
+      <Tab  tabClassName="text-dark fw-bold"  eventKey="ongoing" title="الحالية" />
+      <Tab  tabClassName="text-dark fw-bold"  eventKey="completed" title="المكتملة" />
+      <Tab  tabClassName="text-dark fw-bold"  eventKey="upcoming" title="القادمة" />
+    </Tabs>
+  );
+};
+
+export default DashboardTabsComponents;
 
 
-    </>
-  )
-}
-
-export default DashboardTabsComponents
