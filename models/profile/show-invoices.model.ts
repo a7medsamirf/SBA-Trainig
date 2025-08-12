@@ -1,6 +1,7 @@
 // موديل بيانات الدورات داخل الفاتورة
 export interface Enrollment {
   id: number;
+  course_id: number; 
   uuid: string;
   course_name: string;
   course_price: string;

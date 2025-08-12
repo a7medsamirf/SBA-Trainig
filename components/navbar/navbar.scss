@@ -199,6 +199,13 @@
   justify-content: flex-end;
 }
 
+.header .main-header {
+    .buttons-right {
+        max-width: 250px;
+         width: 100%;
+    }
+}
+
 .header .nav-main-menu {
   width: auto;
   padding: 0px;
@@ -1057,6 +1064,10 @@ html[dir="rtl"] {
     .profile-info {
       display: flex;
       flex-direction: column;
+      text-align: left;
+      html[dir="rtl"] & {
+        text-align: right; 
+      }
       .profile-name {
         font-weight: bold;
       }
@@ -1073,7 +1084,11 @@ html[dir="rtl"] {
     padding: 1rem;
     margin-bottom: 1rem;
     border: 1px solid rgba(118, 164, 65, 0.5);
-
+    overflow: hidden;
+    text-align: left;
+    html[dir="rtl"] & {
+      text-align: right; 
+    }
     .card-title {
 
     }
@@ -1100,8 +1115,9 @@ html[dir="rtl"] {
         }
         .course-name {
           font-weight: bold;
-          font-size: 1rem;
+          font-size: 14px;
           margin: 0;
+          padding: 0 !important;
         }
       }
     }
@@ -1126,7 +1142,15 @@ html[dir="rtl"] {
       gap: 10px;
 
       .btn {
-        width: 100%;
+        width: 70%;
+        font-size: 12px;
+        display: flex;
+        &:hover{
+          color: #fff;
+        }
+        &.btn-custom-primary{
+          color: #fff;
+        }
       }
     }
   }
@@ -1186,3 +1210,64 @@ html[dir="rtl"] {
 
 
 }  
+
+.dropdown-card {
+
+  .current-course-card {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+  
+  .course-details {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .course-info {
+    flex: 1;
+    min-width: 0; /* عشان النص يضغط صح */
+  }
+  
+  .course-category {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .course-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding: 0 !important;
+  }
+  
+  .progress-text {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  
+  /* لو عايز تضبط عرض progress bar */
+  .progress {
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    background-color: #28a745;
+  }
+  }

@@ -2,6 +2,7 @@
 
 import "./products.scss";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import ProductsCardComponent from "./components/productsCard-component";
 import { InitiativesCardComponent } from "../initiatives/components/initiativesCard-component";
 
@@ -35,6 +36,11 @@ export const ProductSection: React.FC<ProductSectionProps> = ({ courses , initia
                 <div className="tab-content">
                     <div className="tab-pane fade active show" id="tab-courses" role="tabpanel" aria-labelledby="tab-courses">
                           <ProductsCardComponent courses={courses}/>
+                          <div className="d-flex justify-content-center mt-5">
+                            <div className="btn btn-primary  btn-lg" style={{width:"150px"}}><Link href="/training" className="text-white">
+                             {t("Seemore")}
+                             </Link></div>
+                        </div>
                     </div>                    
 
                     <div className="tab-pane fade" id="tab-initiatives" role="tabpanel" aria-labelledby="tab-initiatives">

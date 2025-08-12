@@ -43,6 +43,7 @@ export type HomeBanner = {
     description: string;
     image: string;
     type: string;
+    date: string;
   };
 
   export interface HomeData {

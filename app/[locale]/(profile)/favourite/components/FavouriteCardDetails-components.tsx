@@ -7,8 +7,14 @@ import WishlistHoverIcon from "@/components/icons/icons/wishlist-hover";
 import SvgEye from "@/components/icons/svg/eye";
 import Image from "next/image";
 import "@/app/[locale]/(profile)/profile.scss";
+import { useAddCourseFavorite } from "@/hooks/common/add-course-favorite.hook";
+import { cn } from "@/utils";
+import { Link } from "@/i18n/routing";
+import { slugify } from "@/utils/slugify";
 
 interface FavouriteCardDetailsProps {
+  course_id: number;
+  id: number;
   category_name: string;
   name: string;
   price: string;
@@ -17,18 +23,23 @@ interface FavouriteCardDetailsProps {
   duration: string;
   start_date: string;
   instructor_name: string;
+  isFavorited: boolean;
 }
 
 const FavouriteCardDetailsComponents: React.FC<FavouriteCardDetailsProps> = ({
+  id,
+  course_id,
   category_name,
   name,
   price,
   image,
-  is_favorited = false,
+  isFavorited,
   duration,
   start_date,
   instructor_name,
 }) => {
+  const { addCourseFavoriteHandler, isPending } = useAddCourseFavorite();
+  const courseUrl = `/training/${id}-${slugify(name)}`;
   return (
     <div className="favourite-card-vertical card custom-border shadow-none p-3">
       <div className="favourite-card-image position-relative mb-3">
@@ -42,20 +53,36 @@ const FavouriteCardDetailsComponents: React.FC<FavouriteCardDetailsProps> = ({
           className="favourite-card-icons position-absolute d-flex flex-column align-items-center"
           style={{ top: 12, left: 12 }}
         >
-          <span className="mb-2">
-            {is_favorited ? (
-              <WishlistHoverIcon width={20} height={20} />
-            ) : (
-              <WishlistIcon width={20} height={20} />
-            )}
-          </span>
+        <span
+              role="button"
+              aria-label="إضافة إلى المفضلة"
+              onClick={() => addCourseFavoriteHandler(id)}
+              className={cn(
+                "mb-2 cursor-pointer", 
+                isPending && "opacity-50 pointer-events-none"
+              )}
+            >
+              {isFavorited ? (
+                <WishlistIcon width={20} height={20} />
+              ) : (
+                <WishlistHoverIcon width={20} height={20} />
+              )}
+            </span>
           <span>
-            <SvgEye width={20} height={20} />
+          <Link
+            href={courseUrl}
+          >
+             <SvgEye width={20} height={20} />
+          </Link>
+           
           </span>
         </div>
       </div>
       <div className="text-secondary mb-2 small fw-medium">{category_name}</div>
-      <div className="fw-bold fs-4 mb-2 text-dark">{name}</div>
+      <div className="fw-bold fs-4 mb-2 text-dark one-row">
+      <Link className="text-dark" href={courseUrl}>{name} </Link>
+        
+        </div>
       <div className="fw-bold fs-5 text-primary d-flex align-items-center gap-1 mb-2">
         <span className="color-gray-900 mb-2">{price}</span>
         <Image

@@ -15,20 +15,21 @@ const RelatedCoursesComponent: React.FC<RelatedCoursesComponentProps> = ({ cours
 
   return (
     <>
+      <div className="row mb-50">
       {hasCourses ? (
         <ReusableSwiper
           slidesPerView={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            1024: { slidesPerView: 5 },
             1920: { slidesPerView: 5 },
           }}
           autoplayDelay={2500}
         >
-          {courses.data.map((course: Course) => {
-            const slug = slugify(course.name);
+        {courses.data.map((course: Course) => {
+                const slug = slugify(course.name);
             return (
-              <SwiperSlide key={course.id}>
+              <SwiperSlide key={course.id}  className="col-lg-3">
                 <ReusableTrainingCard 
                   id={course.id}
                   slug={generateSlug(course.name)}             
@@ -40,14 +41,16 @@ const RelatedCoursesComponent: React.FC<RelatedCoursesComponentProps> = ({ cours
                   startDate={course.start_date}
                   trainer={course.instructor_name}
                   isFavorited={course.is_favorited}
+                  canReserve={course.can_reserve}
                 />
               </SwiperSlide>
             );
           })}
         </ReusableSwiper>
       ) : (
-        <p className="text-center color-gray-900 p-4">لا توجد دورات مشابهة حاليًا</p>
+        <p className="p-4 text-center color-gray-900">لا توجد دورات مشابهة حاليًا</p>
       )}
+      </div>
     </>
   );
 }

@@ -74,19 +74,49 @@ export const nafathLogin = async (formData: any) => {
   const lang = await getLocale();
 
   try {
-    await signIn("credentials", {
-      ...formData,
-      isNafathLogin: true,
-      redirect: false,
+    // await signIn("credentials", {
+    //   ...formData,
+    //   isNafathLogin: true,
+    //   redirect: false,
+    // });
+
+    const user = await checkNafathStatus({
+      nafath_id: formData.nafath_id,
+      trans_id: formData.trans_id,
+      random: formData.random,
     });
 
-    revalidatePath("/");
-    revalidatePath(`/${lang}`);
+    if (user?.succeeded) {
+      if (!user?.data?.email) {
+        revalidatePath("/");
+        revalidatePath(`/${lang}`);
 
-    return {
-      succeeded: true,
-      message: t("nafath.success"),
-    };
+        return {
+          succeeded: true,
+          message: t("nafath.created"),
+          ...user,
+        };
+      } else {
+        await signIn("credentials", {
+          ...formData,
+          isNafathLogin: true,
+          redirect: false,
+        });
+        revalidatePath("/");
+        revalidatePath(`/${lang}`);
+
+        return {
+          succeeded: true,
+          message: t("nafath.success"),
+          ...user,
+        };
+      }
+    } else {
+      return {
+        succeeded: false,
+        error: user?.error,
+      };
+    }
   } catch (error: any) {
     console.error("🚀 ~ error:", error);
     if (error.type === "CredentialsSignin") {

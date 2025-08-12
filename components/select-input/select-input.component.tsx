@@ -27,6 +27,7 @@ interface Props extends SelectProps {
   className?: string;
   placeholder?: string;
   label?: string;
+  labelClassName?: string;
   required?: boolean;
   requiredMessage?: string;
   rules?: any;
@@ -50,6 +51,7 @@ export const SelectInput: React.FC<Props> = ({
   className = "",
   placeholder = "",
   label = "",
+  labelClassName = "",
   required = false,
   requiredMessage,
   rules,
@@ -179,7 +181,7 @@ export const SelectInput: React.FC<Props> = ({
   return (
     <div
       className={cn(
-        "select-input__wrapper w-full",
+        "w-full select-input__wrapper",
         disabled ? "cursor-not-allowed" : "cursor-pointer",
         "rounded-[4px]",
         className
@@ -222,9 +224,9 @@ export const SelectInput: React.FC<Props> = ({
 
           return (
             <>
-              <div className="relative flex flex-col w-full">
+              <div className="flex relative flex-col w-full">
               {label && !className?.includes("form-select") && (
-                <label htmlFor={name} className="block text-sm select__label">
+                <label htmlFor={name} className={cn("block text-sm select__label", labelClassName)}>
                   {label}
                 </label>
               )}
@@ -257,10 +259,12 @@ export const SelectInput: React.FC<Props> = ({
                       <span className="rtl:ml-2.5 ltr:mr-2.5">
                         <span className="text-gray-500">
                         <SvgArrowDown2 />
-
                         </span>
                       </span>
                     ),
+                Input: (inputProps) => (
+                    <components.Input {...inputProps} autoComplete="off" />
+                  ),
                   }}
                   onChange={(selected: any) => {
                     const value = selected

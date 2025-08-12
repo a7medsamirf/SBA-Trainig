@@ -6,6 +6,7 @@ import "./ChangePassword.scss";
 import SvgEye from "@/components/icons/svg/eye";
 import SvgEyeSlash from "@/components/icons/svg/eye-slash";
 import useChangePassword from "../hooks/change-password.hook";
+import { useTranslations } from "next-intl";
 
 export default function ChangePasswordModal({
   show,
@@ -19,10 +20,15 @@ export default function ChangePasswordModal({
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirmation, setShowPasswordConfirmation] =
     useState(false);
-
-  const { changePasswordHandler, handleSubmit, isPendingPassword, register } =
-    useChangePassword(user, onHide);
-
+    
+  const {
+    changePasswordHandler,
+    handleSubmit,
+    isPendingPassword,
+    register,
+    errors,
+  } = useChangePassword(user, onHide);
+  const t = useTranslations("trans.ChangePassword");
   return (
     <Modal
       show={show}
@@ -32,22 +38,21 @@ export default function ChangePasswordModal({
       contentClassName="p-3 flex flex-col gap-2"
     >
       <Modal.Header closeButton>
-        <Modal.Title className="fw-bold change-password-modal-title">
-          تغيير كلمة المرور
+        <Modal.Title className="fw-bold change-password-modal-title h5">
+        {t("title")}
         </Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
-        <div className="text-end" style={{ marginBottom: "24px" }}>
-          <div className="mb-1 change-password-modal-title fw-bold">
-            برجاء أدخل كلمة السر الجديدة
+        <div className="" style={{ marginBottom: "30px" }}>
+          <div className="mb-2 change-password-modal-title fw-bold">
+          {t("enterNewPassword")}
           </div>
           <div
             className="text-muted change-password-modal-description"
             style={{ fontSize: "1rem" }}
           >
-            من فضلك أعد كتابة كلمة سر جديدة ويجب أن تكون مختلفة عن أي كلمة مرور
-            قديمة
+          {t("newPasswordDescription")}
           </div>
         </div>
         <form
@@ -67,10 +72,10 @@ export default function ChangePasswordModal({
                 type={showPassword ? "text" : "password"}
                 className="form-control"
                 id="password"
-                placeholder="كلمة السر الحالية"
+                placeholder={t("currentPassword")}
                 required
               />
-              <label> كلمة السر الحالية</label>
+             <label>{t("currentPassword")}</label>
               <span
                 className="toggle-password"
                 onClick={() => setShowPassword(!showPassword)}
@@ -83,50 +88,84 @@ export default function ChangePasswordModal({
               </span>
             </div>
 
-            <div className="mb-3 form-floating position-relative">
-              <input
-                {...register("password")}
-                type={showPassword ? "text" : "password"}
-                className="form-control"
-                id="password"
-                placeholder="كلمة السر"
-                required
-              />
-              <label> كلمة السر</label>
-              <span
-                className="toggle-password"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <SvgEyeSlash color="#425A8B" width={30} />
-                ) : (
-                  <SvgEye color="#425A8B" width={30} />
-                )}
-              </span>
+            <div className="mb-3">
+              <div className="form-floating position-relative">
+                <input
+                  {...register("new_password", {
+                    required: "كلمة السر مطلوبة",
+                    minLength: {
+                      value: 8,
+                      message: "يجب أن يكون كلمة السر 8 أحرف على الأقل",
+                    },
+                    pattern: {
+                      value: /^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
+                      message:
+                        "يجب أن تحتوي كلمة السر على رقم ورمز خاص على الأقل",
+                    },
+                  })}
+                  type={showPassword ? "text" : "password"}
+                  className="form-control"
+                  id="password"
+                  placeholder={t("newPassword")}
+                />
+             <label>{t("newPassword")}</label>
+                <span
+                  className="toggle-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <SvgEyeSlash color="#425A8B" width={30} />
+                  ) : (
+                    <SvgEye color="#425A8B" width={30} />
+                  )}
+                </span>
+              </div>
+              {errors.new_password && (
+                <p className="my-2 text-danger">
+                  {errors.new_password.message as string}
+                </p>
+              )}
             </div>
 
-            <div className="mb-3 form-floating position-relative">
-              <input
-                {...register("password_confirmation")}
-                type={showPasswordConfirmation ? "text" : "password"}
-                className="form-control"
-                id="password"
-                placeholder=" تأكيد كلمة السر"
-                required
-              />
-              <label> تأكيد كلمة السر</label>
-              <span
-                className="toggle-password"
-                onClick={() =>
-                  setShowPasswordConfirmation(!showPasswordConfirmation)
-                }
-              >
-                {showPasswordConfirmation ? (
-                  <SvgEyeSlash color="#425A8B" width={30} />
-                ) : (
-                  <SvgEye color="#425A8B" width={30} />
-                )}
-              </span>
+            <div className="mb-3">
+              <div className="form-floating position-relative">
+                <input
+                  {...register("new_password_confirmation", {
+                    required: "تأكيد كلمة السر مطلوب",
+                    minLength: {
+                      value: 8,
+                      message: "يجب أن يكون كلمة السر 8 أحرف على الأقل",
+                    },
+                    pattern: {
+                      value: /^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
+                      message:
+                        "يجب أن تحتوي كلمة السر على رقم ورمز خاص على الأقل",
+                    },
+                  })}
+                  type={showPasswordConfirmation ? "text" : "password"}
+                  className="form-control"
+                  id="password"
+                  placeholder={t("confirmPassword")}
+                />
+                  <label>{t("confirmPassword")}</label>
+                <span
+                  className="toggle-password"
+                  onClick={() =>
+                    setShowPasswordConfirmation(!showPasswordConfirmation)
+                  }
+                >
+                  {showPasswordConfirmation ? (
+                    <SvgEyeSlash color="#425A8B" width={30} />
+                  ) : (
+                    <SvgEye color="#425A8B" width={30} />
+                  )}
+                </span>
+              </div>
+              {errors.new_password_confirmation && (
+                <p className="my-2 text-danger">
+                  {errors.new_password_confirmation.message as string}
+                </p>
+              )}
             </div>
           </div>
 
@@ -137,7 +176,7 @@ export default function ChangePasswordModal({
               onClick={onHide}
               style={{ width: "172px" }}
             >
-              إلغاء
+             {t("cancel")}
             </button>
             <button
               type="submit"
@@ -154,7 +193,7 @@ export default function ChangePasswordModal({
                 />
               )}
 
-              {isPendingPassword ? "جارٍ التغيير..." : "تغيير كلمة السر"}
+            {isPendingPassword ? t("changing") : t("changePassword")}
             </button>
           </div>
         </form>

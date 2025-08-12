@@ -44,7 +44,7 @@ export const FavouriteCardComponents: React.FC<FavouriteCardProps> = ({
           </span>
         </div>
       </div>
-      <div className="d-flex flex-column justify-content-center flex-grow-1 pe-3">
+      <div className="d-flex flex-column justify-content-center flex-grow-1 px-3">
         <div className="text-secondary mb-2 small fw-medium">
           {category_name}
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterForm from './components/RegisterForm';
-import { getNationalities , getGenders , getAgeCategories } from '@/shared-apis';
+import { getNationalities , getGenders , getAgeCategories, getLanguageLevels, getEducationDegree } from '@/shared-apis';
 
 export default async function RegisterPage() {
   const nationalitiesResponse = await getNationalities();
@@ -12,5 +12,19 @@ export default async function RegisterPage() {
   const agectegoriesResponse = await getAgeCategories();
   const agectegories = agectegoriesResponse?.data || [];
 
-  return <RegisterForm nationalities={nationalities} genders={genders} agectegories={agectegories} />;
+  const languageLevelsResponse = await getLanguageLevels();
+  const languageLevels = languageLevelsResponse?.data || [];
+
+  const educationDegreesResponse = await getEducationDegree();
+  const educationDegrees = educationDegreesResponse?.data || [];
+
+  return (
+    <RegisterForm 
+      nationalities={nationalities} 
+      genders={genders} 
+      agectegories={agectegories}
+      languageLevels={languageLevels}
+      educationDegrees={educationDegrees}
+    />
+  );
 }

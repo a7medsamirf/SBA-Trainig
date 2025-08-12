@@ -18,12 +18,14 @@
       justify-content: center;
       padding: 8px 20px;
       border: 1px solid transparent;
-      border-radius: $radius-sm;
-      background-color: $color-gray-100;
+      border-radius: $radius-md;
+      background-color: white;
+      border: 1px solid #DDE4F0;
       transition: background-color 0.3s ease-in-out;
+      color: #425A8B;
 
       &:focus-within {
-        border-color: $bg-secondary;
+        border-color: #6B93D0;
       }
 
       &--error {
@@ -31,8 +33,9 @@
       }
 
       &-checked {
-        border-color: $bg-secondary;
-        background-color: rgba($bg-secondary, 0.2);
+        background-color: #DDE4F0;
+    
+        border-color:#6B93D0;
         font-weight: $font-bold !important;
       }
 
@@ -44,9 +47,9 @@
   }
 
   &__label {
-    font-size: rem(14);
-    color: $color-primary;
-    font-weight: $font-bold;
-    line-height: 26.24px;
+    font-size: rem(18);
+    color: #425A8B;
+    font-weight: $font-medium;
+    line-height: 160%;
   }
 }

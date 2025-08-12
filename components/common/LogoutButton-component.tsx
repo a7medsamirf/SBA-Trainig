@@ -6,13 +6,14 @@ import SvgLogincurve from "@/components/icons/profile/logincurve";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { signOut } from "next-auth/react"; 
-
+import { useTranslations } from "next-intl";
 function MyVerticallyCenteredModal(props: {
   show: boolean;
   onHide: () => void;
   onConfirm: () => void;
   isPending: boolean;
 }) {
+  const t = useTranslations("trans.profile");
   return (
     <Modal
   /*     {...props} */
@@ -25,18 +26,18 @@ function MyVerticallyCenteredModal(props: {
     >
       <Modal.Header closeButton>
         <Modal.Title className="h5 color-gray-900" id="contained-modal-title-vcenter">
-          تأكيد تسجيل الخروج
+        {t("ConfirmLogout")}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="text-center">
-        <p>هل انت موافق على تسجيل الخروج؟</p>
+      <p>{t("AreYouSureLogout")}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={props.onHide} disabled={props.isPending}>
-          الغاء
+        {t("Cancel")}
         </Button>
         <Button variant="danger" onClick={props.onConfirm} disabled={props.isPending}>
-          {props.isPending ? "... جاري تسجيل الخروج" : "موافق"}
+        {props.isPending ? t("Log-Out") : t("Confirm")}
         </Button>
       </Modal.Footer>
     </Modal>
@@ -58,13 +59,13 @@ const LogoutButtonComponent = () => {
       router.replace("/login");
     });
   };
-
+  const t = useTranslations("trans.profile");
   return (
     <>
       <div className="logout-section">
         <button onClick={() => setModalShow(true)} disabled={isPending}>
           <SvgLogincurve />
-          <span>تسجيل الخروج</span>
+          <span>  {t("LogOut")}</span>
         </button>
       </div>
       <MyVerticallyCenteredModal

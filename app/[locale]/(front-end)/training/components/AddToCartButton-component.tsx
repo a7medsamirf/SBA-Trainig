@@ -77,7 +77,7 @@ const AddToCartButtonComponent = ({
     <>
       <button
         onClick={handleAddToCartClick}
-        className="btn btn-cart btn-outline-custom"
+        className="btn btn-cart custom-padding"
         disabled={loading || status === "loading"}
       >
         {status === "loading"

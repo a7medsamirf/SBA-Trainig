@@ -32,3 +32,5 @@ export * from "./riyal-with-value/riyal-with-value.component";
 export * from "./password-validation/password-validation.component";
 export * from "./collapse/collapse.component";
 export * from "./skeleton/skeleton.component";
+
+export * from "./hyperpay/hyperpay.component";

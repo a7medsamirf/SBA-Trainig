@@ -15,7 +15,7 @@ export const deleteNotificationApi = async (id: number) => {
   try {
     return await fetcher({
       url: `notifications/${id}`,
-      method: "DELETE",
+      method: "POST",
     });
   } catch (error) {
     console.error("Delete notification failed", error);

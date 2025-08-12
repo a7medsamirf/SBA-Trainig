@@ -6,6 +6,7 @@ interface BellFillProps extends SVGProps<SVGSVGElement> {
   width?: number | string;
   height?: number | string;
 }
+
 const SvgBellFill = ({ width = 40, height = 40, ...props }: BellFillProps) => (
 
   <svg

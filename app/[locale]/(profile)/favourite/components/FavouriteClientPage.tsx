@@ -4,7 +4,7 @@
 import { FavouriteCardComponents } from "./FavouriteCard-components";
 import FavouriteCardDetailsComponents from "./FavouriteCardDetails-components";
 import FavouriteSearchComponents from "./FavouriteSearch-components";
-
+import { useTranslations } from 'next-intl';
 export default function FavouriteClientPage({favourites,}: {favourites: any[];}) {
   /*   const {
     favourites,
@@ -14,12 +14,12 @@ export default function FavouriteClientPage({favourites,}: {favourites: any[];})
     handleSearchChange,
   } = useFavourites(search);
   console.log("🚀 favourites:", favourites); */
-
+  const t = useTranslations('trans.profile');
   return (
     <div className="border-0 card custom-border-radius">
       <div className="p-4 bg-white border-0 card-header custom-border-radius">
         <div className="profile-content-item-header">
-          <h4 className="fw-bold color-gray-900">المفضلة</h4>
+          <h4 className="fw-bold color-gray-900">{t('favourite-title')}</h4>
         </div>
       </div>
 
@@ -33,13 +33,13 @@ export default function FavouriteClientPage({favourites,}: {favourites: any[];})
         </div>
 
         <>
-          <div className="row g-4">
+     {/*      <div className="row g-4">
             {favourites.map((item) => (
               <div className="col-12 col-md-6 col-lg-4" key={item?.id}>
                 <FavouriteCardComponents {...item} />
               </div>
             ))}
-          </div>
+          </div> */}
 
           <div className="row g-4">
             {favourites.map((item) => (
@@ -47,6 +47,7 @@ export default function FavouriteClientPage({favourites,}: {favourites: any[];})
                 className="col-12 col-md-6 col-lg-4"
                 key={item?.id + "-details"}
               >
+                
                 <FavouriteCardDetailsComponents {...item} />
               </div>
             ))}

@@ -5,12 +5,14 @@ import SvgSaudiRiyal from "@/components/icons/svg/saudi-riyal";
 import InvoiceDetailsComponent from "./InvoiceDetails-components";
 import QRCodeModalComponent from "./QRCode-components";
 import { getInvoiceDetails } from "@/shared-apis";
+import { useTranslations } from "next-intl";
 
 interface BillsCartProps {
   invoices: InvoiceItem[];
 }
 
 const BillsCartComponents = ({ invoices }: BillsCartProps) => {
+  const t = useTranslations("trans");
   const [showInvoiceModal, setShowInvoiceModal] = useState(false);
   const [showQrModal, setShowQrModal] = useState(false);
   const [qrUrl, setQrUrl] = useState<string>("");
@@ -42,7 +44,7 @@ const BillsCartComponents = ({ invoices }: BillsCartProps) => {
   };
 
   if (invoices.length === 0)
-    return <p className="py-5 text-center">لا توجد فواتير حالياً</p>;
+    return <p className="py-5 text-center">{t("profile.invoices.no-invoices")}</p>;
 
   return (
     <>
@@ -58,12 +60,12 @@ const BillsCartComponents = ({ invoices }: BillsCartProps) => {
                   className="gap-2 px-4 btn btn-primary btn-sm"
                   onClick={() => handleShowDetails(invoice.uuid)}
                 >
-                  عرض التفاصيل
+                  {t("button.View-details")}
                 </button>
 
                 <div className="flex-row-reverse gap-2 d-flex align-items-center">
                   <span className="fw-bold">
-                    فاتورة #{invoice.invoice_number}
+                    {t("profile.invoices.invoice-number", { number: invoice.invoice_number })}
                   </span>
                   <div
                     className="rounded-circle bg-light d-flex align-items-center justify-content-center"
@@ -76,15 +78,15 @@ const BillsCartComponents = ({ invoices }: BillsCartProps) => {
 
               <div className="pt-3 mt-2 text-center row d-flex justify-content-around border-top g-0">
                 <div className="gap-5 col-lg-4 col-md-12 d-flex align-items-center justify-content-start border-end">
-                  <div className="text-muted small">عدد الدورات</div>
+                  <div className="text-muted small">{t("profile.invoices.courses-count")}</div>
                   <div className="fw-bold">{invoice.enrollments_count}</div>
                 </div>
                 <div className="gap-5 col-lg-4 col-md-12 d-flex align-items-center justify-content-center border-end">
-                  <div className="text-muted small">تاريخ الاشتراك</div>
+                  <div className="text-muted small">{t("profile.invoices.subscription-date")}</div>
                   <div className="fw-bold">{invoice.date}</div>
                 </div>
                 <div className="gap-5 col-lg-4 col-md-12 d-flex align-items-center justify-content-end">
-                  <div className="text-muted small">المبلغ الإجمالي</div>
+                  <div className="text-muted small">{t("profile.invoices.total-amount")}</div>
                   <div className="gap-1 d-flex align-items-center justify-content-center fw-bold">
                     <span className="color-gray-900">{invoice.total_paid}</span>
                     <span className="text-primary" style={{ fontSize: "18px" }}>

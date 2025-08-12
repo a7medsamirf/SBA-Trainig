@@ -1,18 +1,20 @@
 import { AppShell } from "@/app/components/layout/AppShell";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/shared-apis";
 
-export default async function FrontEndLayout({ children, params }: {
+export default async function FrontEndLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-
   const { locale } = await params;
-  const session = await auth();
-  const userName = session?.user?.name || "مستخدم";
+  const user = await getCurrentUser();
+  const userName = user?.name || "مستخدم";
 
   return (
     <>
-      <AppShell locale={locale} userName={userName}>
+      <AppShell locale={locale} userName={userName} avatar={user?.avatar}>
         {children}
       </AppShell>
     </>

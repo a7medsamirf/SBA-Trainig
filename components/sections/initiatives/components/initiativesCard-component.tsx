@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from 'next/link'
 import { SwiperSlide } from "swiper/react";
 import ReusableSwiper from "@/components/common/Reusable-Swiper";
-import { Initiative  } from "@/models";
+import { InitiativeData  } from "@/models";
 import { useParams } from 'next/navigation';
 import { slugify } from "@/utils/slugify"; // 👈 استدعاء الدالة
 
 interface InitiativesCardComponentProps {
-initiatives: Initiative[];
+initiatives: InitiativeData[];
 }
 
 export const InitiativesCardComponent: React.FC<InitiativesCardComponentProps> = ({ initiatives }) => {
@@ -24,7 +24,7 @@ export const InitiativesCardComponent: React.FC<InitiativesCardComponentProps> =
         1920: { slidesPerView: 4 },
       }}
     >
-       {initiatives && initiatives.length > 0 && initiatives.map((initiative: Initiative) => {
+       {initiatives && initiatives.length > 0 && initiatives.map((initiative: InitiativeData) => {
           const slug = slugify(initiative.title);
           return (
             <SwiperSlide key={initiative.id} className="p-md-0 p-3">

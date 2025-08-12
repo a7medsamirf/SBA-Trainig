@@ -5,7 +5,7 @@ import { ar } from "date-fns/locale/ar";
 registerLocale("ar", ar);
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
-
+import SvgCalendar2 from "@/components/icons/svg/calendar-2";
 import "./datepicker.scss";
 
 import { useRef, useState, useEffect } from "react";
@@ -345,7 +345,9 @@ export const ReactDatePicker: React.FC<Props> = ({
           }}
           className="react-datepicker__icon"
         >
-          <span className="text-gray-500">📅</span>
+          <span className="text-gray-500">
+          <SvgCalendar2 width={22} />
+          </span>
         </span>
       </div>
     </div>

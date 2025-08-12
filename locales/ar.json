@@ -1,10 +1,22 @@
 {
   "trans": {
+    "view":{
+      "daily": "يومي",
+      "weekly": "أسبوعي",
+      "monthly": "شهري"
+    },
+    "loginSetting": {
+      "title": "اكتشف عالم الإعلام والبث",
+      "description": "استعد لاكتساب مهارات احترافية في مجالات الإذاعة والتلفزيون، مع تدريبات معتمدة من أفضل الخبراء."
+    },
     "pageNotFound": "الصفحة غير موجودة",
     "pageNotFoundDesc": "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
     "backToHome": "العودة إلى الصفحة الرئيسية",
     "needHelp": "هل تحتاج إلى مساعدة؟",
     "contactSupport": "تواصل مع الدعم الفني",
+    "no_notifications": "لا يوجد إشعارات حالياً. ",
+    "register": "تسجيل",
+    "login": "تسجيل دخول",
     "common": {
       "units": {
         "unit": "وحدة"
@@ -121,6 +133,7 @@
       },
       "profile": {
         "title": "الملف الشخصي"
+
       },
       "settings": {
         "title": "الاعدادات"
@@ -162,13 +175,49 @@
       "contact": "تواصل معنا",
       "Select-language": "اختر اللغة"
     },
+    "initiatives": {
+      "title": "المبادرات",
+      "description": "انطلاقا من دور هيئة الإذاعة والتلفزيون الريادي في مجال الإعلام، وإيمانا بكفاءة الطاقات الوطنية الواعدة، تنفذ الأكاديمية مبادرات تدريبية نوعية ومتخصصة في مجال الإعلام لدعم وتمكين المواهب الاعلامية من خلال تهيئة بيئة حاضنة تساهم في تنمية القدرات وتعزيز المهارات ونشر ثقافة التدريب."
+    },
+    "achievements": {
+      "trainee": "متدرب",
+      "training-course": "دورة تدريبية",
+      "initiatives": "مبادرات"
+    },
+    "about": {
+      "our-values": "قيمنا",
+      "ceo-image-alt": "صورة الرئيس التنفيذي",
+      "ceo-position": "الرئيس التنفيذي لهيئة الإذاعة والتلفزيون",
+      "ceo-name": "محمد بن فهد الحارثي",
+      "values": {
+        "innovation-inspiration": "الإلهام المولد للابتكار",
+        "training-excellence": "التميز في العملية التدريبية",
+        "creative-environment": "البيئة الإبداعية",
+        "media-awareness": "الوعي الإعلامي",
+        "integrated-qualification": "التأهيل المتكامل"
+      }
+    },
     "home": {
       "requested-courses": "التصنيفات",
       "Our-products": "منتجاتنا",
       "Recommended-Products": "منتجات قد تهمك ",
       "Training": "التدريب",
       "Initiatives": " المبادرات",
-      "Latest-news": "أحدث الأخبار والفعاليات"
+      "Latest-news": "أحدث الأخبار والفعاليات",
+      "Seemore": "رؤية المزيد",
+      "coming-soon": "قريباً",
+      "Courses": "دورات",
+      "Training-Courses": "دورات تدريبية حضورية "
+    },
+    "upsCard":{
+    "Trainers-Title": "مدربين محترفين",
+    "Trainers-Description": "في جميع التخصصات الإعلامية",
+    "Certificates-Title": "شهادات معتمدة",
+    "Certificates-Description": "من المؤسسة العامة للتدريب التقني والمهني",
+    "Environment-Title": "بيئة تدريبية محفزة",
+    "Environment-Description": "تضم قاعات تدريبية حديثة مزودة بأحدث التقنيات التعليمية",
+    "Infrastructure-Title": "بنية تحتية متكاملة",
+    "Infrastructure-Description": "ومجهزة باستديوهات تلفزيونية وإذاعية وغرف تحكم"
     },
     "NewsletterSection": {
       "subscribe": "اشترك",
@@ -182,8 +231,59 @@
       "Training-paths": "مسارات التدريب مع الدورات",
       "All-categories": "جميع الفئات",
       "More": "المزيد",
-      "Courses": "دورات"
+      "Courses": "دورات",
+      "course-not-found": "الدورة غير موجودة",
+      "back-to-courses": "العودة إلى الدورات",
+      "course-label": "دورة",
+      "duration-label": "مدة الدورة",
+      "start-date-label": "تاريخ الدورة",
+      "trainer-name-label": "اسم مقدم الدورة",
+      "add-to-favorite": "إضافة إلى المفضلة",
+      "register-button": "تسجيل",
+      "share": "مشاركة",
+      "seats": "المقاعد",
+      "no-seats": "لا توجد مقاعد",
+      "request-rejected": "طلبك مرفوض",
+      "request-approved": "تم الموافقة على طلبك",
+      "contact-support": "اتصل بالدعم",
+      "you-may-also-like": "قد يعجبك أيضًا",
+      "course": "دورة",
+      "course-description": "وصف الدورة",
+      "final-objectives": "أهداف الأداء النهائية",
+      "attendance-requirements": "متطلبات الحضور",
+      "course-content": "محتوى الدورة",
+      "no-details": "لا يوجد تفاصيل",
+      "no-objectives": "لا يوجد أهداف",
+      "no-requirements": "لا توجد متطلبات"
     },
+    "courses": {
+    "search-placeholder": "ابحث عن دورة تدريبية, موضوع, معلم..",
+    "search-placeholderV2": "ابحث عن دورة تدريبية...",
+    "Search-invoices-placeholder": "بحث عن الفواتير ...",
+     "category": "التصنيف",
+     "DatePicker": "التاريخ"
+  },
+  "courseStatus": {
+    "request-subscription": "طلب الاشتراك في الدورة",
+    "request-under-review": "طلبك قيد المراجعة",
+    "enrolled": "أنت مشترك في الكورس",
+    "resubmit-request": "إعادة إرسال الطلب",
+    "no-seats-available": "لا يمكن الاشتراك، لا توجد مقاعد متاحة حالياً."
+  },
+  "subscription":{
+    "confirm-subscription": "تأكيد الاشتراك",
+    "are-you-sure-subscribe": "هل أنت متأكد من أنك تريد الاشتراك في هذه الدورة؟",
+    "cancel": "إلغاء",
+    "subscription-failed": "عفوا، لم يتم الاشتراك",
+    "subscription-request-sent": "تم إرسال طلب الاشتراك بنجاح ",
+    "subscription-error": "حدث خطأ أثناء إرسال الطلب"
+  },
+  "subscriptionSuccess":{
+      "success-message": "تم إرسال طلب الاشتراك في الدورة بنجاح!",
+      "review-message": "سيتم مراجعة طلبك و سوف يتم الرد عليك قريباً",
+      "back-home": "عودة إلى الرئيسية",
+      "track-request": "متابعة طلبي"
+  },
     "contactus": {
       "title": "تواصل معنا",
       "description": "نتطلع لاستقبال رسالتك!",
@@ -201,10 +301,336 @@
       "facebook": "فيسبوك",
       "instagram": "انستغرام",
       "twitter": "تويتر",
-      "linkedin": "لينكدإن"
+      "linkedin": "لينكدإن",
+      "copyright": "جميع الحقوق محفوظة © 2024 لهيئة الإذاعة والتلفزيون SBA",
+      "terms": "شروط الاستخدام",
+      "privacy": "إشعار الخصوصية"
     },
     "nafath": {
-      "success": "تم إنشاء المستخدم وتسجيل الدخول بنجاح"
+      "success": "تم إنشاء المستخدم وتسجيل الدخول بنجاح",
+      "created": "تم إنشاء حساب Nafath بنجاح",
+      "login": {
+        "title": "تسجيل عن طريق نفاذ",
+        "description": "ادخل رقم الهوية الخاص بك للدخول عن طريق نفاذ",
+        "id_number": "رقم الهوية",
+        "id_required": "رقم الهوية مطلوب",
+        "id_invalid": "رقم الهوية يجب أن يكون 10 أرقام",
+        "verify_title": "تحقق نفاذ",
+        "continue": "متابعة"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "تسجيل الدخول",
+        "description": "ادخل بيانات تسجيل الدخول الخاصة بك",
+        "email": "البريد الإلكتروني",
+        "email_required": "البريد الإلكتروني مطلوب",
+        "email_invalid": "البريد الإلكتروني غير صالح",
+        "password": "كلمة السر",
+        "password_required": "كلمة السر مطلوبة",
+        "password_length": "يجب أن يكون كلمة السر 8 أحرف على الأقل",
+        "password_pattern": "يجب أن تحتوي كلمة السر على رقم ورمز خاص على الأقل",
+        "remember_me": "تذكرني",
+        "forgot_password": "نسيت كلمة السر؟",
+        "signing_in": "جاري الدخول...",
+        "sign_in": "تسجيل الدخول",
+        "login_with_nafath": "تسجيل عن طريق نفاذ",
+        "no_account": "ليس لديك حساب؟",
+        "create_account": "إنشاء حساب جديد",
+        "guest_login": "الدخول كزائر"
+      },
+      "registerForm": {
+        "create-account": "انشاء حساب جديد",
+        "enter-details": "سجل بيانات التسجيل الخاصة بك",
+        "full-name-ar": "الاسم كامل بالعربية",
+        "full-name-en": "الاسم كامل بالانجليزية",
+        "name-required": "الاسم مطلوب",
+        "name-min-length": "يجب أن يكون الاسم 3 أحرف على الأقل",
+        "english-name-required": "الاسم الانجليزي مطلوب",
+        "english-name-min-length": "يجب أن يكون الاسم الانجليزي 3 أحرف على الأقل",
+        "national-id": "الهوية الوطنية",
+        "national-id-required": "رقم الهوية مطلوب",
+        "national-id-min-length": "يجب أن يكون رقم الهوية 10 أرقام على الأقل",
+        "national-id-max-length": "يجب ألا يزيد رقم الهوية عن 15 رقم",
+        "national-id-pattern": "يجب أن يبدأ رقم الهوية بـ 1 أو 2 او 3 او 4 ويحتوي فقط على أرقام",
+        "phone": "رقم الجوال",
+        "phone-required": "رقم الجوال مطلوب",
+        "phone-length": "يجب أن يكون رقم الجوال 9 أرقام",
+        "phone-pattern": "رقم سعودي غير صحيح: يجب أن يبدأ بـ 5 ويتكون من 9 أرقام",
+        "country-code": "كود الدولة",
+        "email": "البريد الإلكتروني",
+        "email-required": "البريد الإلكتروني مطلوب",
+        "email-invalid": "يجب أن يكون البريد الإلكتروني صالح",
+        "nationality": "الجنسية",
+        "gender": "الجنس",
+        "age-category": "الفئة العمرية",
+        "password": "كلمة السر",
+        "password-required": "كلمة السر مطلوبة",
+        "password-min-length": "يجب أن يكون كلمة السر 8 أحرف على الأقل",
+        "password-pattern": "يجب أن تحتوي كلمة السر على رقم ورمز خاص على الأقل",
+        "confirm-password": "تأكيد كلمة السر",
+        "confirm-password-required": "تأكيد كلمة السر مطلوب",
+        "agree-terms": "أوافق على",
+        "terms-conditions": "الشروط والأحكام",
+        "privacy-policy": "سياسة إشعار الخصوصية",
+        "of-app": "الخاصة بالتطبيق",
+        "terms-required": "يجب أن توافق على الشروط والأحكام",
+        "privacy-required": "يجب أن توافق على سياسة إشعار الخصوصية",
+        "saving": "جاري الحفظ...",
+        "next-step": "التالى لإكمال التسجيل",
+        "guest-login": "الدخول كزائر",
+        "have-account": "لديك بالفعل حساب؟",
+        "login": "تسجيل الدخول",
+        "complete-profile": "أكمل بيانات ملفك الشخصي",
+        "workshop-registration": "للتسجيل في ورشة العمل الرجاء إدخال هذه البيانات"
+      }
+    },
+    "completeProfile":{
+      "language-level": "مستوى اللغة الإنجليزية",
+      "educational-experience": "الخبرات العلمية",
+      "educational-degree": "الدرجة العلمية",
+      "back": "رجوع",
+      "skip": "تخطي",
+      "register": "تسجيل",
+      "btn_Cancel": "إلغاء",
+      "registering": "... جارٍ التسجيل",
+      "already-have-account": "لديك بالفعل حساب؟",
+      "log-in": "تسجيل الدخول",
+      "Complete-information": "أكمل بياناتك"
+    },
+    "otp": {
+      "phone-confirmation": "تأكيد رقم الجوال",
+      "enter-otp-code": "أدخل رمز التأكيد OTP المكون من 4 ارقام الذى تم أرساله إلى البريد الإلكتروني",
+      "resend-code-in": "يمكنك إعادة إرسال الكود خلال",
+      "sending": "جارٍ الإرسال...",
+      "resend": "إعادة إرسال",
+      "verifying": "جارٍ التحقق...",
+      "confirm": "تأكيد"
+    },
+    "dashboard": {
+      "dashboard-title": "لوحة المتابعة",
+      "total-enrollments": "عدد الدورات",
+      "current-enrollments": "الدورات الحالية",
+      "completed-enrollments": "الدورات المكتملة",
+      "upcoming-enrollments": "الدورات القادمة",
+      "course": "دورة",
+       "My-courses": "دوراتي الحضورية",
+       "ongoing": "الحالية",
+       "upcoming": "القادمة",
+       "completed": "المكتملة",
+       "no-courses": "لا توجد دورات.",
+       "no-current-courses": "لا توجد دورات حالية.",
+       "no-completed-courses": "لا توجد دورات مكتملة."
+    },
+    "profile":{
+      "Log-Out": "تسجيل الخروج",
+      "ConfirmLogout": "تأكيد تسجيل الخروج",
+      "AreYouSureLogout": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "Cancel": "إلغاء",
+      "Confirm": "موافق",
+      "LoggingOut": "... جاري تسجيل الخروج",
+      "no-certificates": "لا توجد شهادات",
+      "hello": "أهلاً",
+      "Welcome": "مرحبا بك",
+      "favourite": {
+        "search": {
+          "placeholder": "ابحث عن دورة تدريبية, موضوع, معلم.."
+        }
+      },
+      "course-requests": {
+        "pending": "قيد الانتظار",
+        "approved": "تم الموافقة",
+        "declined": "تم الرفض",
+        "no-pending": "لا توجد طلبات معلقة.",
+        "no-approved": "لا توجد طلبات مقبولة.",
+        "no-declined": "لا توجد طلبات مرفوضة."
+      },
+      "invoices": {
+        "no-invoices": "لا توجد فواتير حالياً",
+        "invoice-number": "فاتورة #{number}",
+        "invoice-details": "تفاصيل فاتورة #{number}",
+        "courses-count": "عدد الدورات",
+        "subscription-date": "تاريخ الاشتراك",
+        "total-amount": "المبلغ الإجمالي",
+        "invoice-number-label": "رقم الفاتورة",
+        "payment-method": "نوع الدفع",
+        "status": "الحالة",
+        "courses-price": "سعر الدورات",
+        "vat": "الضريبة",
+        "total": "الإجمالي",
+        "download-pdf": "تحميل الفاتورة PDF"
+      },
+      "welcome": "أهلاً",
+      "profile-title": "الملف الشخصي",
+      "qualifications-title": "مؤهلاتي العلمية",
+      "courses-title": "دوراتي",
+      "certificates-title": "الشهادات",
+      "course-request-title": "طلباتي",
+      "invoices-title": "الفواتير",
+      "dashboard-title": "لوحة المتابعة",
+      "favourite-title": "المفضلة",
+      "LogOut": "تسجيل الخروج",
+      "update": {
+        "edit": "تعديل البيانات",
+        "save": "حفظ البيانات",
+        "cancel": "الغاء"
+      },
+      "form": {
+        "loading": "جاري التحميل...",
+        "loading-data": "جاري تحميل البيانات...",
+        "profile-image": {
+          "change": "تغيير الصورة الشخصية",
+          "cancel-change": "❌ إلغاء التغيير",
+          "accepted-formats": "الصور المقبولة: JPG, PNG, WebP (أقل من 5 ميجابايت)",
+          "errors": {
+            "invalid-type": "يجب اختيار ملف صورة فقط",
+            "large-size": "حجم الصورة يجب أن يكون أقل من 5 ميجابايت",
+            "success": "تم اختيار الصورة بنجاح"
+          }
+        },
+        "fields": {
+          "language-level": {
+            "label": "مستوى اللغة الإنجليزية",
+            "placeholder": "اختر مستوى اللغة الإنجليزية",
+            "required": "مستوى اللغة الإنجليزية مطلوب"
+          },
+          "education-degree": {
+            "label": "الدرجة العلمية",
+            "placeholder": "اختر الدرجة العلمية",
+            "required": "الدرجة العلمية مطلوبة"
+          },
+          "educational-experience": {
+            "label": "الخبرات العلمية",
+            "placeholder": "الخبرات العلمية",
+            "required": "الخبرات العلمية مطلوبة",
+            "min-length": "الخبرات العلمية يجب أن تكون أكثر من 10 أحرف"
+          },
+          "email": {
+            "label": "البريد الإلكتروني",
+            "placeholder": "البريد الإلكتروني",
+            "required": "البريد الإلكتروني مطلوب",
+            "invalid": "البريد الإلكتروني غير صحيح"
+          },
+          "phone": {
+            "label": "رقم الجوال",
+            "placeholder": "رقم الجوال",
+            "required": "رقم الجوال مطلوب",
+            "invalid": "يجب أن يبدأ رقم الجوال بـ 5 ويتكون من 9 أرقام"
+          },
+          "dial-code": {
+            "placeholder": "كود الدولة"
+          },
+          "name": {
+            "label": "الاسم كامل بالعربية",
+            "placeholder": "الاسم كامل بالعربية",
+            "required": "الاسم مطلوب",
+            "min-length": "الاسم يجب أن يكون أكثر من حرفين"
+          },
+          "english-name": {
+            "label": "الاسم كامل بالإنجليزية",
+            "placeholder": "الاسم كامل بالإنجليزية",
+            "required": "الاسم مطلوب",
+            "min-length": "الاسم يجب أن يكون أكثر من حرفين"
+          },
+          "national-id": {
+            "label": "الهوية الوطنية",
+            "placeholder": "الهوية الوطنية",
+            "required": "الهوية الوطنية مطلوبة",
+            "invalid": "يجب أن يبدأ رقم الهوية بـ 1 أو 2 او 3 او 4 ويحتوي فقط على أرقام"
+          },
+          "nationality": {
+            "label": "الجنسية",
+            "placeholder": "اختر الجنسية",
+            "required": "الجنسية مطلوبة"
+          },
+          "gender": {
+            "label": "الجنس",
+            "placeholder": "اختر الجنس",
+            "required": "الجنس مطلوب"
+          },
+          "age-category": {
+            "label": "الفئة العمرية",
+            "placeholder": "اختر الفئة العمرية",
+            "required": "الفئة العمرية مطلوبة"
+          },
+          "change-password": {
+            "button": "تغيير كلمة المرور"
+          }
+        }
+      },
+      "delete-account": {
+        "title": "حذف الحساب",
+        "description": "قد تفقد جميع البيانات والمعلومات المخزنة في حسابك إذا قمت بالحذف، يرجى التأكد من نسخ أو حفظ أي معلومات هامة قبل حذف الحساب. حيث لا يمكن استرداد الحساب بعد الحذف",
+        "delete-button": "حذف حسابي",
+        "confirm-title": "تأكيد حذف الحساب",
+        "confirm-message": "هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع بعد ذلك.",
+        "cancel-button": "إلغاء",
+        "confirm-button": "نعم، احذف الحساب",
+        "deleting": "جاري الحذف..."
+      }
+    },
+    "ChangePassword": {
+      "title": "تغيير كلمة المرور",
+      "enterNewPassword": "برجاء أدخل كلمة السر الجديدة",
+      "newPasswordDescription": "من فضلك أعد كتابة كلمة سر جديدة ويجب أن تكون مختلفة عن أي كلمة مرور قديمة",
+      "currentPassword": "كلمة السر الحالية",
+      "newPassword": "كلمة السر الجديدة",
+      "confirmPassword": "تأكيد كلمة السر",
+      "cancel": "إلغاء",
+      "changePassword": "تغيير كلمة السر",
+      "changing": "جارٍ التغيير...",
+      "validation": {
+        "passwordRequired": "كلمة السر مطلوبة",
+        "passwordMinLength": "يجب أن تكون كلمة السر 8 أحرف على الأقل",
+        "passwordPattern": "يجب أن تحتوي كلمة السر على رقم ورمز خاص على الأقل",
+        "confirmationRequired": "تأكيد كلمة السر مطلوب"
+      }
+    },
+    "button": {
+      "View-details": "عرض التفاصيل",
+      "qr-code": "QR Code عرض",
+      "view-certificate": "عرض الشهادة",
+      "feedback": "تقييم الدورة",
+      "Complete": "مكتمل",
+      "current-course": "الدورة الحالية",
+      "upcoming-course": "الدورة القادمة",
+      "completed-course": "الدورة المكتملة"
+    },
+    "obtain-certificate": {
+      "title": "الحصول على الشهادة",
+      "coming-soon": "انتظرونا قريباً"
+    },
+    "verify-certificate": {
+      "title": "التحقق من الشهادة",
+      "coming-soon": "انتظرونا قريباً"
+    },
+    "events": {
+      "not-found": "الفعالية غير موجودة",
+      "back-to-events": "العودة إلى الفعاليات"
+    },
+    "cart": {
+      "title": "السلة",
+      "order-summary": "ملخص الطلب",
+      "courses-count": "عدد الدورات",
+      "course-price": "سعر الدورة",
+      "tax": "الضريبة",
+      "total": "الإجمالي",
+      "continue-browsing": "أكمل التصفح",
+      "complete-order": "إتمام الطلب",
+      "course-data-error": "تعذر استخراج بيانات الكورسات من السلة.",
+      "enrollment-error": "عذرًا، لا يمكن إتمام الطلب حاليًا. بعض الكورسات غير متاحة للتسجيل.",
+      "course-unavailable": "هذا الكورس غير متاح للتسجيل حالياً.",
+      "checking-error": "حدث خطأ أثناء التحقق من إتاحة الكورس.",
+      "remove-from-cart": "إزالة من السلة",
+      "removing": "... جاري الإزالة",
+      "confirm-remove-title": "تأكيد الإزالة",
+      "confirm-remove-message": "هل أنت متأكد أنك تريد إزالة هذا الكورس من السلة؟",
+      "cancel": "إلغاء",
+      "confirm-remove": "موافق",
+      "course-removed": "تمت إزالة الكورس من السلة بنجاح",
+      "remove-error": "فشل في إزالة الكورس من السلة",
+      "connection-error": "خطأ في الاتصال، يرجى المحاولة مرة أخرى",
+      "remove": "إزالة"
     }
   }
 }

@@ -28,6 +28,32 @@ export const forgotPassword = async (
     };
   }
 };
+
+export const newForgetPassword = async (
+  prevState: string | undefined,
+  formData: any
+) => {
+  const { identifier } = formData;
+  console.log("🚀 ~ newForgetPassword ~ formData:", formData);
+
+  try {
+    const res = await axiosBase.post("/forget-change-password", formData);
+
+    const data = res?.data as any;
+
+    return {
+      succeeded: true,
+      identifier,
+      ...data,
+    };
+  } catch (error: any) {
+    return {
+      succeeded: false,
+      error: error.response.data,
+    };
+  }
+};
+
 //confirm code for forget password
 export const confirmCode = async (
   prevState: string | undefined,
@@ -55,7 +81,7 @@ export const newPassword = async (
   formData: any
 ) => {
   try {
-    const res = await axiosBase.post("/forget-change-password", formData);
+    const res = await axiosBase.post("/profile/change-password", formData);
 
     const data = res?.data as any;
 

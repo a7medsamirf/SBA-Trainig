@@ -10,13 +10,21 @@ const nextConfig = {
     },
   },
 
+  sassOptions: {
+    quietDeps: true,
+    silenceDeprecations: ["legacy-js-api"],
+    logger: {
+      warn: function (message) {},
+    },
+  },
+
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '144.24.221.37',
-        port: '',
-        pathname: '/**',
+        protocol: "http",
+        hostname: "144.24.221.37",
+        port: "",
+        pathname: "/**",
       },
       {
         protocol: "http",
@@ -24,9 +32,14 @@ const nextConfig = {
         port: "8080",
       },
       {
-        protocol: "http",
-        hostname: "192.168.50.52",
-        port: "8081",
+        protocol: "https",
+        hostname: "besbaacademy.sba.sa",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "be-sbaacademy.sba.sa",
+        pathname: "/**",
       },
       {
         protocol: "https",
@@ -35,7 +48,7 @@ const nextConfig = {
         pathname: "/**",
       },
       {
-        protocol: "https", // ✅ ngrok domain
+        protocol: "https",
         hostname: "0a34e086cb1a.ngrok-free.app",
         pathname: "/**",
       },

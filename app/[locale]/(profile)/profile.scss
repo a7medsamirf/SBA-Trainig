@@ -19,12 +19,6 @@
       align-self: center;
       gap: 10px;
       border-bottom: 1px solid #eee;
-      img{
-          text-align: center;
-          margin-left: auto;
-          margin-right: auto;
-      }
-
     .profile-info {
       display: flex;
       flex-direction: column;
@@ -205,6 +199,12 @@ box-shadow: 0 2px 8px rgba(66, 90, 139, 0.07);
 /**
  * Favourite card
  */
+ .favourite{
+  .card-footer{
+    background-color: transparent !important;
+    border-top: 2px dashed #eaeaea;
+  }
+ }
 .favourite-card {
   background: #fff;
   border-radius: 16px;
@@ -215,7 +215,7 @@ box-shadow: 0 2px 8px rgba(66, 90, 139, 0.07);
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  margin-bottom: 1rem;
+
   .favourite-card-image {
     position: relative;
     img {
@@ -331,5 +331,20 @@ box-shadow: 0 2px 8px rgba(66, 90, 139, 0.07);
     min-width: 220px;
     font-size: 1.1rem;
     font-weight: 500;
+  }
+}
+
+#update-profile{
+  .img-box{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .change-btn{
+    background-color: #f1f4f9;
+    color: #425a8b;
+    border: none;
+    font-weight: bold;
+    padding: 15px 30px;
   }
 }

@@ -1,20 +1,23 @@
 import "./verify-certificate.scss";
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
 import {NewsletterSection} from "@/components/sections/newsletter/newsletter-section";
+import { useTranslations } from "next-intl";
 
 const VerifyCertificate = () => {
+  const t = useTranslations("trans");
+
   return (
     <>
     <section className="section-box shop-template mt-0">
         <div className="container">
-          <h2 className="py-5"> 
-          التحقق من الشهادة 
+          <h2 className="py-5">
+            {t("verify-certificate.title")}
           </h2>
       
           <div className="border-bottom pt-0 mb-30"></div>
           <div className="row">            
               <div className="row mt-20">
-                <h3 style={{ textAlign: "center" }}> انتظرونا قريباً</h3>
+                <h3 style={{ textAlign: "center" }}>{t("verify-certificate.coming-soon")}</h3>
                 <div style={{ height: "300px" }}></div>
               </div>            
           </div>

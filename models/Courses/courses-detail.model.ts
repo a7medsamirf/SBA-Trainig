@@ -69,6 +69,10 @@ export interface CourseData {
   category_name: string;
   instructor_name: string;
   can_reserve: boolean;
+  last_pay_request: {
+    rejected_reason: string | null;
+    status: 1 | 2 | 3;
+  } | null;
 }
 
 export interface CourseDetailResponse {

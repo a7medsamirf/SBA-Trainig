@@ -11,6 +11,31 @@ html[dir="rtl"] {
   }
 }
 
+.custom-padding {
+  background-color: #fff;
+  border-color: #8c9ec5;
+  font-size: 14px;
+  line-height: 20px;
+  color: #425a8b;
+  text-align: center;
+  border-radius: 8px;
+  transition: all .3s;
+  padding: 14px 45px !important;
+  &:hover {
+    color: #fff;
+    background-color: #425a8b;
+    border-color: #8c9ec5;
+  }
+}
+
+.nationalities-code{
+  .select-input__indicators {
+    padding: 0 !important;
+}
+}
+.modal-backdrop{
+  background-color: #425A8B !important;
+}
 .bg-gray {
   background-color: #eaf0f4;
 }
@@ -30,6 +55,11 @@ html[dir="rtl"] {
   color: #425a8b;
 }
 
+@media (width >= 1536px) {
+  .container {
+      max-width: 1700px;
+  }
+}
 input[type="search" i]::-webkit-search-cancel-button {
   cursor: pointer;
   width: 15px;
@@ -84,6 +114,7 @@ h5 {
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 40px;
 }
 
 .two-row {
@@ -210,7 +241,7 @@ h5 {
   line-height: 20px;
   color: #425a8b;
   text-align: center;
-  padding: 7px 22px !important;
+  padding: 12px 10px !important;
   border-radius: 8px;
   transition: all 0.3s ease 0s;
 
@@ -221,6 +252,12 @@ h5 {
   }
 }
 
+.btn-danger,
+.btn-secondary{
+    font-size: 1rem;
+    padding: .8rem 1.2rem;
+    border-radius: 8px;
+}
 .btn-primary {
   background-color: #3a4e8c;
   border-color: #3a4e8c;
@@ -396,6 +433,21 @@ html[dir="rtl"] {
     right: 0;
     left: auto;
   }
+
+  .react-datepicker__wrapper{
+    
+  }
+}
+
+#dial_code{
+  #react-select-react-select-dial_code-placeholder{
+    color: #212529a6 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    font-size: 13px !important;
+    line-height: 18.24px;
+    padding: 0 !important;
+  }
 }
 
 /* ------------  dashboard tabs ------------ */
@@ -548,5 +600,98 @@ html[dir="rtl"] {
     color: #E10D0D !important;
     background-color: #FFECED !important;
     padding: 7px 10px;
+  }
+}
+
+.profile-Image{
+    width: 100px;
+    height: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+/* ------------ Certificates Card  ------------ */
+
+.Certificates-Card {
+  background-color: #f8f9fa;
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #76a44180;
+}
+
+
+/* ------------ Hyperpay  ------------ */
+
+html[dir="rtl"] {
+  .Hyperpay{
+    .wpwl-form-card{
+
+    }
+  }
+}
+
+
+.Hyperpay{
+  .wpwl-form-card{
+    border: none !important; 
+    box-shadow: none !important;
+    input{
+
+    }
+  }
+  .wpwl-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    height: 2.5em;
+    padding: 0px 4px;
+    border: 1px solid #dee2e6;
+}
+.wpwl-label{
+  margin-bottom: 5px;
+}
+.wpwl-button-pay {
+  color: #fff;
+  background-color: #4cae4c;
+  border-color: #4cae4c;
+  padding: 10px 45px;
+}
+}
+
+/* ------------ training Page  ------------ */
+
+.image-box {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+/* ------------ Banners Section  ------------ */
+
+.BannersSection{
+  .Banner-box{
+    background-color: #002647;
+    padding: 11px;
+    margin: 10px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 60px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

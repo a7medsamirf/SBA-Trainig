@@ -2,10 +2,10 @@
 import './initiatives.scss'
 import {  useTranslations } from "next-intl";
 import { InitiativesCardComponent } from './components/initiativesCard-component';
-import { Initiative } from '../../../models/initiatives.model';
+import { InitiativeData } from '../../../models/initiatives.model';
 
 interface initiativesSectionProps {
-  initiativesData: Initiative[];
+  initiativesData: InitiativeData[];
 }
 
 export const initiativesSection: React.FC<initiativesSectionProps> = ({ initiativesData }) => {

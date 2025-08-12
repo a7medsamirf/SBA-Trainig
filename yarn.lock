@@ -810,6 +810,11 @@
   resolved "https://registry.npmjs.org/@next/env/-/env-15.1.5.tgz"
   integrity sha512-jg8ygVq99W3/XXb9Y6UQsritwhjc+qeiO7QrGZRYOfviyr/HcdnhdBQu4gbp2rBIh2ZyBYTBMWbPw3JSCb0GHw==
 
+"@next/swc-wasm-nodejs@^15.4.1":
+  version "15.4.5"
+  resolved "https://registry.npmjs.org/@next/swc-wasm-nodejs/-/swc-wasm-nodejs-15.4.5.tgz"
+  integrity sha512-hnB7OLHJTD/bXOcLMh4CxboUxARv8JhiRfm7XBMFb1LQwHIOVD97c2U5zF40QdmeY2V33ALcAMvH6WvZQ36pkA==
+
 "@next/swc-win32-x64-msvc@15.1.5":
   version "15.1.5"
   resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-15.1.5.tgz"

@@ -1,28 +1,32 @@
 "use client";
 import ReusableHorizontalCard from "@/components/common/Reusable-HorizontalCard";
-import { EventData } from "@/models";
+import { InitiativeData } from "@/models";
+import { slugify } from "@/utils/slugify";
 
 interface InitiativesCardComponentProps {
-  events: EventData[];
+  Initiatives: InitiativeData[];
 }
 
-const InitiativesCardComponent: React.FC<InitiativesCardComponentProps> = ({ events }) => {
+const InitiativesCardComponent: React.FC<InitiativesCardComponentProps> = ({ Initiatives }) => {
   return (
     <>
-     {events && events.length > 0 && events.map((event: EventData) => (
-        <ReusableHorizontalCard
-          key={event.id}
-          tag={""}
-          title={event.title}
-          description={event.description}
-          image={{ src: event.image }}
-          showTag={false}
-  /*         href={`/initiatives/${event.id}?title=${encodeURIComponent(event.title)}`} */
-        />
-      ))}
+      {Initiatives && Initiatives.length > 0 &&
+        Initiatives.map((Initiative: InitiativeData) => {
+          const slug = slugify(Initiative.title);
+          return (
+            <ReusableHorizontalCard
+              key={Initiative.id}
+              tag={Initiative.type}
+              date={Initiative.date}
+              title={Initiative.title}
+              description={Initiative.description}
+              image={{ src: Initiative.image }}
+              href={`/initiatives/${Initiative.id}-${slug}`}
+            />
+          );
+        })}
     </>
   );
 };
 
 export default InitiativesCardComponent;
-

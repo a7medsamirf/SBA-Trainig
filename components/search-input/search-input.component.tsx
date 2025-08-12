@@ -43,6 +43,7 @@ export const SearchInput: React.FC<Props> = memo(
         ...prevQueries,
         search: value,
       });
+      console.log("🚀 ~ updateSearch ~ query:", query)
       router.replace(`${pathname}?${query}`, { scroll: false });
     };
 

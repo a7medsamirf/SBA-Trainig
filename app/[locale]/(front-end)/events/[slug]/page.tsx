@@ -1,6 +1,7 @@
 import "./news-details.scss";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { safeHtmlParser } from "@/utils/safe-html-parser.util"; 
 import { Metadata } from 'next';
 import { getEventsById } from "@/shared-apis/Events/get-events-detail.api";
 import { EventsDetailData } from "@/models/events-detail.model";
@@ -8,10 +9,11 @@ import {NewsletterSection } from "@/components/sections/newsletter/newsletter-se
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
 import { SearchParamProps } from "@/models/search-params.model";
 
-// 👇 توليد Metadata للـ SEO
+import { getLocale, getTranslations } from "next-intl/server";
+
 export async function generateMetadata({params,}: SearchParamProps): Promise<Metadata> {
 
-  const id = (await params as any)?.slug.split("-")[0]// استخراج ID من slug
+  const id = (await params as any)?.slug.split("-")[0]
   const event = await getEventsById(id);
   return {
     title: event?.data?.title || "تفاصيل الفعالية",
@@ -21,7 +23,10 @@ export async function generateMetadata({params,}: SearchParamProps): Promise<Met
 }
 
 export default async function EventsPage({  params, }: SearchParamProps) {
-
+  const locale = await getLocale();
+  const isArabic = locale.startsWith("ar");
+  const t = await getTranslations("trans");
+  
   const id = (await params as any)?.slug.split("-")[0]
   const newID = decodeURIComponent(id)
 
@@ -34,9 +39,9 @@ export default async function EventsPage({  params, }: SearchParamProps) {
         <div className="container">
           <div className="row">
             <div className="col-12 d-grid justify-content-center align-items-center p-50">
-              <h2 className="mb-20">الفعالية غير موجودة</h2>
+              <h2 className="mb-20">{t("events.not-found")}</h2>
               <Link href="/events" className="btn btn-custom-primary w-auto">
-                العودة إلى الفعاليات
+                {t("events.back-to-events")}
               </Link>
             </div>
 
@@ -60,6 +65,17 @@ export default async function EventsPage({  params, }: SearchParamProps) {
                     <span className="dot bullet me-3"></span>
                   </a>
                 </div>
+                <span className="mt-10 font-sm color-gray-500">
+                    {new Date(event.date).toLocaleDateString(locale, {
+                      weekday: "long",
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                     numberingSystem: isArabic ? "arab" : "latn",
+                    })}
+
+                  </span>
+
                 <h1 className="news-title mb-3">{event.title}</h1>
               </div>
               {/* Event Image */}
@@ -76,7 +92,11 @@ export default async function EventsPage({  params, }: SearchParamProps) {
               </div>
               {/* Event Content */}
               <div className="news-content content-text">
-                <div className="lead mb-4">{event.description}</div>
+
+             <div className="lead mb-4"
+                dangerouslySetInnerHTML={{
+                  __html: safeHtmlParser(event.description),
+                }}/>
               </div>
               <div className="border-bottom-4 mb-20"></div>
             </div>

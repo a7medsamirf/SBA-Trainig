@@ -1,10 +1,22 @@
 {
   "trans": {
+    "view":{
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly"
+    },
+    "loginSetting": {
+      "title": "Discover the World of Media and Broadcasting",
+      "description": "Get ready to gain professional skills in radio and television, with certified training from top experts."
+    },
     "pageNotFound": "Page Not Found",
     "pageNotFoundDesc": "Sorry, the page you are looking for does not exist or has been moved.",
     "backToHome": "Back to Homepage",
     "needHelp": "Need Help?",
     "contactSupport": "Contact Technical Support",
+    "no_notifications": "No notifications at the moment.",
+    "register": "Register",
+    "login": "Login",
     "common": {
       "units": {
         "unit": "Unit"
@@ -105,13 +117,50 @@
       "contact": "Contact Us",
       "Select-language": "Select language"
     },
+    "initiatives": {
+      "title": "Initiatives",
+      "description": "Based on the pioneering role of the Radio and Television Authority in the media field, and believing in the competence of promising national talents, the Academy implements qualitative and specialized training initiatives in the media field to support and empower media talents by creating an incubating environment that contributes to developing capabilities, enhancing skills, and spreading the culture of training."
+    },
+    "achievements": {
+      "trainee": "Trainee",
+      "training-course": "Training Course",
+      "initiatives": "Initiatives"
+    },
+    "about": {
+      "ceo-image-alt": "CEO image",
+      "ceo-position": "CEO of the Saudi Broadcasting Authority",
+      "ceo-name": "Mohammed bin Fahd Al-Harthi",
+      "our-values": "Our Values",
+      "values": {
+        "innovation-inspiration": "Innovation-Inspiring",
+        "training-excellence": "Excellence in Training Process",
+        "creative-environment": "Creative Environment",
+        "media-awareness": "Media Awareness",
+        "integrated-qualification": "Integrated Qualification"
+      }
+    },
     "home": {
       "requested-courses": "Categories",
       "Our-products": "Our products",
       "Recommended-Products": "Recommended Products",
       "Training": "Training",
       "Initiatives": "Initiatives",
-      "Latest-news": "Latest news and events"
+      "Latest-news": "Latest news and events",
+       "Seemore": "See More",
+       "coming-soon": "Coming Soon",
+       "Courses": "Courses",
+       "Training-Courses": "Training Courses"
+
+    },
+    "upsCard":{
+        "Trainers-Title": "Professional Trainers",
+        "Trainers-Description": "In all media specializations",
+        "Certificates-Title": "Certified Certificates",
+        "Certificates-Description": "From the Technical and Vocational Training Corporation",
+        "Environment-Title": "Motivational Training Environment",
+        "Environment-Description": "Equipped with modern training halls and the latest educational technologies",
+        "Infrastructure-Title": "Integrated Infrastructure",
+        "Infrastructure-Description": "Equipped with TV and radio studios and control rooms"
     },
     "NewsletterSection": {
       "subscribe": "Subscribe",
@@ -125,8 +174,60 @@
       "Training-paths": "Training paths with courses",
       "All-categories": "All categories",
       "More": "More",
-      "Courses": "Courses"
+      "Courses": "Courses",
+      "course-not-found": "Course not found",
+      "back-to-courses": "Back to courses",
+      "course-label": "Course",
+      "duration-label": "Duration",
+      "start-date-label": "Start Date",
+      "trainer-name-label": "Trainer Name",
+      "add-to-favorite": "Add to Favorites",
+      "register-button": "Register",
+      "share": "Share",
+      "seats": "Seats",
+      "no-seats": "No seats available",
+      "request-rejected": "Your request has been rejected",
+      "request-approved": "Your request has been approved",
+      "contact-support": "Contact Support",
+      "you-may-also-like": "You may also like",
+      "course": "Course",
+      "course-description": "Course Description",
+      "final-objectives": "Final Performance Objectives",
+      "attendance-requirements": "Attendance Requirements",
+      "course-content": "Course Content",
+      "no-details": "No details available",
+      "no-objectives": "No objectives available",
+      "no-requirements": "No requirements available"
     },
+    "courses": {
+      "search-placeholder": "Search for a course, topic, instructor...",
+      "search-placeholderV2": "Find a training course...",
+      "Search-invoices-placeholder": "Search for invoices ...",
+      "category": "Category",
+      "DatePicker": "Date"
+    },
+    "courseStatus": {
+      "request-subscription": "Course subscription request",
+      "request-under-review": "Your request is under review",
+      "enrolled": "You are enrolled in the course",
+      "resubmit-request": "Resubmit request",
+      "no-seats-available": "Cannot subscribe, no seats available currently."
+
+    },
+    "subscription":{
+      "confirm-subscription": "Confirm Subscription",
+      "are-you-sure-subscribe": "Are you sure you want to subscribe to this course?",
+      "cancel": "Cancel",
+      "subscription-failed": "Sorry, subscription failed",
+      "subscription-request-sent": "Subscription request sent successfully",
+      "subscription-error": "An error occurred while sending the request"    
+    },
+    "subscriptionSuccess":{
+      "success-message": "Subscription request sent successfully!",
+      "review-message": "Your request will be reviewed and you will be contacted soon.",
+      "back-home": "Back to Home",
+      "track-request": "Track My Request"    
+  },
     "contactus": {
       "title": "Contact Us",
       "description": "Get in touch with us and let us know how we can help you.",
@@ -144,10 +245,396 @@
       "facebook": "Facebook",
       "instagram": "Instagram",
       "twitter": "Twitter",
-      "linkedin": "LinkedIn"
+      "linkedin": "LinkedIn",
+      "copyright": "All rights reserved © 2024 for Saudi Broadcasting Authority SBA",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Notice"
     },
     "nafath": {
-      "success": "User created and logged in successfully"
+      "success": "User created and logged in successfully",
+      "created": "Nafath account created successfully",
+      "login": {
+        "title": "Login with Nafath",
+        "description": "Enter your ID number to login with Nafath",
+        "id_number": "ID Number",
+        "id_required": "ID number is required",
+        "id_invalid": "ID number must be 10 digits",
+        "verify_title": "Nafath Verification",
+        "continue": "Continue"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "Login",
+        "description": "Enter your login credentials",
+        "email": "Email",
+        "email_required": "Email is required",
+        "email_invalid": "Invalid email address",
+        "password": "Password",
+        "password_required": "Password is required",
+        "password_length": "Password must be at least 8 characters",
+        "password_pattern": "Password must contain at least one number and one special character",
+        "remember_me": "Remember me",
+        "forgot_password": "Forgot password?",
+        "signing_in": "Signing in...",
+        "sign_in": "Sign in",
+        "login_with_nafath": "Login via Nafath",
+        "no_account": "Don't have an account?",
+        "create_account": "Create a new account",
+        "guest_login": "Login as guest"
+      },
+"registerForm": {
+    "create-account": "Create a New Account",
+    "enter-details": "Enter your registration details",
+    "full-name-ar": "Full Name in Arabic",
+    "full-name-en": "Full Name in English",
+    "name-required": "Name is required",
+    "name-min-length": "Name must be at least 3 characters",
+    "english-name-required": "English name is required",
+    "english-name-min-length": "English name must be at least 3 characters",
+    "national-id": "National ID",
+    "national-id-required": "National ID is required",
+    "national-id-min-length": "National ID must be at least 10 digits",
+    "national-id-max-length": "National ID must not exceed 15 digits",
+    "national-id-pattern": "National ID must start with 1, 2, 3, or 4 and contain only numbers",
+    "phone": "Mobile Number",
+    "phone-required": "Mobile number is required",
+    "phone-length": "Mobile number must be 9 digits",
+    "phone-pattern": "Invalid Saudi number: must start with 5 and consist of 9 digits",
+    "country-code": "Country Code",
+    "email": "Email",
+    "email-required": "Email is required",
+    "email-invalid": "Email must be valid",
+    "nationality": "Nationality",
+    "gender": "Gender",
+    "age-category": "Age Category",
+    "password": "Password",
+    "password-required": "Password is required",
+    "password-min-length": "Password must be at least 8 characters",
+    "password-pattern": "Password must contain at least one number and one special character",
+    "confirm-password": "Confirm Password",
+    "confirm-password-required": "Confirm password is required",
+    "agree-terms": "I agree to",
+    "terms-conditions": "Terms and Conditions",
+    "privacy-policy": "Privacy Policy Notice",
+    "of-app": "of the application",
+    "terms-required": "You must agree to the terms and conditions",
+    "privacy-required": "You must agree to the privacy policy notice",
+    "saving": "Saving...",
+    "next-step": "Next to complete registration",
+    "guest-login": "Login as Guest",
+    "have-account": "Already have an account?",
+    "login": "Login",
+    "complete-profile": "Complete your profile information",
+    "workshop-registration": "To register for the workshop, please enter this information"
+  },
+
+      "register": {
+        "title": "Create New Account",
+        "description": "Enter your registration details",
+        "name": {
+          "ar": "Full Name in Arabic",
+          "en": "Full Name in English",
+          "required": "Name is required",
+          "min_length": "Name must be at least 3 characters"
+        },
+        "national_id": {
+          "label": "National ID",
+          "required": "National ID is required",
+          "min_length": "National ID must be at least 10 digits",
+          "max_length": "National ID must not exceed 15 digits",
+          "pattern": "ID must start with 1, 2, 3, or 4 and contain only numbers"
+        },
+        "phone": {
+          "label": "Mobile Number",
+          "required": "Mobile number is required",
+          "length": "Mobile number must be 9 digits",
+          "pattern": "Invalid Saudi number: Must start with 5 and be 9 digits",
+          "country_code": "Country Code"
+        },
+        "email": {
+          "label": "Email Address",
+          "required": "Email is required",
+          "invalid": "Must be a valid email address"
+        },
+        "nationality": "Nationality",
+        "gender": "Gender",
+        "age_category": "Age Category",
+        "password": {
+          "label": "Password",
+          "confirm": "Confirm Password",
+          "required": "Password is required",
+          "confirm_required": "Password confirmation is required",
+          "min_length": "Password must be at least 8 characters",
+          "pattern": "Password must contain at least one number and special character"
+        },
+        "terms": {
+          "agree": "I agree to the",
+          "terms_label": "Terms and Conditions",
+          "privacy_label": "Privacy Policy",
+          "of_app": "of the application",
+          "required": "You must agree to the terms and conditions",
+          "privacy_required": "You must agree to the privacy policy"
+        },
+        "buttons": {
+          "register": "Register",
+          "registering": "Registering...",
+          "guest": "Continue as Guest",
+          "have_account": "Already have an account?",
+          "login": "Login"
+        },
+        "promo": {
+          "title": "Discover the World of Media and Broadcasting",
+          "description": "Get ready to acquire professional skills in radio and television fields, with certified training from the best experts."
+        }
+      }
+    },
+    "completeProfile":{
+      "language-level": "English Language Level",
+      "educational-experience": "Educational Experience",
+      "educational-degree": "Educational Degree",
+      "back": "Back",
+      "skip": "Skip",
+      "btn_Cancel": "Cancel",
+      "register": "Register",
+      "registering": "... Registering",
+      "already-have-account": "Already have an account?",
+      "log-in": "Log In",
+      "Complete-information": "Complete information"
+    },
+    "otp": {
+    "phone-confirmation": "Phone Number Confirmation",
+      "enter-otp-code": "Enter the 4-digit OTP code sent to your email",
+      "resend-code-in": "You can resend the code in",
+      "sending": "Sending...",
+      "resend": "Resend",
+      "verifying": "Verifying...",
+      "confirm": "Confirm"
+    },
+    "dashboard": {
+      "dashboard-title": "Dashboard",
+      "total-enrollments": "Total Enrollments",
+      "current-enrollments": "Current Enrollments",
+      "completed-enrollments": "Completed Enrollments",
+      "upcoming-enrollments": "Upcoming Enrollments",
+      "course": "Course",
+      "My-courses": "My Courses",
+      "ongoing": "Ongoing",
+      "upcoming": "Upcoming",
+      "completed": "Completed",
+      "no-courses": "No courses available.",
+      "no-current-courses": "No ongoing courses available.",
+      "no-completed-courses": "No completed courses available."
+    },
+    "profile":{
+      "Log-Out": "Log Out",
+      "ConfirmLogout": "Confirm Log Out",
+      "AreYouSureLogout": "Are you sure you want to log out?",
+      "Cancel": "Cancel",
+      "Confirm": "Confirm",
+      "LoggingOut": "... Logging out",
+      "no-certificates": "No certificates ",
+      "hello": "Hello",
+       "Welcome": "Welcome",
+      "favourite": {
+        "search": {
+          "placeholder": "Search for course, topic, instructor.."
+        }
+      },
+      "course-requests": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "declined": "Declined",
+        "no-pending": "No pending requests.",
+        "no-approved": "No approved requests.",
+        "no-declined": "No declined requests."
+      },
+      "invoices": {
+        "no-invoices": "No invoices available",
+        "invoice-number": "Invoice #{number}",
+        "invoice-details": "Invoice Details #{number}",
+        "courses-count": "Courses Count",
+        "subscription-date": "Subscription Date",
+        "total-amount": "Total Amount",
+        "invoice-number-label": "Invoice Number",
+        "payment-method": "Payment Method",
+        "status": "Status",
+        "courses-price": "Courses Price",
+        "vat": "VAT",
+        "total": "Total",
+        "download-pdf": "Download Invoice PDF"
+      },
+      "welcome": "Welcome",
+      "profile-title": "Profile",
+      "qualifications-title": "Qualifications",
+      "courses-title": "Courses",
+      "certificates-title": "Certificates",
+      "course-request-title": "Course Requests",
+      "invoices-title": "Invoices",
+      "dashboard-title": "Dashboard",
+      "favourite-title": "Favourite",
+      "LogOut": "LogOut",
+      "update": {
+        "edit": "Edit Profile",
+        "save": "Save Changes",
+        "cancel": "Cancel"
+      },
+      "form": {
+        "loading": "Loading...",
+        "loading-data": "Loading data...",
+        "profile-image": {
+          "change": "Change Profile Picture",
+          "cancel-change": "❌ Cancel Change",
+          "accepted-formats": "Accepted formats: JPG, PNG, WebP (less than 5MB)",
+          "errors": {
+            "invalid-type": "Please select an image file only",
+            "large-size": "Image size must be less than 5MB",
+            "success": "Image selected successfully"
+          }
+        },
+        "fields": {
+          "language-level": {
+            "label": "English Language Level",
+            "placeholder": "Select English Language Level",
+            "required": "English language level is required"
+          },
+          "education-degree": {
+            "label": "Education Degree",
+            "placeholder": "Select Education Degree",
+            "required": "Education degree is required"
+          },
+          "educational-experience": {
+            "label": "Educational Experience",
+            "placeholder": "Enter your educational experience",
+            "required": "Educational experience is required",
+            "min-length": "Educational experience must be more than 10 characters"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Email Address",
+            "required": "Email is required",
+            "invalid": "Invalid email address"
+          },
+          "phone": {
+            "label": "Phone Number",
+            "placeholder": "Phone Number",
+            "required": "Phone number is required",
+            "invalid": "Phone number must start with 5 and be 9 digits long"
+          },
+          "dial-code": {
+            "placeholder": "Country Code"
+          },
+          "name": {
+            "label": "Full Name (Arabic)",
+            "placeholder": "Enter your full name in Arabic",
+            "required": "Name is required",
+            "min-length": "Name must be more than 2 characters"
+          },
+          "english-name": {
+            "label": "Full Name (English)",
+            "placeholder": "Enter your full name in English",
+            "required": "Name is required",
+            "min-length": "Name must be more than 2 characters"
+          },
+          "national-id": {
+            "label": "National ID",
+            "placeholder": "National ID",
+            "required": "National ID is required",
+            "invalid": "ID must start with 1, 2, 3, or 4 and contain only numbers"
+          },
+          "nationality": {
+            "label": "Nationality",
+            "placeholder": "Select Nationality",
+            "required": "Nationality is required"
+          },
+          "gender": {
+            "label": "Gender",
+            "placeholder": "Select Gender",
+            "required": "Gender is required"
+          },
+          "age-category": {
+            "label": "Age Category",
+            "placeholder": "Select Age Category",
+            "required": "Age Category is required"
+          },
+          "change-password": {
+            "button": "Change Password"
+          }
+        }
+      },
+      "delete-account": {
+        "title": "Delete Account",
+        "description": "You will lose all data and information stored in your account if you delete it. Please make sure to backup or save any important information before deleting the account. The account cannot be recovered after deletion.",
+        "delete-button": "Delete My Account",
+        "confirm-title": "Confirm Account Deletion",
+        "confirm-message": "Are you sure you want to delete your account? This action cannot be undone.",
+        "cancel-button": "Cancel",
+        "confirm-button": "Yes, Delete Account",
+        "deleting": "Deleting..."
+      }
+    },
+    "ChangePassword": {
+      "title": "Change Password",
+      "enterNewPassword": "Please enter your new password",
+      "newPasswordDescription": "Please re-enter a new password, and it must be different from any previous password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "cancel": "Cancel",
+      "changePassword": "Change Password",
+      "changing": "Changing...",
+      "validation": {
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters long",
+        "passwordPattern": "Password must contain at least one number and one special character",
+        "confirmationRequired": "Password confirmation is required"
+      }
+    },
+    "button": {
+      "View-details": "View Details",
+      "qr-code": "QR Code",
+      "view-certificate": "View Certificate",
+      "feedback": "Feedback",
+       "Complete": "Complete",
+       "current-course": "Current Course",
+       "upcoming-course": "Upcoming Course",
+       "completed-course": "Completed Course"
+    },
+    "obtain-certificate": {
+      "title": "Obtain Certificate",
+      "coming-soon": "Coming Soon"
+    },
+    "verify-certificate": {
+      "title": "Verify Certificate",
+      "coming-soon": "Coming Soon"
+    },
+    "events": {
+      "not-found": "Event not found",
+      "back-to-events": "Back to Events"
+    },
+    "cart": {
+      "title": "Cart",
+      "order-summary": "Order Summary",
+      "courses-count": "Number of Courses",
+      "course-price": "Course Price",
+      "tax": "Tax",
+      "total": "Total",
+      "continue-browsing": "Continue Browsing",
+      "complete-order": "Complete Order",
+      "course-data-error": "Unable to retrieve course data from the cart.",
+      "enrollment-error": "Sorry, the order cannot be completed at the moment. Some courses are not available for enrollment.",
+      "course-unavailable": "This course is currently unavailable for enrollment.",
+      "checking-error": "An error occurred while checking the course availability.",
+      "remove-from-cart": "Remove from cart",
+      "removing": "Removing...",
+      "confirm-remove-title": "Confirm removal",
+      "confirm-remove-message": "Are you sure you want to remove this course from your cart?",
+      "cancel": "Cancel",
+      "confirm-remove": "Confirm",
+      "course-removed": "Course removed from cart successfully",
+      "remove-error": "Failed to remove course from cart",
+      "connection-error": "Connection error, please try again",
+      "remove": "Remove"
     }
   }
 }

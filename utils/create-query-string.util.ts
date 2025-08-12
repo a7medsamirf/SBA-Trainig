@@ -1,4 +1,9 @@
 export const createQueryString = (params: any) => {
+  if (!params || typeof params !== "object") {
+    return "";
+  }
+  
+  
   const queryString = Object.keys(params)
     .filter((key) => {
       if (params[key] != null && params[key] !== "") {

@@ -1,5 +1,6 @@
 "use server";
 import { fetcher } from "@/utils";
+import { revalidatePath } from "next/cache";
 
 interface UpdateQualificationsPayload {
   language_level?: number;
@@ -15,11 +16,10 @@ interface UpdateQualificationsResponse {
 }
 
 export const updateQualificationsApi = async (
-  payload: UpdateQualificationsPayload
-): Promise<UpdateQualificationsResponse> => {
+undefined: undefined, payload: UpdateQualificationsPayload): Promise<UpdateQualificationsResponse> => {
   try {
     const response = await fetcher({
-      url: "update-qualifications", // Update this to the correct API endpoint
+      url: "/profile", // Update this to the correct API endpoint
       method: "POST",
       options: {
         body: JSON.stringify(payload),
@@ -30,6 +30,8 @@ export const updateQualificationsApi = async (
     });
 
     const data = await response.json();
+    // إعادة تحديث الصفحة
+    revalidatePath("/qualifications");
 
     if (response.ok) {
       return {

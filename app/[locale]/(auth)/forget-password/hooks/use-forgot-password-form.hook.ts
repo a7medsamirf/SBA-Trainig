@@ -1,5 +1,5 @@
 import { useRouter } from "@/i18n/routing";
-import { forgotPassword, confirmCode, newPassword } from "@/server-actions";
+import { forgotPassword, confirmCode, newForgetPassword } from "@/server-actions";
 import { withCallbacks } from "@/utils";
 import { useActionState, useState, useTransition } from "react";
 import { FieldValues, useForm } from "react-hook-form";
@@ -43,6 +43,7 @@ export const useForgotPasswordForm = () => {
 
   const sendEmailHandler = async (data: FieldValues) => {
     data.identifier = data.email;
+    console.log("🚀 ~ sendEmailHandler ~ data:", data);
     startTransitionEmail(() => {
       // @ts-ignore
       sendEmailAction(data);
@@ -78,7 +79,7 @@ export const useForgotPasswordForm = () => {
   // New password submission
   const [isPendingPassword, startTransitionPassword] = useTransition();
 
-  const newPasswordSubmit = withCallbacks(newPassword, {
+  const newPasswordSubmit = withCallbacks(newForgetPassword, {
     onSuccess: (result) => {
       result.message && toast.success(result.message);
       setCurrentStep("email");

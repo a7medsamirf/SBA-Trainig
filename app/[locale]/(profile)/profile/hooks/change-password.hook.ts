@@ -6,7 +6,12 @@ import { FieldValues, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 export const useChangePassword = (user: any, onHide: () => void) => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   // New password submission
   const [isPendingPassword, startTransitionPassword] = useTransition();
@@ -15,6 +20,11 @@ export const useChangePassword = (user: any, onHide: () => void) => {
     onSuccess: (result) => {
       result.message && toast.success(result.message);
       onHide();
+      reset({
+        current_password: "",
+        new_password: "",
+        new_password_confirmation: "",
+      });
     },
     onError: (error) => {
       error.error?.message && toast.error(error.error?.message);
@@ -27,22 +37,19 @@ export const useChangePassword = (user: any, onHide: () => void) => {
     undefined
   );
 
-  const changePasswordHandler = (data: FieldValues, event?: React.BaseSyntheticEvent) => {
+  const changePasswordHandler = (
+    data: FieldValues,
+    event?: React.BaseSyntheticEvent
+  ) => {
     // Prevent form submission from bubbling up to parent form
     if (event) {
       event.preventDefault();
       event.stopPropagation();
     }
 
-    const { password, password_confirmation } = data;
-
     startTransitionPassword(() => {
       // @ts-ignore
-      changePasswordAction({
-        password,
-        password_confirmation,
-        identifier: user?.email,
-      });
+      changePasswordAction(data);
     });
   };
 
@@ -51,7 +58,10 @@ export const useChangePassword = (user: any, onHide: () => void) => {
     handleSubmit,
     changePasswordHandler,
     isPendingPassword,
+    errors,
   };
 };
 
 export default useChangePassword;
+
+

@@ -4,6 +4,9 @@ import SvgNotification from "@/components/icons/svg/notification";
 import Link from "next/link";
 import "../../navbar.scss";
 import { useEffect, useRef, useState } from "react";
+import { deleteNotificationApi, markNotificationAsRead } from "./actions";
+import { useTranslations } from "next-intl";
+
 /* import {
   markNotificationAsRead,
   deleteNotificationApi,
@@ -26,24 +29,24 @@ export const NotificationClientComponent = ({
   const [visibleCount, setVisibleCount] = useState(5);
   const lastVisibleRef = useRef<HTMLLIElement>(null);
 
-/*   const handleMarkAsRead = async (id: number) => {
-    setNotifications((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, read: true } : n))
-    );
-    await markNotificationAsRead(id);
-  };
+  // const handleMarkAsRead = async (id: number) => {
+  //   setNotifications((prev) =>
+  //     prev.map((n) => (n.id === id ? { ...n, read: true } : n))
+  //   );
+  //   await markNotificationAsRead(id);
+  // };
 
-  const handleDelete = async (id: number) => {
-    setNotifications((prev) => prev.filter((n) => n.id !== id));
-    await deleteNotificationApi(id);
-  }; */
+  // const handleDelete = async (id: number) => {
+  //   setNotifications((prev) => prev.filter((n) => n.id !== id));
+  //   await deleteNotificationApi(id);
+  // };
 
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + 10);
   };
 
   // scroll تلقائي داخل قائمة الإشعارات فقط
-/*   useEffect(() => {
+  /*   useEffect(() => {
     if (lastVisibleRef.current) {
       lastVisibleRef.current.scrollIntoView({
         behavior: "smooth",
@@ -56,7 +59,8 @@ export const NotificationClientComponent = ({
   const visibleNotifications = notifications.slice(0, visibleCount);
   const hasMore = visibleCount < notifications.length;
   /// عدد الاشعارات
-/*   const unreadCount = notifications.filter((n) => !n.read).length; */
+  /*   const unreadCount = notifications.filter((n) => !n.read).length; */
+  const t = useTranslations('trans');
 
   return (
     <li className="has-children item.submenu notifications-dropdown">
@@ -73,8 +77,9 @@ export const NotificationClientComponent = ({
         }}
       >
         {notifications.length === 0 ? (
-          <li className="notification-item text-center py-2">
-            لا يوجد إشعارات حالياً.
+          <li className="py-2 text-center notification-item">
+           {t('no_notifications')}
+
           </li>
         ) : (
           <>
@@ -90,7 +95,7 @@ export const NotificationClientComponent = ({
                 >
                   <a className="notification-link" href="#">
                     <div className="d-flex">
-                      <div className="notification-icon flex-shrink-0">
+                      <div className="flex-shrink-0 notification-icon">
                         <SvgNotification
                           width={24}
                           height={24}
@@ -106,10 +111,10 @@ export const NotificationClientComponent = ({
                         </p>
                       </div>
                     </div>
-                    <p className="notification-description two-row">
+                    <p className="notification-description">
                       {notification.body}
                     </p>
-                      {/*     <div className="notification-actions mt-2 d-flex gap-2">
+                    {/*     <div className="gap-2 mt-2 notification-actions d-flex">
                       {!notification.read && (
                         <button
                           className="btn btn-sm btn-outline-success w-50"
@@ -119,7 +124,7 @@ export const NotificationClientComponent = ({
                         </button>
                       )}
                       <button
-                        className="btn btn-sm btn-danger text-white w-50"
+                        className="text-white btn btn-sm btn-danger w-50"
                         onClick={() => handleDelete(notification.id)}
                       >
                         حذف
@@ -131,7 +136,7 @@ export const NotificationClientComponent = ({
             })}
 
             {hasMore && (
-              <li className="notification-item show-more text-center d-flex justify-content-center w-100">
+              <li className="text-center notification-item show-more d-flex justify-content-center w-100">
                 <button
                   className="show-more-link w-100"
                   onClick={handleShowMore}

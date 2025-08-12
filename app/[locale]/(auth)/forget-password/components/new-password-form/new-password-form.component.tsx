@@ -30,6 +30,7 @@ export const NewPasswordForm = ({
   newPasswordHandler,
   isPendingPassword,
   register,
+  errors,
 }: NewPasswordFormProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirmation, setshowPasswordConfirmation] =
@@ -63,50 +64,83 @@ export const NewPasswordForm = ({
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="mb-3 form-floating position-relative">
-              <input
-                {...register("password")}
-                type={showPassword ? "text" : "password"}
-                className="form-control"
-                id="password"
-                placeholder="كلمة السر"
-                required
-              />
-              <label> كلمة السر</label>
-              <span
-                className="toggle-password"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <SvgEyeSlash color="#425A8B" width={30} />
-                ) : (
-                  <SvgEye color="#425A8B" width={30} />
-                )}
-              </span>
+            <div className="mb-3">
+              <div className="form-floating position-relative">
+                <input
+                  {...register("password", {
+                    required: "كلمة السر مطلوبة",
+                    minLength: {
+                      value: 8,
+                      message: "يجب أن يكون كلمة السر 8 أحرف على الأقل",
+                    },
+                    pattern: {
+                      value: /^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
+                      message:
+                        "يجب أن تحتوي كلمة السر على رقم ورمز خاص على الأقل",
+                    },
+                  })}
+                  type={showPassword ? "text" : "password"}
+                  className="form-control"
+                  id="password"
+                  placeholder="كلمة السر"
+                />
+                <label> كلمة السر</label>
+                <span
+                  className="toggle-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <SvgEyeSlash color="#425A8B" width={30} />
+                  ) : (
+                    <SvgEye color="#425A8B" width={30} />
+                  )}
+                </span>
+              </div>
+              {errors.password && (
+                <p className="my-2 text-danger">
+                  {errors.password.message as string}
+                </p>
+              )}
             </div>
-
-            <div className="mb-3 form-floating position-relative">
-              <input
-                {...register("password_confirmation")}
-                type={showPasswordConfirmation ? "text" : "password"}
-                className="form-control"
-                id="password"
-                placeholder=" تأكيد كلمة السر"
-                required
-              />
-              <label> تأكيد كلمة السر</label>
-              <span
-                className="toggle-password"
-                onClick={() =>
-                  setshowPasswordConfirmation(!showPasswordConfirmation)
-                }
-              >
-                {showPasswordConfirmation ? (
-                  <SvgEyeSlash color="#425A8B" width={30} />
-                ) : (
-                  <SvgEye color="#425A8B" width={30} />
-                )}
-              </span>
+            <div className="mb-3">
+              <div className="form-floating position-relative">
+                <input
+                  {...register("password_confirmation", {
+                    required: "تأكيد كلمة السر مطلوب",
+                    minLength: {
+                      value: 8,
+                      message: "يجب أن يكون كلمة السر 8 أحرف على الأقل",
+                    },
+                    pattern: {
+                      value: /^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
+                      message:
+                        "يجب أن تحتوي كلمة السر على رقم ورمز خاص على الأقل",
+                    },
+                  })}
+                  type={showPasswordConfirmation ? "text" : "password"}
+                  className="form-control"
+                  id="password"
+                  placeholder=" تأكيد كلمة السر"
+                />
+                <label> تأكيد كلمة السر</label>
+                <span
+                  className="toggle-password"
+                  onClick={() =>
+                    setshowPasswordConfirmation(!showPasswordConfirmation)
+                  }
+                >
+                  {showPasswordConfirmation ? (
+                    <SvgEyeSlash color="#425A8B" width={30} />
+                  ) : (
+                    <SvgEye color="#425A8B" width={30} />
+                  )}
+                </span>
+              </div>
+              {errors.password_confirmation && (
+                <p className="my-2 text-danger">
+                  {errors.password_confirmation.message as string}
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -1,4 +1,22 @@
-"use client";
+import React from "react";
+import { SearchInput } from "@/components/search-input/search-input.component";
+import { useTranslations } from 'next-intl';
+const CourseRequestSearchComponents = () => {
+  const t = useTranslations('trans.courses');
+  
+  return (
+    <>
+      <SearchInput placeholder={t('search-placeholderV2')} />
+    </>
+  )
+}
+
+export default CourseRequestSearchComponents;
+
+
+
+
+/* "use client";
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SearchInput } from "@/components/search-input/search-input.component";
@@ -28,3 +46,4 @@ const CourseRequestSearchComponents = () => {
 };
 
 export default CourseRequestSearchComponents;
+ */

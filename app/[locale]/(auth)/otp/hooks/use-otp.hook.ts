@@ -5,6 +5,7 @@ import { useActionState, useEffect, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth.context";
+import { useLogin } from "../../login/hooks/use-login.hook";
 
 export const useOtp = () => {
   const { control, handleSubmit, setValue, trigger } = useForm({
@@ -13,9 +14,12 @@ export const useOtp = () => {
     },
   });
 
+  const { loginAsync } = useLogin();
+
   const { data: userData } = useAuth();
 
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     if (!userData?.email) {
@@ -25,15 +29,20 @@ export const useOtp = () => {
 
   const otpSubmit = withCallbacks(verifyOTP, {
     onSuccess: () => {
-      toast.success("تم التسجيل بنجاح");
-      router.push("/login");
+      toast.success("تم التحقق بنجاح");
+
+      startTransition(() => {
+        // @ts-ignore
+        loginAsync({
+          email: userData.email,
+          password: userData.password,
+        });
+      });
     },
     onError: (error) => {
       toast.error(error.error.message);
     },
   });
-
-  const [isPending, startTransition] = useTransition();
 
   // @ts-ignore
   const [, otpAsync] = useActionState(otpSubmit, undefined);

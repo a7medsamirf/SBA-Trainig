@@ -1,9 +1,10 @@
-export interface Initiative {
+export interface InitiativeData {
   id: number;
   title: string;
   description: string;
   image: string;
   type: string;
+  date: string;
 }
 
 export interface InitiativesLinks {
@@ -31,7 +32,7 @@ export interface InitiativesMeta {
 }
 
 export interface InitiativesResponse {
-  data: Initiative[];
+  data: InitiativeData[];
   links: InitiativesLinks;
   meta: InitiativesMeta;
   status: number;

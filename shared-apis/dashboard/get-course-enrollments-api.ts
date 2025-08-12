@@ -1,5 +1,6 @@
 import { createQueryString, fetcher } from "@/utils";
 
+
 export const getCourseEnrollments = async (params?: any) => {
   const query = createQueryString(params);
 

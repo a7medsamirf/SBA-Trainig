@@ -4,9 +4,14 @@ import { useLocale } from "next-intl";
 import { useActionState, useState, useTransition } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useAuth } from "../../context/auth.context";
+import { useRouter } from "@/i18n/routing";
 
 export const useNafathLogin = () => {
   const lang = useLocale();
+  const { setData } = useAuth();
+
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -35,11 +40,15 @@ export const useNafathLogin = () => {
       };
 
       nafathLogin(nafathLoginData).then((res) => {
+        console.log("🚀 ~ nafathLogin ~ res:", res);
         if (res?.succeeded) {
-          toast.success(res?.message || "تم تسجيل الدخول بنجاح");
-          //   router.push("/");
-          //   window.location.reload();
-          window.location.href = `/${lang}`;
+          if (!res?.data?.email) {
+            setData(res?.data);
+            router.push("/register");
+          } else {
+            toast.success(res?.message || "تم تسجيل الدخول بنجاح");
+            window.location.href = `/${lang}`;
+          }
         } else {
           toast.error(res?.error?.message || "فشل تسجيل الدخول");
           setIsVerifying(false);

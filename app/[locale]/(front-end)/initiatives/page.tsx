@@ -1,31 +1,34 @@
 import "./initiatives.scss";
 import {NewsletterSection} from "@/components/sections/newsletter/newsletter-section";
-
+import { getTranslations } from "next-intl/server";
 import UpsCard from "@/components/sections/ups/components/upsCard-component";
 import InitiativesCardComponent from "./components/initiativesCard-component";
 
 import { getInitiatives } from "@/shared-apis/Initiatives/get-initiatives.api";
   export default async function InitiativesPage() {
-  const eventsResponse = await getInitiatives();
-  const eventsData = eventsResponse?.data || [];
+  const t = await getTranslations("trans.initiatives");
+  const InitiativesResponse = await getInitiatives();
+  const InitiativesData = InitiativesResponse?.data || [];
 
   return (
     <>
       <section className="section-box News">
         <div className="container">
-          <h2 className="mt-4">  المبادرات </h2>
+          <h2 className="mt-4">{t("title")}</h2>
           <div className="row align-items-center">
             <div className="col-lg-12 mb-30">
-              <p className="font-md color-gray-500 mt-20"><span className="font-md color-brand-3">
-                انطلاقا من دور هيئة الإذاعة والتلفزيون الريادي في مجال الإعلام، وإيمانا بكفاءة الطاقات الوطنية الواعدة، تنفذ الأكاديمية مبادرات تدريبية نوعية ومتخصصة في مجال الإعلام لدعم وتمكين المواهب الاعلامية من خلال تهيئة بيئة حاضنة تساهم في تنمية القدرات وتعزيز المهارات ونشر ثقافة التدريب.
-                </span></p>
+              <p className="font-md color-gray-500 mt-20">
+                <span className="font-md color-brand-3">
+                  {t("description")}
+                </span>
+              </p>
             </div>
           </div>
 
            <div className="border-bottom pt-0 mb-30"></div>
           <div className="row mt-30">
           <div className="col-xl-12 col-lg-12 mb-30 display-list">
-                  <InitiativesCardComponent events={eventsData}/>
+                  <InitiativesCardComponent Initiatives={InitiativesData}/>
             </div>
           </div>
         </div>

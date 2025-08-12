@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {  useTranslations } from "next-intl";
 interface TrackingCardProps {
   icon: React.ReactNode;
   value: number;
@@ -9,13 +9,14 @@ interface TrackingCardProps {
 }
 
 const TrackingCardComponent: React.FC<TrackingCardProps> = ({ icon, value, label, colorClass, bgClass }) => {
+  const t = useTranslations("trans.dashboard");
   return (
     <div className="tracking-card-component card h-100">
       <div className="card-body p-4">
         <div className="flex-grow-1">
           <h6 className="mb-4">{label}</h6>
           <span className={`fw-bold ${colorClass}`}>{value}</span>
-          <span className={`ms-1 ${colorClass}`}>دورة</span>
+          <span className={`ms-1 ${colorClass}`}> {t("course")} </span>
         </div>
         <div className={`icon-box rounded-3 d-flex align-items-center justify-content-center ${bgClass} icon-box`}
               style={{ width: 40, height: 40, background: 'var(--bs-light)' }}>

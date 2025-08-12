@@ -4,17 +4,20 @@ import React from "react";
 import BillsCartComponents from "./BillsCart-components";
 import BillsSearchComponents from "./BillsSearch-components";
 import { InvoiceItem } from "@/models";
+import { useTranslations } from "next-intl";
 
 export default function BillsClientPage({
   invoices,
 }: {
   invoices: InvoiceItem[];
 }) {
+  const t = useTranslations("trans");
+  
   return (
     <div className="border-0 card custom-border-radius">
       <div className="p-4 bg-white border-0 card-header custom-border-radius">
         <div className="profile-content-item-header">
-          <h4 className="fw-bold color-gray-900"> الفواتير </h4>
+          <h4 className="fw-bold color-gray-900">{t("profile.invoices-title")}</h4>
         </div>
       </div>
 

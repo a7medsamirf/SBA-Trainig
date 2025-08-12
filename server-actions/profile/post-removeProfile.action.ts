@@ -5,7 +5,7 @@ export const removeProfileApi = async (courseId: number) => {
     try {
       const res = await fetcher({
         url: `carts/delete?course_id=${courseId}`,
-        method: "DELETE",
+        method: "POST",
       });
   
       if (!res.ok) {

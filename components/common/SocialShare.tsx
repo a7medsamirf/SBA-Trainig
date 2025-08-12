@@ -7,6 +7,8 @@ import {
   TwitterIcon,
   WhatsappShareButton,
   WhatsappIcon,
+  PinterestShareButton,
+  PinterestIcon,
 } from "next-share";
 
 interface Post {
@@ -21,17 +23,20 @@ export default function ShareButtons({ post }: { post: Post }) {
   return (
     <div className="flex gap-2">
       <FacebookShareButton url={url} quote={title}>
-        <FacebookIcon size={32} round />
+        <FacebookIcon size={25} round />
       </FacebookShareButton>
 
+      <PinterestShareButton url={url} media={url}>
+        <PinterestIcon size={25} round />
+      </PinterestShareButton>
+
       <TwitterShareButton url={url} title={title}>
-        <TwitterIcon size={32} round />
+        <TwitterIcon size={25} round />
       </TwitterShareButton>
 
-      <WhatsappShareButton url={url} title={title} separator=":: ">
-        <WhatsappIcon size={32} round />
+      <WhatsappShareButton url={url} title={title}>
+        <WhatsappIcon size={25} round />
       </WhatsappShareButton>
     </div>
   );
 }
-

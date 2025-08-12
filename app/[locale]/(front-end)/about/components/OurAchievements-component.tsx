@@ -1,17 +1,19 @@
 import React from 'react'
 import { SettingsWithMetaResponse } from '@/models/settings.model';
+import { getTranslations } from 'next-intl/server';
 
 interface OurAchievementsComponentProps {
   meta?: SettingsWithMetaResponse['meta'];
 }
 
-const achievementLabels: { key: keyof NonNullable<SettingsWithMetaResponse['meta']>; label: string }[] = [
-  { key: 'student', label: 'متدرب' },
-  { key: 'courses', label: 'دورة تدريبية' },
-  { key: 'initiatives', label: 'مبادرات' },
-];
-
-export const OurAchievementsComponent: React.FC<OurAchievementsComponentProps> = ({ meta }) => {
+export const OurAchievementsComponent: React.FC<OurAchievementsComponentProps> = async ({ meta }) => {
+  const t = await getTranslations('trans.achievements');
+  
+  const achievementLabels: { key: keyof NonNullable<SettingsWithMetaResponse['meta']>; label: string }[] = [
+    { key: 'student', label: t('trainee') },
+    { key: 'courses', label: t('training-course') },
+    { key: 'initiatives', label: t('initiatives') },
+  ];
   return (
     <>
       <div className="box-contact-support pl-50 pr-50 background-gray-50 pt-80 pb-50 mt-50 mb-90">

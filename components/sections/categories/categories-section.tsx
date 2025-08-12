@@ -21,9 +21,9 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories
         <div className="mt-10">
         <div className="row">
           {categories && categories.length > 0 && categories?.map((category) => (
-            <div className="col-xl-2 col-lg-4 col-sm-6 mb-4" key={category.id}>
-              <div className="card-course text-center p-3">
-                <div className="card-icon image mb-3">
+            <div className="col-xl-2 col-lg-4 col-sm-6 mb-4 " key={category.id}>
+              <div className="card-course text-center p-3 h-100">
+                <div className="card-icon  mb-3">
                   <span className="catIcon text-center p-3">
                     {category.image ? (
                       <Image width={100} height={100} src={category.image} alt={category.name} style={{ maxWidth: '35px', maxHeight: '35px', objectFit: 'contain' }} />
@@ -41,9 +41,13 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories
                     {category.name}
                   </Link>
 
-                
-                  <p className="card-text-course font-xs color-gray-500">{category.courses_count}</p>
-                </div>
+               
+               <p className="card-text-course font-xs color-gray-500">
+                  {category.courses_count > 0
+                    ? `${category.courses_count} ${t("Courses")}`
+                    : t("coming-soon")}
+                </p>
+               </div>
               </div>
             </div>
           ))}

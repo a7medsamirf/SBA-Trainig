@@ -24,15 +24,15 @@
       min-width: 16px;
       min-height: 16px;
       border-radius: $radius-sm;
-      border: 1px solid $color-deep-slate;
+      border: 1px solid #DDE4F0;
       // margin-left: 8px;
       position: relative;
       cursor: pointer;
       outline: none;
 
       &:checked {
-        border-color: $alert-green;
-        background-image: url("../../public/images/svg/tick-circle.svg");
+        border-color: #76A441;
+        background-image: url("/images/svg/tick-circle.svg");
         background-position: center;
         background-repeat: no-repeat;
       }

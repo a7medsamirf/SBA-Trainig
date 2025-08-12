@@ -31,4 +31,6 @@ export * from './profile/profile.model'
 export * from './profile/invoices.model'
 export * from './profile/show-invoices.model'
 
+export * from './feedback.model'
+
 

@@ -5,11 +5,11 @@
   margin: 2rem auto;
   background: white;
   border: 1px solid #dde4f0;
-  overflow: hidden;
+/*   overflow: hidden; */
 
-  .calendar-content {
+/*   .calendar-content {
     overflow-x: auto;
-  }
+  } */
 
   .calendar-header {
     display: flex;
@@ -468,3 +468,12 @@
       border: 1px solid #425a8b;
     }
   }           
+
+  html[dir="rtl"] {
+    .nav-btn {
+      &.ArrowForward,
+        &.ArrowBack{
+        transform: scale(-1, 1);
+      }
+    }
+}

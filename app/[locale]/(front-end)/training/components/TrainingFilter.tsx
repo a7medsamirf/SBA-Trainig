@@ -8,7 +8,7 @@ import { createQueryString } from "@/utils/create-query-string.util";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import { useTranslations } from 'next-intl';
 export default function TrainingFilter({
   categories,
 }: {
@@ -52,52 +52,51 @@ export default function TrainingFilter({
     });
     router.replace(`${pathname}?${query}`, { scroll: false });
   };
+  const t = useTranslations('trans.courses');
 
+  
   return (
-    <div
-      className="row"
-      style={{ gap: "12px", justifyContent: "space-between" }}
-    >
-      <SearchInput
-        placeholder="ابحث عن دورة تدريبية, موضوع, معلم."
-        className="mb-3 col-12 col-md-6 col-lg-3"
-      />
+    <div className="row d-flex justify-content-between">
+      <div className="mb-3 col-12 col-md-6 col-lg-4">
+      <SearchInput placeholder={t('search-placeholder')} />
+      </div>
 
-      <SelectInput
-        name="category_id"
-        control={control}
-        placeholder="التصنيف"
-        required
-        options={categories}
-        getOptionLabel={(option: any) => option.name}
-        getOptionValue={(option: any) => option.id}
-        label=""
-        defaultValue={category}
-        onChange={onCategoryChange}
-        className="mb-3 col-12 col-md-6 col-lg-3 !max-w-[197px]"
-        isClearable
-      />
-      <SelectInput
-        name="category_id"
-        control={control}
-        placeholder="التصنيف"
-        required
-        options={categories}
-        getOptionLabel={(option: any) => option.name}
-        getOptionValue={(option: any) => option.id}
-        label=""
-        defaultValue={category}
-        className="mb-3 col-12 col-md-6 col-lg-3 !max-w-[197px]"
-        isClearable
-      />
+      <div className="col-12 col-md-6 col-lg-8 gap-2 d-flex">
+        <SelectInput
+          name="category_id"
+          control={control}
+          placeholder={t("category")}
+          required
+          options={categories}
+          getOptionLabel={(option: any) => option.name}
+          getOptionValue={(option: any) => option.id}
+          label=""
+          defaultValue={category}
+          onChange={onCategoryChange}
+          
+          isClearable
+        />
+  {/*       <SelectInput
+          name="category_id"
+          control={control}
+          placeholder="التصنيف"
+          required
+          options={categories}
+          getOptionLabel={(option: any) => option.name}
+          getOptionValue={(option: any) => option.id}
+          label=""
+          defaultValue={category}
+          
+          isClearable
+        /> */}
 
-      <ReactDatePicker
-        placeholder="التاريخ"
-        className="mb-3 col-12 col-md-6 col-lg-3 !max-w-[197px]"
-        onChange={onStartDateChange}
-        selected={startDate}
-        dateFormat="YYYY-MM-DD"
-      />
+        <ReactDatePicker
+          placeholder={t("DatePicker")}
+          onChange={onStartDateChange}
+          selected={startDate}
+          dateFormat="YYYY-MM-DD"
+        />
+      </div>
     </div>
   );
 }

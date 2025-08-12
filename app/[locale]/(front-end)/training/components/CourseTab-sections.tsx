@@ -1,18 +1,16 @@
 import React from "react";
 import CourseContentComponent from "./CourseDetailsTab/CourseContent-component";
 import CourseIncludesComponent from "./CourseDetailsTab/CourseIncludes-component";
-import { auth } from "@/auth";
-import { getLocale } from "next-intl/server";
 import { getCourseClientById } from "@/shared-apis/Courses/get-client-courses-detail.api";
+import { getTranslations } from "next-intl/server";
 
 interface CourseTabSectionsProps {
   courseId: string | number;
 }
 
 const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
-  const session = await auth();
-  const lang = await getLocale();
-  const data = await getCourseClientById(courseId, session?.user);
+  const t = await getTranslations("trans.training");
+  const data = await getCourseClientById(courseId);
 
   const hasCourseContent = data?.data?.contents?.length > 0;
 
@@ -28,7 +26,7 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
             aria-controls="tab-description"
             aria-selected="true"
           >
-            وصف الدورة
+            {t("course-description")}
           </a>
         </li>
         <li>
@@ -39,7 +37,7 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
             aria-controls="tab-objectives"
             aria-selected="false"
           >
-            أهداف الأداء النهائية
+            {t("final-objectives")}
           </a>
         </li>
         <li>
@@ -50,7 +48,7 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
             aria-controls="tab-requirements"
             aria-selected="false"
           >
-            متطلبات الحضور
+            {t("attendance-requirements")}
           </a>
         </li>
         {hasCourseContent && (
@@ -62,7 +60,7 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
               aria-controls="tab-Coursecontent"
               aria-selected="false"
             >
-              محتوى الدورة
+              {t("course-content")}
             </a>
           </li>
         )}
@@ -77,7 +75,9 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
         >
           <div
             className="font-md color-gray-500"
-            dangerouslySetInnerHTML={{ __html: data?.data?.detail?.details || "لا يوجد تفاصيل" }}
+            dangerouslySetInnerHTML={{
+              __html: data?.data?.detail?.details || t("no-details"),
+            }}
           />
         </div>
 
@@ -89,7 +89,9 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
         >
           <div
             className="font-md color-gray-500"
-            dangerouslySetInnerHTML={{ __html: data?.data?.detail?.goal || "لا يوجد أهداف" }}
+            dangerouslySetInnerHTML={{
+              __html: data?.data?.detail?.goal || t("no-objectives"),
+            }}
           />
         </div>
 
@@ -99,10 +101,14 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
           role="tabpanel"
           aria-labelledby="tab-requirements"
         >
-          <div className="course-requirements mb-4">
+          <div className="mb-4 course-requirements">
             <div
               className="font-md color-gray-500"
-              dangerouslySetInnerHTML={{ __html: data?.data?.detail?.attendance_requirement || "لا توجد متطلبات" }}
+              dangerouslySetInnerHTML={{
+                __html:
+                  data?.data?.detail?.attendance_requirement ||
+                  t("no-requirements"),
+              }}
             />
           </div>
         </div>
@@ -114,10 +120,12 @@ const CourseTabSections = async ({ courseId }: CourseTabSectionsProps) => {
             role="tabpanel"
             aria-labelledby="tab-Coursecontent"
           >
-            <div className="course-requirements mb-4">
+            <div className="mb-4 course-requirements">
               <div className="row">
                 <div className="col-lg-9">
-                  <CourseContentComponent sections={data?.data?.contents || []} />
+                  <CourseContentComponent
+                    sections={data?.data?.contents || []}
+                  />
                 </div>
                 <div className="col-lg-3 mt-30">
                   <CourseIncludesComponent courseDetail={data?.data?.detail} />

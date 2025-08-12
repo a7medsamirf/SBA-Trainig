@@ -4,6 +4,7 @@ import { AgeCategory, Gender, Nationality } from "@/models";
 import ProfileFormComponent from "./ProfileForm-component";
 import { useUpdateProfile } from "../hooks/update-profile.hook";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface ProfileFormProps {
   nationalities: Nationality[];
@@ -16,41 +17,57 @@ export default function UpdateProfile({
   nationalities,
   genders,
   ageCategories,
-  user,
+  user: initialUser, 
 }: ProfileFormProps) {
+  const [user, setUser] = useState(initialUser); 
   const [isEdit, setIsEdit] = useState(false);
 
   const handleEdit = () => setIsEdit((prev) => !prev);
+  const handleCancel = () => setIsEdit(false);
 
-  const handleCancel = () => {
+  const t = useTranslations("trans.profile");
+  
+  const { 
+    control, 
+    handleSubmit, 
+    isPending, 
+    onSubmit, 
+    errors,
+    selectedFile,
+    setSelectedFile,
+    handleCancelEdit,
+    reset,
+  } = useUpdateProfile(user, handleCancel);
+
+
+  const handleCancelClick = () => {
+    handleCancelEdit(); 
     setIsEdit(false);
   };
-
-  const { control, handleSubmit, isPending, onSubmit } = useUpdateProfile(
-    user,
-    handleCancel
-  );
 
   return (
     <>
       <div className="p-4 bg-white border-0 card-header custom-border-radius">
         <div className="profile-content-item-header d-flex align-items-center justify-content-between">
-          <h4 className="fw-bold color-gray-900">الملف الشخصي </h4>
+          <h4 className="fw-bold color-gray-900">{t("profile-title")}</h4>
           <div className="gap-2 d-flex align-items-center">
             {isEdit && (
               <button
-                className="btn btn-outline-primary"
+                className="btn btn-danger"
                 type="button"
-                onClick={handleEdit}
+                onClick={handleCancelClick}
+                disabled={isPending}
               >
-                الغاء
+                {t("update.cancel")}
               </button>
             )}
+            
             {isEdit && (
               <button
                 form="update-profile"
                 className="btn btn-primary"
                 type="submit"
+                disabled={isPending}
               >
                 {isPending && (
                   <span
@@ -59,7 +76,7 @@ export default function UpdateProfile({
                     aria-hidden="true"
                   />
                 )}
-                حفظ البيانات
+                {t("update.save")}
               </button>
             )}
 
@@ -68,8 +85,9 @@ export default function UpdateProfile({
                 className="btn btn-primary"
                 type="button"
                 onClick={handleEdit}
+                disabled={isPending}
               >
-                تعديل البيانات
+                {t("update.edit")}
               </button>
             )}
           </div>
@@ -88,6 +106,9 @@ export default function UpdateProfile({
             control={control}
             isEdit={isEdit}
             user={user}
+            errors={errors}
+            selectedFile={selectedFile}
+            setSelectedFile={setSelectedFile}
           />
         </div>
       </div>

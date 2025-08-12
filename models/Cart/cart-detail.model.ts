@@ -1,6 +1,7 @@
 export type CartDetailResponse = {
     status: number;
     data: {
+      is_enrollment_available: boolean;
       carts: Array<{
         course: {
           detail: {
@@ -48,6 +49,7 @@ export type CartDetailResponse = {
             email: string;
             can_join_in_courses: boolean;
             phone: string | null;
+            dial_code: string | null;
             is_active: string;
             api_token: string | null;
             language: string;

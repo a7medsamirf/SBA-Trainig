@@ -81,6 +81,14 @@ export async function loginApi({ email, password }: LoginApi) {
 
     const data = (await res.data) as any;
 
+    if (data?.data?.verified_case) {
+      return {
+        succeeded: false,
+        verified_case: data?.data?.verified_case,
+        ...data,
+      };
+    }
+
     return {
       succeeded: true,
       ...data,
@@ -137,7 +145,7 @@ export async function login(prevState: string | undefined, formData: any) {
   const t = await getTranslations("trans");
 
   try {
-    await signIn("credentials", {
+    const res = await signIn("credentials", {
       ...formData,
       isNafathLogin: false,
       redirect: false,

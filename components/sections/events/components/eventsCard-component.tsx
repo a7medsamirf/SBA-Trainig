@@ -6,20 +6,22 @@ import ReusableSwiper from "@/components/common/Reusable-Swiper";
 import { HomeEvent  } from "@/models";
 import { useParams } from 'next/navigation';
 import { slugify } from "@/utils/slugify"; // 👈 استدعاء الدالة
+import { useTranslations , useLocale  } from "next-intl";
 
 interface EventsCardSectionProps {
   events: HomeEvent[];
 }
 
 const EventsCardSection: React.FC<EventsCardSectionProps> = ({ events }) => {
-  const { locale } = useParams();
-
+    const { locale } = useParams();
+    const datelocale = useLocale();
+    const t = useTranslations("trans.cart");
   return (
     <ReusableSwiper
       slidesPerView={{
         640: { slidesPerView: 1 },
         768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 },
         1920: { slidesPerView: 4 },
       }}
     >
@@ -39,7 +41,18 @@ const EventsCardSection: React.FC<EventsCardSectionProps> = ({ events }) => {
             />
             <div className="card-body px-0">
               <span className="tag-dot font-xs">{event.type}<span className="dot bullet me-3"></span></span>
+        
+                <div className="font-sm color-gray-500"> 
+                {new Date(event.date).toLocaleDateString(locale, {
+                                weekday: "long",
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                                numberingSystem: datelocale.startsWith("ar") ? "latn" : "latn"
+                              })}
 
+                </div>
+           
               <Link href={`${locale === "en" ? "en" : "ar"}/events/${event.id}-${slug}`} >
                 <h6 className="card-title color-gray-1100 two-row">{event.title}</h6>
               </Link>

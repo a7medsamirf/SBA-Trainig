@@ -1,4 +1,4 @@
-# Watheeq App
+# SBA Academy App
 
 A modern Next.js application built with TypeScript, featuring internationalization, authentication, and a component-based architecture.
 

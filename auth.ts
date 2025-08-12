@@ -52,7 +52,7 @@ export const {
         if (user?.succeeded) {
           return { ...user?.data, maxAge, remember };
         } else {
-          throw new AuthError(user?.error || "حدث خطأ ما");
+          throw new AuthError(user || "حدث خطأ ما");
         }
 
         return null;

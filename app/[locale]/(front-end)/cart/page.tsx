@@ -6,7 +6,7 @@ const CartPage = async () => {
   const data = await getCartApi(); // Server Side
 
   return (
-    <div className="container cart-page my-5">
+    <div className="container my-5 cart-page">
       <CartClientWrapperComponent cartData={data} />
     </div>
   );

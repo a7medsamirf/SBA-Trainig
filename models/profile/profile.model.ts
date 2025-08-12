@@ -37,6 +37,7 @@ export interface ProfileData {
   email: string;
   can_join_in_courses: boolean;
   phone: string;
+  dial_code: string;
   is_active: string;
   api_token: string;
   language: string;

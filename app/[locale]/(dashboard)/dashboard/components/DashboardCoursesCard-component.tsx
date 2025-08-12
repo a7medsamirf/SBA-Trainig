@@ -1,38 +1,57 @@
+"use client";
 import Image from "next/image";
-import { Star } from 'lucide-react';
+import { Star , ScanQrCode , ExternalLink , Download  } from "lucide-react";
 import { Link } from "@/i18n/routing";
-
+import { slugify } from "@/utils/slugify";
+import {  useTranslations } from "next-intl";
 interface DashboardCoursesCardProps {
+  status: "upcoming" | "ongoing" | "completed";
+  id: number;
+  course_id: number;
   category_name: string;
   name: string;
-  image: string | null;
+  course_image: string | null;
   attendance_percentage: number;
-  qr_url: string;
+  qr_code: string;
   certificate_url?: string | null;
 }
 
 const DashboardCoursesCardComponent: React.FC<DashboardCoursesCardProps> = ({
+  status,
+  id,
+  course_id,
   category_name,
   name,
-  image,
+  course_image,
   attendance_percentage,
-  qr_url,
+  qr_code,
   certificate_url,
 
 }) => {
+  const courseUrl = `/training/${id}-${slugify(name)}`;
+  const t = useTranslations("trans.button");
   return (
     <>
-            <div className="current-course-card">
+    
+    <div className="current-course-card h-100">
               <div className="course-details">
               <Image
-                src={image ? `/${image}` : "/images/empty-img.png"}
-                alt={name}
-                width={100}
-                height={100}
-              />
-                <div className="course-info mb-3 w-100">
+                  src={
+                    course_image?.startsWith("http")
+                      ? course_image
+                      : "/images/empty-img.png"
+                  }
+                  alt={name}
+                  width={100}
+                  height={100}
+                />
+                   <div className="course-info mb-3 w-100">
                   <p className="course-category">{category_name}</p>
-                  <h5 className="course-name">{name}</h5>
+                  <Link href={courseUrl}>
+                  <h5 className="course-name">
+                    {name}
+                    </h5>
+                    </Link>
                   <div className="mt-2">
                     <div className="progress">
                     <div
@@ -44,39 +63,60 @@ const DashboardCoursesCardComponent: React.FC<DashboardCoursesCardProps> = ({
                         aria-valuemax={100}
                       ></div>
                     </div>
-                    <p className="progress-text">{attendance_percentage}% مكتمل</p>
+                    <p className="progress-text">{attendance_percentage}% {t("Complete")}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="course-actions">
-{/*               <a
-                  href={qr_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-cart btn-outline-custom btn-sm"
-                >
-                  عرض QR Code
-                </a> */}
-           {certificate_url && (
-                  <Link
-                    href={certificate_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-cart btn-outline-custom btn-sm"
-                  >
-                    تحميل الشهادة
-                  </Link>
-                )}
-                <Link href="/feedback" className="btn btn-cart btn-icon btn-outline-custom btn-sm">  
-                <Star  size={17} strokeWidth={2}   />
-                تقييم الدورة   
-                </Link>
-           
-                <button className="btn btn-buy btn-custom-primary btn btn-primary btn-sm">
-                  عرض التفاصيل
-                </button>
-              </div>
+    <div className="course-actions">
+        {["ongoing", "upcoming"].includes(status) && qr_code && (
+            <Link
+              href={qr_code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-icon btn-cart btn-outline-custom btn-sm"
+            >
+             {t("qr-code")}
+              <ScanQrCode size={17} strokeWidth={2} />
+            </Link>
+          )}
+
+       {["ongoing", "upcoming"].includes(status) && courseUrl && (
+            <Link
+              href={courseUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-icon btn-buy btn-custom-primary btn-primary btn-sm"
+            >
+            {t("View-details")}
+            <ExternalLink size={17} strokeWidth={2} />
+            </Link>
+          )}
+
+        {status === "completed" && certificate_url && (
+            <Link
+              href={certificate_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-icon btn-buy btn-custom-primary btn-primary btn-sm"
+            >
+               {t("view-certificate")}
+              <Download size={17} strokeWidth={2} />
+            </Link>
+          )}
+
+            {status === "completed" && (
+              <Link
+                href={`/feedback?course_id=${course_id}`}
+                 target="_blank"
+                className="btn btn-cart btn-icon btn-outline-custom btn-sm"
+              >
+                 {t("feedback")}
+                <Star size={17} strokeWidth={2} />
+              </Link>
+            )}
+        </div>
+
             </div>
     
     </>

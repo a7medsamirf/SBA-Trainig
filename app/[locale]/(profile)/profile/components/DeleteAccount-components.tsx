@@ -4,11 +4,13 @@ import { useRouter } from "@/i18n/routing";
 import { deleteAccount } from "@/server-actions";
 import React, { useState, useTransition } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { useTranslations } from "next-intl";
 
 const DeleteAccountComponents = () => {
   const [isPending, startTransition] = useTransition();
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const router = useRouter();
+  const t = useTranslations("trans.profile");
 
   const handleConfirmDelete = () => {
     startTransition(async () => {
@@ -20,11 +22,9 @@ const DeleteAccountComponents = () => {
 
   return (
     <div className="my-5 delete-account-container">
-      <h5 className="mb-3 text-black fw-bold">حذف الحساب</h5>
+      <h5 className="mb-3 text-black fw-bold">{t("delete-account.title")}</h5>
       <p className="mb-4 text-muted">
-        قد تفقد جميع البيانات والمعلومات المخزنة في حسابك إذا قمت بالحذف، يرجى
-        التأكد من نسخ أو حفظ أي معلومات هامة قبل حذف الحساب. حيث لا يمكن استرداد
-        الحساب بعد الحذف
+        {t("delete-account.description")}
       </p>
 
       <button
@@ -40,7 +40,7 @@ const DeleteAccountComponents = () => {
             aria-hidden="true"
           />
         )}
-        حذف حسابي
+        {t("delete-account.delete-button")}
       </button>
 
       {/* Confirm Delete Modal */}
@@ -54,18 +54,18 @@ const DeleteAccountComponents = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title className="h5 color-gray-900" id="contained-modal-title-vcenter">
-            تأكيد حذف الحساب
+            {t("delete-account.confirm-title")}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
-          <p>هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع بعد ذلك.</p>
+          <p>{t("delete-account.confirm-message")}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowConfirmModal(false)} disabled={isPending}>
-            إلغاء
+            {t("delete-account.cancel-button")}
           </Button>
           <Button variant="danger" onClick={handleConfirmDelete} disabled={isPending}>
-            {isPending ? "... جاري الحذف" : "نعم، احذف الحساب"}
+            {isPending ? t("delete-account.deleting") : t("delete-account.confirm-button")}
           </Button>
         </Modal.Footer>
       </Modal>

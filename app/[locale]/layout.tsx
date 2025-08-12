@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title: "SBA Training Academy",
   description: "SBA Training Academy",
   icons: {
-    icon: "/images/favicon.png",
+    icon: "/images/favicon.ico",
   },
 };
 

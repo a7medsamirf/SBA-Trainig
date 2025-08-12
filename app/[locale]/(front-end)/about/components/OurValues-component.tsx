@@ -1,6 +1,7 @@
 
 import React from 'react'
 import type { SVGProps } from 'react';
+import { getTranslations } from 'next-intl/server';
 
 import SvgGame from '@/components/icons/game';
 import SvgVoucher from '@/components/icons/voucher';
@@ -20,48 +21,54 @@ interface OurValuesComponentProps {
   titleClassName?: string;
 }
 
-const OurValueData = [
+const getOurValueData = async () => {
+  const t = await getTranslations('trans.about.values');
+  return [
     {
-        id: 1,
-        icon: <SvgGame />,
-        title: "الإلهام المولد للابتكار",
+      id: 1,
+      icon: <SvgGame />,
+      title: t('innovation-inspiration'),
     },
     {
-        id: 2,
-        icon: <SvgVoucher />,
-        title: "التميز في العملية التدريبية",
+      id: 2,
+      icon: <SvgVoucher />,
+      title: t('training-excellence'),
     },
     {
-        id: 3,
-        icon: <SvgMusicPlay  />,
-        title: "البيئة الإبداعية",
+      id: 3,
+      icon: <SvgMusicPlay  />,
+      title: t('creative-environment'),
     },
     {
-        id: 4,
-        icon: <SvgClock />,
-        title: "الوعي الإعلامي",
+      id: 4,
+      icon: <SvgClock />,
+      title: t('media-awareness'),
     },
     {
       id: 5,
       icon: <SvgDevices />,
-      title: "التأهيل المتكامل",
-  },
-];
+      title: t('integrated-qualification'),
+    },
+  ];
+};
 
-export const OurValuesComponent: React.FC<OurValuesComponentProps> = ({ 
+export const OurValuesComponent: React.FC<OurValuesComponentProps> = async ({ 
   iconSize = { width: 50, height: 50 },
   className = '',
   itemClassName = '',
   iconClassName = '',
   titleClassName = '',
 }) => {
+  const t = await getTranslations('trans.about');
+  const valueData = await getOurValueData();
+  
   return (
     <>
        <div className="section-box mt-50 mb-60">
             <div className="mb-60">
-              <h2 className='mb-15'>قيمنا</h2>
+              <h2 className='mb-15'>{t('our-values')}</h2>
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 ">
-                  {OurValueData.map((item) => (
+                  {valueData.map((item) => (
                     <div key={item.id} className={`col my-md-0 my-3 ${className}`}>
                       <div className={`item-list d-flex align-items-center py-3 OurValueCard ${itemClassName}`}>
                         <div className={`flex-shrink-0 Icon ${iconClassName}`}>

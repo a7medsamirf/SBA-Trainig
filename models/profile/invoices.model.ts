@@ -1,5 +1,6 @@
 export type InvoiceItem = {
   id: number;
+  course_id: number;
   uuid: string;
   invoice_number: string;
   date: string;

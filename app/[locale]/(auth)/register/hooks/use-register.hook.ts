@@ -9,9 +9,19 @@ import { useAuth } from "../../context/auth.context";
 export const useRegister = () => {
   const { setData, data } = useAuth();
 
-  const { control, handleSubmit, register, watch } = useForm({
+  const {
+    control,
+    handleSubmit,
+    register,
+    watch,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       ...data,
+      nationality_id: data?.nationality?.id || "",
+      gender: data?.gender?.id || "",
+      dial_code: data?.dial_code || "",
+      age_category_id: data?.age_category?.id || "",
     },
   });
 
@@ -24,10 +34,21 @@ export const useRegister = () => {
 
   const [isPending, startTransition] = useTransition();
 
-  const registerSubmit = withCallbacks(registerApi, {
+    // 👈 تعديل onSubmit لعدم حفظ البيانات في الفورم الأول
+    const onSubmit = async (data: any) => {
+      // 👈 فقط حفظ البيانات في context، وليس في قاعدة البيانات
+      setData(data);
+      
+      // �� لا نستدعي registerApi هنا
+      // startTransition(() => {
+      //   registerAsync(data);
+      // });
+    };
+  
+
+/*   const registerSubmit = withCallbacks(registerApi, {
     onSuccess: () => {
-      toast.success("تم التسجيل بنجاح");
-      router.push("/otp");
+      toast.success("تم حفظ البيانات بنجاح");
     },
     onError: (error) => {
       toast.error(error.error.message);
@@ -42,7 +63,7 @@ export const useRegister = () => {
     startTransition(() => {
       registerAsync(data);
     });
-  };
+  }; */
 
   return {
     control,
@@ -57,5 +78,6 @@ export const useRegister = () => {
     agreePrivacy,
     showPasswordConfirmation,
     setshowPasswordConfirmation,
+    errors,
   };
 };

@@ -2,12 +2,14 @@
 import Image from "next/image";
 import { ManagerWordData  } from "@/models";
 import { safeHtmlParser } from "@/utils/safe-html-parser.util"; 
+import { useTranslations } from "next-intl";
+
 interface ManagerWordComponentProps {
   managerword: ManagerWordData;
 }
 
 export const ManagerWordComponent: React.FC<ManagerWordComponentProps> = ({ managerword }) => {
-
+  const t = useTranslations("trans.about");
   return (
     <>
       <div className="CeoMessage" id="ceo-message">
@@ -32,8 +34,8 @@ export const ManagerWordComponent: React.FC<ManagerWordComponentProps> = ({ mana
               }}
              />
         
-            <h5>الرئيس التنفيذي لهيئة الإذاعة والتلفزيون</h5>
-            <h5>محمد بن فهد الحارثي</h5>
+            <h5>{t("ceo-position")}</h5>
+            <h5>{t("ceo-name")}</h5>
           </div>
         </div>
       </div>

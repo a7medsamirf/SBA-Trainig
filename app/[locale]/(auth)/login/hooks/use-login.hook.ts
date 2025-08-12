@@ -3,9 +3,21 @@ import { withCallbacks } from "@/utils";
 import { useActionState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useAuth } from "../../context/auth.context";
+import { useRouter } from "@/i18n/routing";
 
 export const useLogin = (callbackUrl: string = "/") => {
-  const { control, handleSubmit, register } = useForm({
+  const { setData } = useAuth();
+
+  const router = useRouter();
+
+  const {
+    control,
+    handleSubmit,
+    register,
+    formState: { errors },
+    getValues,
+  } = useForm({
     defaultValues: {
       email: "",
       password: "",
@@ -14,18 +26,30 @@ export const useLogin = (callbackUrl: string = "/") => {
 
   const loginSubmit = withCallbacks(login, {
     onSuccess: (res: any) => {
-      if (res?.api_token) {
-        localStorage.setItem("token", res.api_token);
-        /*   console.log("✅ تم حفظ التوكن:", res.api_token); */
-      }
-
+      console.log("🚀 ~ useLogin ~ res:", res);
       toast.success("تم تسجيل الدخول بنجاح");
-      // router.push(callbackUrl); // ✅ التحويل بعد النجاح
-      // window.location.reload();
       window.location.href = callbackUrl;
     },
-    onError: (error) => {
-      toast.error(error.error?.message || "حدث خطأ أثناء تسجيل الدخول");
+    onError: (error: any) => {
+      console.log("🚀 ~ useLogin ~ error:", error);
+      if (error?.error?.verified_case) {
+        toast.error(
+          error?.error?.error?.message || "حدث خطأ أثناء تسجيل الدخول من فضلك قم بتفعيل البريد الالكتروني"
+        );
+
+        const email = getValues("email");
+        const password = getValues("password");
+        setData({
+          email,
+          password,
+          verified_case: error?.error?.verified_case,
+        });
+        router.push("/otp");
+      } else {
+        toast.error(
+          error?.error?.error?.message || "حدث خطأ أثناء تسجيل الدخول"
+        );
+      }
     },
   });
 
@@ -41,5 +65,13 @@ export const useLogin = (callbackUrl: string = "/") => {
     });
   };
 
-  return { control, handleSubmit, register, onSubmit, isPending };
+  return {
+    control,
+    handleSubmit,
+    register,
+    onSubmit,
+    isPending,
+    errors,
+    loginAsync,
+  };
 };

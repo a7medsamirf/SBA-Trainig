@@ -3,6 +3,7 @@ export * from "./Categories/get-categories.api";
 export * from "./Home/get-home.api";
 export * from "./Communication/get-communication.api";
 export * from "./Events/get-events.api";
+export * from "./Calendar/get-calendar-events.api";
 export * from "./AboutAcademy/get-goalsacademy.api";
 export * from "./AboutAcademy/get-managerword.api";
 export * from "./AboutAcademy/get-aboutmeta.api";
@@ -23,12 +24,13 @@ export * from "./Register/get-education-degrees.api";
 
 export * from "./Cart/get-carts-index.api";
 export * from "./Notifications/get-notifications.api";
+
 export * from "./Profile/get-profile.api";
 export * from "./Profile/get-invoices.api";
 export * from "./Profile/get-show-invoices.api";
 export * from "./Profile/getInvoiceDetails";
 export * from "./Profile/get-course-requests-api";
-
+export * from "./Profile/get-certificates-api";
 
 export * from "./favorite/get-favorite.api";
 export * from "./dashboard/get-statistics.api";
@@ -36,5 +38,7 @@ export * from "./dashboard/get-course-enrollments-api";
 export * from "./PrivacyPolicy/get-privacypolicy.api";
 export * from "./Terms/get-terms.api";
 
+export * from "./feedback/get-course-feedback.api";
 
 
+export * from "./auth/get-current-user.api";

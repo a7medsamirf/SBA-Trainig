@@ -44,7 +44,7 @@ const ContactFormComponent = () => {
       <div className="row g-4">
         <div className="col-lg-6 col-md-6">
           <Input<ContactFormType>
-            label="الأسم الاول"
+            label={t("firstName")}
             name="firstName"
             placeholder={t("firstName")}
             register={register}
@@ -53,7 +53,7 @@ const ContactFormComponent = () => {
         </div>
         <div className="col-lg-6 col-md-6">
           <Input<ContactFormType>
-            label="اسم العائلة"
+            label={t("lastName")}
             name="lastName"
             placeholder={t("lastName")}
             register={register}
@@ -62,7 +62,7 @@ const ContactFormComponent = () => {
         </div>
         <div className="col-lg-12">
           <Input<ContactFormType>
-            label="البريد إلكتروني"
+            label={t("email")}
             name="email"
             placeholder={t("email")}
             register={register}
@@ -72,7 +72,7 @@ const ContactFormComponent = () => {
         </div>
         <div className="col-lg-12">
           <Input<ContactFormType>
-            label="رقم التواصل"
+            label={t("phone")}
             name="phone"
             placeholder={t("phone")}
             register={register}
@@ -89,7 +89,7 @@ const ContactFormComponent = () => {
                 style={{ height: "150px" }} 
                 {...register("message")}
               />
-              <label htmlFor="contactFormMessage">رسالة</label>
+              <label htmlFor="contactFormMessage">{t("message")}</label>
             </div>
         {/*   <Form.Group className="mb-3" controlId="contactFormMessage">
             <Form.Label></Form.Label>

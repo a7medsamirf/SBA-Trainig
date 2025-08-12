@@ -24,6 +24,7 @@
     }
 
     input[type="radio"] {
+      display: none;
       appearance: none;
       width: 16px;
       height: 16px;
@@ -34,15 +35,16 @@
       cursor: pointer;
 
       &:checked {
-        border-color: $bg-primary;
-        mask-image: url("/icons/radio-check.svg");
-        mask-size: 16px;
-        mask-repeat: no-repeat;
-        background-color: $alert-green;
+        display: none
+        // border-color: $bg-primary;
+        // mask-image: url("/icons/radio-check.svg");
+        // mask-size: 16px;
+        // mask-repeat: no-repeat;
+        // background-color: $alert-green;
 
-        &.radio-item-empty {
-          border-color: transparent;
-        }
+        // &.radio-item-empty {
+        //   border-color: transparent;
+        // }
       }
 
       &:disabled {

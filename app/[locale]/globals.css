@@ -23,7 +23,7 @@
 /* For older browsers (optional) */
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;    /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* ===== Autofill Fix ===== */
@@ -33,6 +33,20 @@ select:-webkit-autofill {
   transition: background-color 0s 600000s;
   background-color: transparent !important;
   -webkit-text-fill-color: inherit !important;
+}
+
+/* hide number input arrows */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* ===== Preloader Styles ===== */
@@ -87,16 +101,20 @@ select:-webkit-autofill {
 }
 
 @keyframes rotate-preloader {
-  0%, 49.999%, 100% {
+  0%,
+  49.999%,
+  100% {
     transform: none;
   }
-  50%, 99.999% {
+  50%,
+  99.999% {
     transform: rotate(90deg);
   }
 }
 
 @keyframes shift-left {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0%);
   }
   50% {
@@ -105,7 +123,8 @@ select:-webkit-autofill {
 }
 
 @keyframes shift-right {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0%);
   }
   50% {

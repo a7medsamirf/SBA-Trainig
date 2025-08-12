@@ -1,6 +1,9 @@
 "use client";
-
+import SvgCalendar2 from "@/components/icons/svg/calendar-2";
+import Svgexport15 from "@/components/icons/svg/svgexport-15";
+import SvgTimer from "@/components/icons/svg/timer";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   startOfMonth,
   endOfMonth,
@@ -15,73 +18,17 @@ import {
 import "./FullCalendar-component.scss";
 import { dateFormat } from "@/utils";
 import { ArrowBack, ArrowForward, Gps } from "@/components/icons/icons";
-
-type Event = {
-  id: number;
-  date: string;
-  title: string;
-  address: string;
-  time: string;
-  attendees: number;
-};
+import { useCalendarEvents } from "@/hooks";
 
 type ViewType = "daily" | "weekly" | "monthly";
-
-const sampleEvents: Event[] = [
-  {
-    id: 1,
-    date: "2025-01-04",
-    title: "اسم الفعالية سيكون هنا",
-    address: "عنوان المحاضرة سيكون هنا",
-    time: "12:00 - 3:30 م",
-    attendees: 4,
-  },
-  {
-    id: 2,
-    date: "2025-01-01",
-    title: "اسم الفعالية سيكون هنا",
-    address: "عنوان المحاضرة سيكون هنا",
-    time: "10:00 - 1:00 م",
-    attendees: 2,
-  },
-  {
-    id: 3,
-    date: "2025-01-17",
-    title: "اسم الفعالية سيكون هنا",
-    address: "عنوان المحاضرة سيكون هنا",
-    time: "4:00 - 5:30 م",
-    attendees: 5,
-  },
-  {
-    id: 4,
-    date: "2025-07-19",
-    title: "اسم الفعالية سيكون هنا",
-    address: "عنوان المحاضرة سيكون هنا",
-    time: "2:00 - 4:00 م",
-    attendees: 3,
-  },
-  {
-    id: 5,
-    date: "2025-07-19",
-    title: "44اسم الفعالية سيكون هنا",
-    address: "44عنوان المحاضرة سيكون هنا",
-    time: "2:00 - 4:00 م",
-    attendees: 3,
-  },
-  {
-    id: 6,
-    date: "2025-07-20",
-    title: "55اسم الفعالية سيكون هنا",
-    address: "888عنوان المحاضرة سيكون هنا",
-    time: "2:00 - 4:00 م",
-    attendees: 3,
-  },
-];
 
 export default function MonthlyCalendar() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [viewType, setViewType] = useState<ViewType>("monthly");
+  const t = useTranslations("trans.view");
+  // Use the calendar events hook
+  const { events, loading, error } = useCalendarEvents(currentMonth, viewType);
 
   // Helper function to get date display based on view type
   const getDateDisplay = () => {
@@ -135,12 +82,12 @@ export default function MonthlyCalendar() {
   const renderHeader = () => (
     <div className="calendar-header">
       <div className="header-center">
-        <button className="nav-btn" onClick={navigatePrevious}>
-          <ArrowForward height={24} width={24} />
+        <button className="nav-btn ArrowBack" onClick={navigatePrevious}>
+          <ArrowBack height={24} width={24} />
         </button>
         <h2 className="current-date">{getDateDisplay()}</h2>
-        <button className="nav-btn" onClick={navigateNext}>
-          <ArrowBack width={24} height={24} />
+        <button className="nav-btn ArrowForward" onClick={navigateNext}>
+          <ArrowForward width={24} height={24} />
         </button>
       </div>
 
@@ -150,19 +97,19 @@ export default function MonthlyCalendar() {
             className={`view-btn ${viewType === "daily" ? "active" : ""}`}
             onClick={() => setViewType("daily")}
           >
-            يومي
+             {t("daily")}
           </button>
           <button
             className={`view-btn ${viewType === "weekly" ? "active" : ""}`}
             onClick={() => setViewType("weekly")}
           >
-            أسبوعي
+          {t("weekly")}
           </button>
           <button
             className={`view-btn ${viewType === "monthly" ? "active" : ""}`}
             onClick={() => setViewType("monthly")}
           >
-            شهري
+               {t("monthly")}
           </button>
         </div>
       </div>
@@ -185,7 +132,7 @@ export default function MonthlyCalendar() {
   // Daily view renderer
   const renderDailyView = () => {
     const dateStr = dateFormat(currentMonth, "YYYY-MM-DD");
-    const events = sampleEvents.filter((e) => e.date === dateStr);
+    const dailyEvents = events.filter((e: any) => e.date === dateStr);
 
     return (
       <div className="daily-view">
@@ -199,29 +146,67 @@ export default function MonthlyCalendar() {
             onMouseEnter={() => setSelectedDate(currentMonth)}
             onMouseLeave={() => setSelectedDate(null)}
           >
-            {events.length > 0 ? (
+            {loading ? (
+              <div className="loading">جاري التحميل...</div>
+            ) : error ? (
+              <div className="error">حدث خطأ في تحميل الفعاليات</div>
+            ) : dailyEvents.length > 0 ? (
               <div className="events-list">
-                {events.map((event, index) => (
-                  <div key={event.id} className="tooltip-event">
-                    <div className="tooltip-event-content">
-                      <Gps className="tooltip-event-icon" />
-                      <div className="tooltip-event-details">
-                        <div className="tooltip-event-title">{event.title}</div>
-                        <div className="tooltip-event-address">
-                          {event.address}
+                {dailyEvents.map((event: any, index: number) => (
+                 <div key={event.id} className="tooltip-event">
+                 <div className="tooltip-event-content">
+                   <Gps className="tooltip-event-icon" />
+                   <div className="tooltip-event-details">
+                     <div className="tooltip-event-title">
+                       {event.course?.name}
+                     </div>
+                     <div className="tooltip-event-address">
+                       {event.course?.category_name}
+                     </div>
+                     <div className="tooltip-event-attendees">
+                     <div className="gap-2 d-flex align-items-center">
+                       <SvgTimer width={18} height={18} />
+                         <span className="color-gray-900">
+                         {event?.course?.duration}
+                         </span>
+                     </div>
+                     </div>
+                     <div className="tooltip-event-time">
+                     <div className="gap-2 d-flex align-items-center">
+                         <SvgCalendar2
+                           color="#76A441"
+                           width={20}
+                           height={20}
+                         />
+                         <span className="color-gray-900">
+                         {new Date(event.date).toLocaleDateString("ar-EG", {
+                               weekday: "long",
+                               day: "numeric",
+                               month: "long",
+                               year: "numeric",
+                               numberingSystem: "latn" 
+                             })}
+                             
+                         </span>
+                         -
+                         <div className="tooltip-event-time ">
+                            <span className="color-gray-900">{event.time}</span>
                         </div>
-                        <div className="tooltip-event-time">
-                          🕒 {event.time}
-                        </div>
-                        <div className="tooltip-event-attendees">
-                          👥 {event.attendees} مشارك
-                        </div>
-                      </div>
-                    </div>
-                    <button className="register-button">
-                      تسجيل حضوري للمحاضرة
-                    </button>
-                  </div>
+                       </div>
+                       
+                     </div>
+                     <div className="tooltip-event-address">
+                     <div className="gap-2 d-flex align-items-center">
+                     <Svgexport15 width={18} height={18} />
+                     <span className="color-gray-900">
+                       {event.course.instructor_name}
+                     </span>
+                   </div>
+                     </div>
+                 
+                   </div>
+                 </div>
+                 </div>
                 ))}
               </div>
             ) : (
@@ -243,8 +228,7 @@ export default function MonthlyCalendar() {
 
     while (day <= weekEnd) {
       const dateStr = dateFormat(day, "YYYY-MM-DD");
-      const events = sampleEvents.filter((e) => e.date === dateStr);
-      console.log("🚀 ~ renderWeeklyView ~ events:", events)
+      const dayEvents = events.filter((e: any) => e.date === dateStr);
 
       days.push(
         <div key={day.toString()} className="week-day">
@@ -257,61 +241,102 @@ export default function MonthlyCalendar() {
             onMouseEnter={() => setSelectedDate(day)}
             onMouseLeave={() => setSelectedDate(null)}
           >
-            {events.map((event, index) => (
-              <div key={event.id} className="event-item">
-                <div className="event-content">
-                  <div className="event-text">
-                    <div className="event-title">
-                      <span>{event.title}</span>
-                      <span className="event-icon">
-                        <Gps width={13} height={13} />
-                      </span>
+            {loading ? (
+              <div className="loading">جاري التحميل...</div>
+            ) : error ? (
+              <div className="error">خطأ</div>
+            ) : (
+              dayEvents.map((event: any, index: number) => (
+                <div key={event.id} className="event-item">
+                  <div className="event-content">
+                    <div className="event-text">
+                      <div className="event-title">
+                        <span>{event.course?.name}</span>
+                        <span className="event-icon">
+                          <Gps width={13} height={13} />
+                        </span>
+                      </div>
+                      <div className="event-address">
+                        {event.course?.category_name}
+                      </div>
                     </div>
-                    <div className="event-address">{event.address}</div>
                   </div>
-                </div>
-                {selectedDate &&
-                  isSameDay(day, selectedDate) &&
-                  index === 0 && (
-                    <div className="event-tooltip">
-                      <div className="tooltip-header">
-                        <div className="date-title">
-                          {dateFormat(day, "DD MMMM YYYY")}
-                        </div>
-                        <div className="events-count">
-                          {events.length} فعالية
-                        </div>
-                      </div>
-                      <div className="events-list">
-                        {events.map((dayEvent) => (
-                          <div key={dayEvent.id} className="tooltip-event">
-                            <div className="tooltip-event-content">
-                              <Gps className="tooltip-event-icon" />
-                              <div className="tooltip-event-details">
-                                <div className="tooltip-event-title">
-                                  {dayEvent.title}
-                                </div>
-                                <div className="tooltip-event-address">
-                                  {dayEvent.address}
-                                </div>
-                                <div className="tooltip-event-time">
-                                  🕒 {dayEvent.time}
-                                </div>
-                                <div className="tooltip-event-attendees">
-                                  👥 {dayEvent.attendees} مشارك
-                                </div>
-                              </div>
-                            </div>
-                            <button className="register-button">
-                              تسجيل حضوري للمحاضرة
-                            </button>
+                  {selectedDate &&
+                    isSameDay(day, selectedDate) &&
+                    index === 0 && (
+                      <div className="event-tooltip">
+                        <div className="tooltip-header">
+                          <div className="date-title">
+                            {dateFormat(day, "DD MMMM YYYY")}
                           </div>
-                        ))}
+                          <div className="events-count">
+                            {dayEvents.length} فعالية
+                          </div>
+                        </div>
+                        <div className="events-list">
+                          {dayEvents.map((dayEvent: any) => (
+                           <div key={dayEvent.id} className="tooltip-event">
+                           <div className="tooltip-event-content">
+                             <Gps className="tooltip-event-icon" />
+                             <div className="tooltip-event-details">
+                               <div className="tooltip-event-title">
+                                 {dayEvent.course?.name}
+                               </div>
+                               <div className="tooltip-event-address">
+                                 {dayEvent.course?.category_name}
+                               </div>
+                               <div className="tooltip-event-attendees">
+                               <div className="gap-2 d-flex align-items-center">
+                                 <SvgTimer width={18} height={18} />
+                                   <span className="color-gray-900">
+                                   {dayEvent?.course?.duration}
+                                   </span>
+                               </div>
+                               </div>
+                               <div className="tooltip-event-time">
+                               <div className="gap-2 d-flex align-items-center">
+                                   <SvgCalendar2
+                                     color="#76A441"
+                                     width={20}
+                                     height={20}
+                                   />
+                                   <span className="color-gray-900">
+                                   {new Date(dayEvent.date).toLocaleDateString("ar-EG", {
+                                         weekday: "long",
+                                         day: "numeric",
+                                         month: "long",
+                                         year: "numeric",
+                                         numberingSystem: "latn" 
+                                       })}
+                                       
+                                   </span>
+                                   -
+                                   <div className="tooltip-event-time ">
+                                      <span className="color-gray-900">{dayEvent.time}</span>
+                                  </div>
+                                 </div>
+                                 
+                               </div>
+                               <div className="tooltip-event-address">
+                               <div className="gap-2 d-flex align-items-center">
+                               <Svgexport15 width={18} height={18} />
+                               <span className="color-gray-900">
+                                 {dayEvent.course.instructor_name}
+                               </span>
+                             </div>
+                               </div>
+                           
+                             </div>
+                           </div>
+                           </div>
+
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
-              </div>
-            ))}
+                    )}
+                </div>
+              ))
+            )}
           </div>
         </div>
       );
@@ -336,7 +361,7 @@ export default function MonthlyCalendar() {
       for (let i = 0; i < 7; i++) {
         const cloneDay = day;
         const dateStr = dateFormat(day, "YYYY-MM-DD");
-        const events = sampleEvents.filter((e) => e.date === dateStr);
+        const dayEvents = events.filter((e: any) => e.date === dateStr);
         days.push(
           <div
             key={day.toString()}
@@ -346,61 +371,101 @@ export default function MonthlyCalendar() {
             onMouseLeave={() => setSelectedDate(null)}
           >
             <div className="day-number">{dateFormat(day, "D")}</div>
-            {events.map((event, index) => (
-              <div key={event.id} className="event-item">
-                <div className="event-content">
-                  <div className="event-text">
-                    <div className="event-title">
-                      <span>{event.title}</span>
-                      <span className="event-icon">
-                        <Gps width={13} height={13} />
-                      </span>
-                    </div>
-                    <div className="event-address">{event.address}</div>
-                  </div>
-                </div>
-                {selectedDate &&
-                  isSameDay(cloneDay, selectedDate) &&
-                  index === 0 && (
-                    <div className="event-tooltip">
-                      <div className="tooltip-header">
-                        <div className="date-title">
-                          {dateFormat(cloneDay, "DD MMMM YYYY")}
-                        </div>
-                        <div className="events-count">
-                          {events.length} فعالية
-                        </div>
+            {loading ? (
+              <div className="loading-small">...</div>
+            ) : error ? (
+              <div className="error-small">!</div>
+            ) : (
+              dayEvents.map((event: any, index: number) => (
+                <div key={event.id} className="event-item">
+                  <div className="event-content">
+                    <div className="event-text">
+                      <div className="event-title">
+                        <span>{event.course?.name}</span>
+                        <span className="event-icon">
+                          <Gps width={13} height={13} />
+                        </span>
                       </div>
-                      <div className="events-list">
-                        {events.map((dayEvent) => (
-                          <div key={dayEvent.id} className="tooltip-event">
-                            <div className="tooltip-event-content">
-                              <Gps className="tooltip-event-icon" />
-                              <div className="tooltip-event-details">
-                                <div className="tooltip-event-title">
-                                  {dayEvent.title}
+                      <div className="event-address">
+                        {event.course?.category_name}
+                      </div>
+                    </div>
+                  </div>
+                  {selectedDate &&
+                    isSameDay(cloneDay, selectedDate) &&
+                    index === 0 && (
+                      <div className="event-tooltip">
+                        <div className="tooltip-header">
+                          <div className="date-title">
+                            {dateFormat(cloneDay, "DD MMMM YYYY")}
+                          </div>
+                          <div className="events-count">
+                            {dayEvents.length} فعالية
+                          </div>
+                        </div>
+                        <div className="events-list">
+                          {dayEvents.map((dayEvent: any) => (
+                            <div key={dayEvent.id} className="tooltip-event">
+                              <div className="tooltip-event-content">
+                                <Gps className="tooltip-event-icon" />
+                                <div className="tooltip-event-details">
+                                  <div className="tooltip-event-title">
+                                    {dayEvent.course?.name}
+                                  </div>
+                                  <div className="tooltip-event-address">
+                                    {dayEvent.course?.category_name}
+                                  </div>
+                                  <div className="tooltip-event-attendees">
+                                  <div className="gap-2 d-flex align-items-center">
+                                    <SvgTimer width={18} height={18} />
+                                      <span className="color-gray-900">
+                                      {dayEvent?.course?.duration}
+                                      </span>
+                                  </div>
+                                  </div>
+                                  <div className="tooltip-event-time">
+                                  <div className="gap-2 d-flex align-items-center">
+                                      <SvgCalendar2
+                                        color="#76A441"
+                                        width={20}
+                                        height={20}
+                                      />
+                                      <span className="color-gray-900">
+                                      {new Date(dayEvent.date).toLocaleDateString("ar-EG", {
+                                            weekday: "long",
+                                            day: "numeric",
+                                            month: "long",
+                                            year: "numeric",
+                                            numberingSystem: "latn" 
+                                          })}
+                                          
+                                      </span>
+                                      -
+                                      <div className="tooltip-event-time ">
+                                         <span className="color-gray-900">{dayEvent.time}</span>
+                                     </div>
+                                    </div>
+                                    
+                                  </div>
+                                  <div className="tooltip-event-address">
+                                  <div className="gap-2 d-flex align-items-center">
+                                  <Svgexport15 width={18} height={18} />
+                                  <span className="color-gray-900">
+                                    {dayEvent.course.instructor_name}
+                                  </span>
                                 </div>
-                                <div className="tooltip-event-address">
-                                  {dayEvent.address}
-                                </div>
-                                <div className="tooltip-event-time">
-                                  🕒 {dayEvent.time}
-                                </div>
-                                <div className="tooltip-event-attendees">
-                                  👥 {dayEvent.attendees} مشارك
+                                  </div>
+
                                 </div>
                               </div>
                             </div>
-                            <button className="register-button">
-                              تسجيل حضوري للمحاضرة
-                            </button>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
-              </div>
-            ))}
+                    )}
+                </div>
+              ))
+            )}
           </div>
         );
         day = addDays(day, 1);

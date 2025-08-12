@@ -3,21 +3,20 @@ import CourseEnrollmentsClientPage from "./components/CourseEnrollmentsClientPag
 import { getCourseEnrollments } from "@/shared-apis";
 
 const CourseEnrollmentsPage = async ({ searchParams }: SearchParamProps) => {
-  const search =
-    typeof searchParams === "object" && searchParams !== null && "search" in searchParams
-      ? (searchParams.search as string) || ""
-      : "";
+  const search = ((await searchParams) as any).search || "";
 
-      const [upcomingRes, completedRes] = await Promise.all([
-        getCourseEnrollments({ status: 2, keyword: search }),
-        getCourseEnrollments({ status: 3, keyword: search }),
-      ]);
+  const [upcomingRes, ongoingRes, completedRes] = await Promise.all([
+    getCourseEnrollments({ status: "upcoming", keyword: search }),
+    getCourseEnrollments({ status: "ongoing", keyword: search }),
+    getCourseEnrollments({ status: "completed", keyword: search }),
+  ]);
 
-      const upcoming = Array.isArray(upcomingRes?.data) ? upcomingRes.data : [];
-      const completed = Array.isArray(completedRes?.data) ? completedRes.data : [];
+  const upcoming = Array.isArray(upcomingRes?.data) ? upcomingRes.data : [];
+  const ongoing = Array.isArray(ongoingRes?.data) ? ongoingRes.data : [];
+  const completed = Array.isArray(completedRes?.data) ? completedRes.data : [];
 
   return (
-    <CourseEnrollmentsClientPage upcoming={upcoming} completed={completed} />
+    <CourseEnrollmentsClientPage upcoming={upcoming}  ongoing={ongoing}  completed={completed} />
   );
 };
 

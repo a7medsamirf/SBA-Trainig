@@ -33,8 +33,8 @@ export default async function LocalePage() {
       <BannersSection />
       <ProductSection courses={courses} initiativesData={initiativesData} />
       <NewsSection eventsData={new_events} />
-      <PartnersSection partners={partners} />
       <NewsletterSection />
+      <PartnersSection partners={partners} />
     </div>
   );
 }

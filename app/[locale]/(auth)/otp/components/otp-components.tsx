@@ -5,12 +5,13 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { useOtp } from "../hooks/use-otp.hook";
-
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { InputOtp } from "@/components";
 import { useResendOtp } from "@/hooks/common/resend-otp.hook";
 
 export const OtpComponents = () => {
+  const t = useTranslations("trans.otp");
   const {
     control,
     handleSubmit,
@@ -55,7 +56,7 @@ export const OtpComponents = () => {
   return (
     <div className="otp-bg min-vh-100">
       <div className="p-5 text-center border-0 otp-card card">
-        <h5 className="mb-4 fw-bold">تأكيد رقم الجوال</h5>
+      <h5 className="mb-4 fw-bold">{t("phone-confirmation")}</h5>
         <div className="mb-2 d-flex justify-content-center align-items-center">
           <Image
             src={`/images/pass.svg`}
@@ -67,18 +68,17 @@ export const OtpComponents = () => {
             className="mb-4"
           />
         </div>
-        <p className="mb-4 text-muted small">
-          أدخل رمز التأكيد OTP المكون من 4 ارقام الذى تم أرساله إلى البريد
-          الإلكتروني <strong className="fw-bold"> {userData?.email}</strong>
+        <p className="mb-4 text-muted small leading-[160%]">
+          {t("enter-otp-code")} <strong className="fw-bold"> {userData?.email}</strong>
         </p>
-        <div className="mb-4">
+    {/*     <div className="mb-4">
           <Link
-            href=""
+            href="/register"
             className="text-success fw-bold small text-decoration-underline"
           >
-            تغيير رقم الجوال
+            تغيير البريد الاكتروني
           </Link>
-        </div>
+        </div> */}
 
         <form
           className="gap-2 mb-2 d-flex justify-content-center"
@@ -96,10 +96,10 @@ export const OtpComponents = () => {
           />
         </form>
 
-        <div className="mb-3 text-center text-gray small">
+        <div className="my-3 text-center text-gray small">
           {timer > 0 && !isPendingResendOtp ? (
             <>
-              يمكنك إعادة إرسال الكود خلال{" "}
+              {t("resend-code-in")}
               <span className="text-success">{formatTime(timer)}</span>
             </>
           ) : (
@@ -117,7 +117,7 @@ export const OtpComponents = () => {
                 />
               )}
 
-              {isPending ? "جارٍ الإرسال..." : "إعادة إرسال"}
+              {isPending ? t("sending") : t("resend")}
             </button>
           )}
         </div>
@@ -129,7 +129,7 @@ export const OtpComponents = () => {
           disabled={isPending}
           onClick={handleSubmit(onSubmit)}
         >
-          {isPending ? "جارٍ التحقق..." : "تأكيد"}
+       {isPending ? t("verifying") : t("confirm")}
         </button>
       </div>
     </div>

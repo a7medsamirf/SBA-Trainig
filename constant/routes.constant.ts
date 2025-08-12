@@ -3,6 +3,8 @@ export const authRequiredRoutes = [
   "/dashboard",
   "/profile",
   "/favourite",
+  "/course-request",
+  "/certificates",
   "/invoices",
   "/courses",
   "/qualifications",
@@ -20,4 +22,6 @@ export const hybridRoutes = [
   "/contact",
   "/events",
   "/initiatives",
+  "/terms",
+  "/Privacy",
 ].flatMap((route) => [`/ar${route}`, `/en${route}`]);

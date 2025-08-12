@@ -38,7 +38,7 @@ export const RadioInput = ({
       className={cn("radio-item", disabled && "cursor-not-allowed", className)}
       htmlFor={newId}
     >
-      <IconButton
+      {/* <IconButton
         color="alert-green"
         disableRipple={disabled}
         disabled={disabled}
@@ -51,8 +51,8 @@ export const RadioInput = ({
           input.click();
         }}
         tabIndex={-1}
-        className={checked ? "!flex" : showRadioEmpty ? "" : "!hidden"}
-      >
+        className={checked ? "!flex" : showRadioEmpty ? "":"!hidden"}
+      > */}
         <input
           type="radio"
           id={newId}
@@ -62,7 +62,7 @@ export const RadioInput = ({
           disabled={disabled}
           className={cn(showEmpty && "radio-item-empty")}
         />
-      </IconButton>
+      {/* </IconButton> */}
       <span className="radio-item-label">{label}</span>
     </label>
   );

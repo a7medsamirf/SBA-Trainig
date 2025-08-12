@@ -18,27 +18,27 @@
       align-items: center;
       justify-content: center;
       padding: 8px 20px;
-      border-radius: $radius-sm;
-      background-color: $color-gray-100;
+      border-radius: $radius-md;
+      background-color: white;
       transition: all 0.3s ease-in-out;
-      border: 1px solid transparent;
+      border: 1px solid #DDE4F0;
 
       &--error {
         border-color: $color-red;
       }
 
       &-checked {
-        border-color: $bg-secondary;
-        background-color: rgba($bg-secondary, 0.2);
+        border-color: #6B93D0;
+        background-color: #DDE4F0;
         font-weight: $font-bold;
       }
     }
   }
   &__label {
-    font-size: rem(16);
-    color: $color-primary;
-    font-weight: $font-bold;
-    line-height: 29.98px;
+    font-size: rem(18);
+    color: #425A8B;
+    font-weight: $font-medium;
+    line-height: 160%;
     white-space: pre-line;
   }
 }

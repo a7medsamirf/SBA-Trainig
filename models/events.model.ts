@@ -4,4 +4,9 @@ export interface EventData {
       description: string;
       image: string;
       type: string;
+      date: string;
   }
+
+
+
+  
